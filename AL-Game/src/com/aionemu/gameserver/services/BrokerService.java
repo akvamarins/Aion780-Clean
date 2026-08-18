@@ -287,87 +287,77 @@ public class BrokerService {
 	 * @param itemUniqueId
 	 */
 	public void buyBrokerItem(Player player, int itemUniqueId, long itemCount) {
-		Race playerRace = player.getRace();
+    Race playerRace = player.getRace();
+    BrokerItem buyingItem = getRaceBrokerItems(playerRace).get(itemUniqueId);
+    if (!RestrictionsManager.canTrade(player)) {
+        return;
+    }
+    if (buyingItem == null) {
+        return;
+    }
+    long price = buyingItem.getPrice();
+    float unitPrice = (float) price / buyingItem.getItemCount();
+    long allPrice = ((long) unitPrice * itemCount);
+    // УДАЛИЛИ проверку отсюда - перенесли внутрь!
 
-		BrokerItem buyingItem = getRaceBrokerItems(playerRace).get(itemUniqueId);
-
-		if (!RestrictionsManager.canTrade(player)) {
-			return;
-		}
-
-		if (buyingItem == null) {
-			return;
-		}
-
-		long price = buyingItem.getPrice();
-		float unitPrice = (float) price / buyingItem.getItemCount();
-		long allPrice = ((long) unitPrice * itemCount);
-
-		if (itemCount > buyingItem.getItemCount()) {
-			return;
-		}
-
-		if ((buyingItem.isSold() || buyingItem.isSettled()) && (buyingItem.getItem() != null)) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_VENDOR_SOLD_OUT(buyingItem.getItem().getNameId()));
-			return;
-		}
-
-		if (SecurityConfig.BROKER_PREBUY_CHECK) { // wtf?
-			if (!(DAOManager.getDAO(BrokerDAO.class).preBuyCheck(itemUniqueId))) {
-				PacketSendUtility.sendMessage(player, "Sorry, but this item already sold");
-				return;
-			}
-		}
-
-		if (buyingItem.getSellerId() == player.getObjectId()) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_VENDOR_CAN_NOT_BUY_MY_REGISTER_ITEM);
-			return;
-		}
-		synchronized (this) {
-			if (buyingItem.isSold() || buyingItem.isCanceled()) {
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_VENDOR_SOLD_OUT(buyingItem.getItem().getNameId()));
-				return;
-			}
-
-			Item item = buyingItem.getItem();
-			if (player.getInventory().isFull(item.getItemTemplate().getExtraInventoryId())) {
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_FULL_INVENTORY);
-				return;
-			}
-			if (player.getInventory().getKinah() < allPrice) {
-				return;
-			}
-
-			int type = 0;
-			Item partSaleItem = null;
-			if (itemCount == buyingItem.getItemCount()) {
-				type = 1;
-				getRaceBrokerItems(playerRace).remove(itemUniqueId);
-				putToSettled(playerRace, buyingItem, true);
-			}
-			else {
-				item.setItemCount(buyingItem.getItemCount() - itemCount);
-				buyingItem.setItemCount(buyingItem.getItemCount() - itemCount);
-				buyingItem.setPrice(price - allPrice);
-				type = 0;
-				buyingItem.setPersistentState(PersistentState.UPDATE_ITEM_BROKER);
-				saveManager.add(new BrokerOpSaveTask(buyingItem, item, null, buyingItem.getSellerId()));
-				partSaleItem = buyPart(playerRace, buyingItem, allPrice, itemCount);
-			}
-
-			player.getInventory().decreaseKinah(allPrice);
-			Item boughtItem = player.getInventory().add(type != 0 ? item : partSaleItem);
-
-			if (LoggingConfig.LOG_BROKER_EXCHANGE) {
-				log.info("[BROKER EXCHANGE] > [Player: " + player.getName() + "] bought [Item: " + buyingItem.getItemId() + "] " + "[Count: " + (type != 0 ? buyingItem.getItemCount() : partSaleItem.getItemCount()) + (LoggingConfig.ENABLE_ADVANCED_LOGGING ? "] [Item Name: " + item.getItemName() : "]") + " from [Player: " + buyingItem.getSeller() + "] for [Price: " + allPrice + "]");
-			}
-
-			// create save task
-			BrokerOpSaveTask bost = new BrokerOpSaveTask(buyingItem, boughtItem, player.getInventory().getKinahItem(), player.getObjectId());
-			saveManager.add(bost);
-		}
-		showRequestedItems(player, getPlayerCache(player).getBrokerMaskCache(), getPlayerCache(player).getBrokerSortTypeCache(), getPlayerCache(player).getBrokerStartPageCache(), getPlayerCache(player).getSearchItemList());
-	}
+    if ((buyingItem.isSold() || buyingItem.isSettled()) && (buyingItem.getItem() != null)) {
+        PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_VENDOR_SOLD_OUT(buyingItem.getItem().getNameId()));
+        return;
+    }
+    if (SecurityConfig.BROKER_PREBUY_CHECK) {
+        if (!(DAOManager.getDAO(BrokerDAO.class).preBuyCheck(itemUniqueId))) {
+            PacketSendUtility.sendMessage(player, "Sorry, but this item already sold");
+            return;
+        }
+    }
+    if (buyingItem.getSellerId() == player.getObjectId()) {
+        PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_VENDOR_CAN_NOT_BUY_MY_REGISTER_ITEM);
+        return;
+    }
+    synchronized (this) {
+        if (buyingItem.isSold() || buyingItem.isCanceled()) {
+            PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_VENDOR_SOLD_OUT(buyingItem.getItem().getNameId()));
+            return;
+        }
+        // === FIX DUP PART SALE ===
+        if (itemCount > buyingItem.getItemCount()) {
+            return;
+        }
+        Item item = buyingItem.getItem();
+        if (player.getInventory().isFull(item.getItemTemplate().getExtraInventoryId())) {
+            PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_FULL_INVENTORY);
+            return;
+        }
+        if (player.getInventory().getKinah() < allPrice) {
+            return;
+        }
+        int type = 0;
+        Item partSaleItem = null;
+        if (itemCount == buyingItem.getItemCount()) {
+            type = 1;
+            getRaceBrokerItems(playerRace).remove(itemUniqueId);
+            putToSettled(playerRace, buyingItem, true);
+        } else {
+            item.setItemCount(buyingItem.getItemCount() - itemCount);
+            buyingItem.setItemCount(buyingItem.getItemCount() - itemCount);
+            buyingItem.setPrice(price - allPrice);
+            type = 0;
+            buyingItem.setPersistentState(PersistentState.UPDATE_ITEM_BROKER);
+            saveManager.add(new BrokerOpSaveTask(buyingItem, item, null, buyingItem.getSellerId()));
+            partSaleItem = buyPart(playerRace, buyingItem, allPrice, itemCount);
+        }
+        player.getInventory().decreaseKinah(allPrice);
+        Item boughtItem = player.getInventory().add(type != 0 ? item : partSaleItem);
+        if (LoggingConfig.LOG_BROKER_EXCHANGE) {
+            log.info("[BROKER EXCHANGE] > [Player: " + player.getName() + "] bought [Item: " + buyingItem.getItemId() + "] " + "[Count: " + (type != 0 ? buyingItem.getItemCount() : partSaleItem.getItemCount()) + (LoggingConfig.ENABLE_ADVANCED_LOGGING ? "] [Item Name: " + item.getItemName() : "]") + " from [Player: " + buyingItem.getSeller() + "] for [Price: " + allPrice + "]");
+        }
+        BrokerOpSaveTask bost = new BrokerOpSaveTask(buyingItem, boughtItem, player.getInventory().getKinahItem(), player.getObjectId());
+        saveManager.add(bost);
+    }
+    showRequestedItems(player, getPlayerCache(player).getBrokerMaskCache(), getPlayerCache(player).getBrokerSortTypeCache(), getPlayerCache(player).getBrokerStartPageCache(), getPlayerCache(player).getSearchItemList());
+}
+		
+		
 
 	private Item buyPart(Race playerRace, BrokerItem buyingItem, long price, long itemCount) {
 		Item item = buyingItem.getItem();
@@ -747,77 +737,71 @@ public class BrokerService {
 	 * @param player
 	 */
 	public void settleAccount(Player player) {
-		Race playerRace = player.getRace();
-		Map<Integer, BrokerItem> brokerSettledItems = getRaceBrokerSettledItems(playerRace);
-		List<BrokerItem> collectedItems = new ArrayList<BrokerItem>();
-		int playerId = player.getObjectId();
-		long kinahCollect = 0;
-		boolean itemsLeft = false;
-
-		for (BrokerItem item : brokerSettledItems.values()) {
-			if (item.getSellerId() == playerId) {
-				collectedItems.add(item);
-			}
-		}
-
-		for (BrokerItem item : collectedItems) {
-			if (item.isSold()) {
-				boolean result = false;
-				switch (playerRace) {
-					case ASMODIANS:
-						result = asmodianSettledItems.remove(item.getItemUniqueId()) != null;
-						break;
-					case ELYOS:
-						result = elyosSettledItems.remove(item.getItemUniqueId()) != null;
-						break;
-					default:
-						break;
-				}
-
-				if (result) {
-					item.setPersistentState(PersistentState.DELETED);
-					saveManager.add(new BrokerOpSaveTask(item));
-					kinahCollect += item.getPrice();
-				}
-			}
-			else {
-				if (item.getItem() != null) {
-					Item resultItem = player.getInventory().add(item.getItem());
-					if (resultItem != null) {
-						boolean result = false;
-						switch (playerRace) {
-							case ASMODIANS:
-								result = asmodianSettledItems.remove(item.getItemUniqueId()) != null;
-								break;
-							case ELYOS:
-								result = elyosSettledItems.remove(item.getItemUniqueId()) != null;
-								break;
-							default:
-								break;
-						}
-						if (result) {
-							item.setPersistentState(PersistentState.DELETED);
-							saveManager.add(new BrokerOpSaveTask(item));
-						}
-					}
-					else {
-						itemsLeft = true;
-					}
-				}
-				else {
-					log.warn("Broker settled item missed. ObjID: " + item.getItemUniqueId());
-				}
-			}
-		}
-
-		player.getInventory().increaseKinah(kinahCollect);
-
-		showSettledItems(player);
-
-		if (!itemsLeft) {
-			PacketSendUtility.sendPacket(player, new SM_BROKER_SERVICE(false, 0));
-		}
-	}
+    synchronized (this) {
+        Race playerRace = player.getRace();
+        Map<Integer, BrokerItem> brokerSettledItems = getRaceBrokerSettledItems(playerRace);
+        List<BrokerItem> collectedItems = new ArrayList<BrokerItem>();
+        int playerId = player.getObjectId();
+        long kinahCollect = 0;
+        boolean itemsLeft = false;
+        for (BrokerItem item : brokerSettledItems.values()) {
+            if (item.getSellerId() == playerId) {
+                collectedItems.add(item);
+            }
+        }
+        for (BrokerItem item : collectedItems) {
+            if (item.isSold()) {
+                boolean result = false;
+                switch (playerRace) {
+                    case ASMODIANS:
+                        result = asmodianSettledItems.remove(item.getItemUniqueId()) != null;
+                        break;
+                    case ELYOS:
+                        result = elyosSettledItems.remove(item.getItemUniqueId()) != null;
+                        break;
+                    default:
+                        break;
+                }
+                if (result) {
+                    item.setPersistentState(PersistentState.DELETED);
+                    saveManager.add(new BrokerOpSaveTask(item));
+                    kinahCollect += item.getPrice();
+                }
+            } else {
+                if (item.getItem() != null) {
+                    Item resultItem = player.getInventory().add(item.getItem());
+                    if (resultItem != null) {
+                        boolean result = false;
+                        switch (playerRace) {
+                            case ASMODIANS:
+                                result = asmodianSettledItems.remove(item.getItemUniqueId()) != null;
+                                break;
+                            case ELYOS:
+                                result = elyosSettledItems.remove(item.getItemUniqueId()) != null;
+                                break;
+                            default:
+                                break;
+                        }
+                        if (result) {
+                            item.setPersistentState(PersistentState.DELETED);
+                            saveManager.add(new BrokerOpSaveTask(item));
+                        }
+                    } else {
+                        itemsLeft = true;
+                    }
+                } else {
+                    log.warn("Broker settled item missed. ObjID: " + item.getItemUniqueId());
+                }
+            }
+        }
+        player.getInventory().increaseKinah(kinahCollect);
+        showSettledItems(player);
+        if (!itemsLeft) {
+            PacketSendUtility.sendPacket(player, new SM_BROKER_SERVICE(false, 0));
+        }
+    }
+}
+		
 
 	private void checkExpiredItems() {
 		Map<Integer, BrokerItem> asmoBrokerItems = getRaceBrokerItems(Race.ASMODIANS);
