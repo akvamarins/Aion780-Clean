@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <roads xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="roads.xsd">
+    <!-- Твои старые 8 -->
     <road radius="30.0" map="210030000" name="VERTERON_TO_ELTNEN">
         <center z="154.24548" y="1823.3043" x="2697.981"/>
         <p1 z="165.73418" y="1823.9231" x="2697.1008"/>
@@ -48,4 +49,23 @@
         <p2 z="396.13452" y="120.83298" x="963.3723"/>
         <roadexit mapid="220020000" x="2033.6172" y="2985.096" z="248.41092"/>
     </road>
-</roads>
+
+    <    <!-- FIX для Poeta - добавил с roadexit -->
+    <road radius="80.0" map="110010000" name="POETA_ROAD_1">
+        <center z="193.0" y="1640.0" x="1340.0"/>
+        <p1 z="193.0" y="1650.0" x="1340.0"/>
+        <p2 z="193.0" y="1630.0" x="1330.0"/>
+        <roadexit mapid="110010000" x="1340.0" y="1640.0" z="193.0"/>
+    </road>
+    <road radius="80.0" map="110010000" name="POETA_ROAD_2">
+        <center z="210.0" y="1100.0" x="1500.0"/>
+        <p1 z="210.0" y="1110.0" x="1500.0"/>
+        <p2 z="210.0" y="1090.0" x="1490.0"/>
+        <roadexit mapid="110010000" x="1500.0" y="1100.0" z="210.0"/>
+    </road>
+    <road radius="80.0" map="110010000" name="POETA_ROAD_3">
+        <center z="190.0" y="2000.0" x="1200.0"/>
+        <p1 z="190.0" y="2010.0" x="1200.0"/>
+        <p2 z="190.0" y="1990.0" x="1190.0"/>
+        <roadexit mapid="110010000" x="1200.0" y="2000.0" z="190.0"/>
+    </road>
