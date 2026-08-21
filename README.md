@@ -132,5 +132,98 @@ Portal fixes from `Teleports.txt`. All coordinates moved to `portal\_loc.xml` + 
 * \[ ] Prometun Grappling Hook `3024301` - already exists
 
 Fix date: 2026
+# Aion 7.8 Lightning - Classic Poeta Fixes
+
+This server had 3 common issues on a fresh install. Fixed on 2026-05-13.
+
+## 1. Insane Physical Attack (1284 at level 7)
+
+**Symptom:**
+- Level 5 naked: 30 attack (correct)
+- Level 7 with starter gear: 1284-1396 attack, 1277 damage to Smallhorn Kerub
+- After fix: 54 attack, 42-45 auto-attack, 169 with Ferocious Strike to Tursin Big Boss (retail-like)
+
+**Root cause:**
+`AL-Game/data/static_data/items/item_etc_templates.xml`
+
+Item `187055001` - `[10th Anniversary] Superior Wings of War` level 10 had:
+```xml
+<add name="PHYSICAL_ATTACK" value="1200"/>
+<add name="PHYSICAL_ATTACK" value="264" bonus="true"/>
+```
+Total 1464 attack at level 10. If this wing is given in starter kit, you get 1284 attack at level 7.
+
+Also affected:
+- `120003270`, `121003270`, `122003271`, `123003266` - Ultimate Ambush War accessories level 10 with 206 attack
+- `100050226`, `100250223`, `100950221`, `101350221`, `101550223`, `101750220` - Legionary's Simple weapons level 15 with 368 attack
+
+**Fix:**
+In `item_etc_templates.xml` replace high PHYSICAL_ATTACK for low level (<=15) items to 20.
+Fixed file provided: `item_etc_templates_FIXED.xml`
+
+After replace, delete:
+```
+AL-Game/cache/
+```
+
+## 2. Huge XP - 3772 XP from Kerub level 3
+
+**Symptom:**
+`You have gained 3,772 XP from Bigfoot Kerubar` at level 7. Normal is ~300.
+
+**Root cause:**
+`AL-Game/configs/main/rates.properties`
+
+```properties
+gameserver.rate.regular.xp = 1
+gameserver.rate.premium.xp = 2
+gameserver.rate.holiday.enable = true
+gameserver.rate.holiday.days = 1,7
+gameserver.rate.holiday.regular = 1
+gameserver.rate.holiday.premium = 2
+```
+
+Comment: `The value added, not multiplied`
+
+On Saturday/Sunday (day 7 and 1) you get:
+- Regular: 1 + 1 = x2
+- Premium: 2 + 2 = x4
+
+Test account was Premium, so 900 * 4 = ~3600 XP.
+
+**Fix:**
+```properties
+gameserver.rate.holiday.enable = false
+gameserver.rate.premium.xp = 1
+```
+
+## 3. Aggro "not working"
+
+**Symptom:**
+Mobs only attack after you hit them, they don't see you.
+
+**Explanation:**
+This is retail behavior for Poeta.
+
+- `Smallhorn Kerub`, `Bigfoot Kerubar`, `Brownbristle Brax` - are **passive**. They never aggro by sight.
+- `Tursin Big Boss`, `Mau`, `Sparkie` - are **aggressive** with `Pre-emptive Attack` label. They aggro by sight.
+
+Test aggro on Tursin, not on Kerub.
+
+If aggressive mobs still don't aggro, check:
+
+```properties
+# geo.properties
+gameserver.geo.enable = true
+gameserver.geo.npc.can.see = true
+
+# ai.properties
+gameserver.ai2.enable = true
+gameserver.ai2.npc.aggro = true
+```
+
+And ensure GeoData for map `110010000` is loaded: log should show `Loaded geo for map 110010000`
+
+
 
 
