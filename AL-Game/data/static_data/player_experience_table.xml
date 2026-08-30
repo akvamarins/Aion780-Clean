@@ -82,4 +82,8 @@
     <exp level="79" exp="5062932130" cp="0" cp_lvlup="0" feverpoint_boost="0" feverpoint_max="0"></exp>
     <exp level="80" exp="5402990050" cp="0" cp_lvlup="0" feverpoint_boost="0" feverpoint_max="0"></exp>
     <exp level="81" exp="5762523081" cp="0" cp_lvlup="0" feverpoint_boost="0" feverpoint_max="0"></exp>
+    <exp level="82" exp="6142650493" cp="0" cp_lvlup="0" feverpoint_boost="0" feverpoint_max="0"></exp>
+    <exp level="83" exp="6544565182" cp="0" cp_lvlup="0" feverpoint_boost="0" feverpoint_max="0"></exp>
+    <exp level="84" exp="6969389412" cp="0" cp_lvlup="0" feverpoint_boost="0" feverpoint_max="0"></exp>
+    <exp level="85" exp="7418432439" cp="0" cp_lvlup="0" feverpoint_boost="0" feverpoint_max="0"></exp>
 </player_experience_table>
