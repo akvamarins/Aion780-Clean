@@ -17,7 +17,7 @@
             <selectable_reward_item item_id="114300816" count="1" />
             <selectable_reward_item item_id="114500778" count="1" />
         </rewards>
-        <quest_drop npc_id="651894" item_id="182200001" drop_each_member="1" collecting_step="7" />
+        <quest_drop npc_id="651894" item_id="182200001" drop_each_member="0" collecting_step="1" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1002" name="Request of the Elim" category_name="Poeta" nameId="1102002" minlevel_permitted="5" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
@@ -32,13 +32,13 @@
             <selectable_reward_item item_id="101800514" count="1" />
             <selectable_reward_item item_id="102000535" count="1" />
         </rewards>
-        <quest_drop npc_id="651900" item_id="182200003" drop_each_member="1" collecting_step="6" />
-        <quest_drop npc_id="651901" item_id="182200003" drop_each_member="1" collecting_step="6" />
-        <quest_drop npc_id="651902" item_id="182200003" drop_each_member="1" collecting_step="6" />
-        <quest_drop npc_id="651903" item_id="182200003" drop_each_member="1" collecting_step="6" />
-        <quest_drop npc_id="651904" item_id="182200003" drop_each_member="1" collecting_step="6" />
-        <quest_drop npc_id="651910" item_id="182200003" drop_each_member="1" collecting_step="6" />
-        <quest_drop npc_id="651911" item_id="182200003" drop_each_member="1" collecting_step="6" />
+        <quest_drop npc_id="651900" item_id="182200003" drop_each_member="0" collecting_step="1" chance="100" />
+        <quest_drop npc_id="651901" item_id="182200003" drop_each_member="0" collecting_step="1" chance="100" />
+        <quest_drop npc_id="651902" item_id="182200003" drop_each_member="0" collecting_step="1" chance="100" />
+        <quest_drop npc_id="651903" item_id="182200003" drop_each_member="0" collecting_step="1" chance="100" />
+        <quest_drop npc_id="651904" item_id="182200003" drop_each_member="0" collecting_step="1" chance="100" />
+        <quest_drop npc_id="651910" item_id="182200003" drop_each_member="0" collecting_step="1" chance="100" />
+        <quest_drop npc_id="651911" item_id="182200003" drop_each_member="0" collecting_step="1" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1003" name="Illegal Logging" category_name="Poeta" nameId="1102003" minlevel_permitted="7" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
@@ -58,7 +58,7 @@
             <selectable_reward_item item_id="113300799" count="1" />
             <selectable_reward_item item_id="113500770" count="1" />
         </rewards>
-        <quest_drop npc_id="651869" item_id="182200004" drop_each_member="1" collecting_step="3" />
+        <quest_drop npc_id="651869" item_id="182200004" drop_each_member="0" collecting_step="3" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1005" name="Barring the Gate" category_name="Poeta" nameId="1102005" minlevel_permitted="9" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
@@ -69,14 +69,11 @@
         </rewards>
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
-    <quest id="1006" name="Last Test" category_name="Poeta" nameId="1803993" minlevel_permitted="5" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
+    <quest id="1006" name="Last Test" category_name="Poeta" nameId="1803993" minlevel_permitted="9" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
         <rewards gold="1582" exp="9113">
             <reward_item item_id="188073210" count="1" />
         </rewards>
-        <start_conditions>
-            <finished quest_id="60009" />
-        </start_conditions>
-        <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
+        <start_conditions><finished quest_id="1005" /></start_conditions><class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1007" name="A Ceremony in Sanctum" category_name="Ascension Quests" nameId="1102007" minlevel_permitted="10" max_repeat_count="1" use_class_reward="1" race_permitted="ELYOS" category="MISSION">
         <rewards exp="1">
@@ -991,7 +988,7 @@
             <collect_item item_id="182200201" count="3" />
         </collect_items>
         <rewards gold="290" exp="590" />
-        <quest_drop npc_id="700105" item_id="182200201" />
+        <quest_drop npc_id="700105" item_id="182200201" chance="100" />
         <start_conditions>
             <finished quest_id="1102" />
         </start_conditions>
@@ -1009,7 +1006,7 @@
             <collect_item item_id="182200202" count="3" />
         </collect_items>
         <rewards gold="450" exp="535" />
-        <quest_drop npc_id="651846" item_id="182200202" />
+        <quest_drop npc_id="651846" item_id="182200202" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1106" name="Helping Kales" category_name="Poeta" nameId="1102206" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="QUEST">
@@ -1034,8 +1031,8 @@
             <collect_item item_id="182200204" count="3" />
         </collect_items>
         <rewards gold="1240" exp="671" />
-        <quest_drop npc_id="651891" item_id="182200204" />
-        <quest_drop npc_id="651873" item_id="182200204" />
+        <quest_drop npc_id="651891" item_id="182200204" chance="100" />
+        <quest_drop npc_id="651873" item_id="182200204" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1109" name="Abandoned Goods" category_name="Poeta" nameId="1102209" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="QUEST">
@@ -1043,7 +1040,7 @@
             <collect_item item_id="182200205" count="3" />
         </collect_items>
         <rewards gold="770" exp="825" />
-        <quest_drop npc_id="700106" item_id="182200205" />
+        <quest_drop npc_id="700106" item_id="182200205" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1110" name="A Book for Namus" category_name="Poeta" nameId="1102210" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="QUEST">
@@ -1059,8 +1056,8 @@
         </collect_items>
         <rewards gold="960" exp="1595" />
         <rewards gold="450" exp="1150" />
-        <quest_drop npc_id="651876" item_id="182200223" />
-        <quest_drop npc_id="651897" item_id="182200223" />
+        <quest_drop npc_id="651876" item_id="182200223" chance="100" />
+        <quest_drop npc_id="651897" item_id="182200223" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1112" name="To Fish in Peace" category_name="Poeta" nameId="1102212" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="QUEST">
@@ -1097,8 +1094,8 @@
             <collect_item item_id="182200207" count="3" />
         </collect_items>
         <rewards gold="2080" exp="3014" />
-        <quest_drop npc_id="651871" item_id="182200207" />
-        <quest_drop npc_id="651872" item_id="182200207" />
+        <quest_drop npc_id="651871" item_id="182200207" chance="100" />
+        <quest_drop npc_id="651872" item_id="182200207" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1117" name="An item that can light up the night" category_name="Poeta" nameId="1102217" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="QUEST">
@@ -1106,8 +1103,8 @@
             <collect_item item_id="182200208" count="3" />
         </collect_items>
         <rewards gold="1690" exp="2475" />
-        <quest_drop npc_id="651899" item_id="182200208" />
-        <quest_drop npc_id="651854" item_id="182200208" />
+        <quest_drop npc_id="651899" item_id="182200208" chance="100" />
+        <quest_drop npc_id="651854" item_id="182200208" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1118" name="Polinia's Ointment" category_name="Poeta" nameId="1102218" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="QUEST">
@@ -1137,8 +1134,8 @@
             <collect_item item_id="182200209" count="3" />
         </collect_items>
         <rewards gold="2360" exp="3685" />
-        <quest_drop npc_id="651855" item_id="182200209" />
-        <quest_drop npc_id="651852" item_id="182200209" />
+        <quest_drop npc_id="651855" item_id="182200209" chance="100" />
+        <quest_drop npc_id="651852" item_id="182200209" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1122" name="Delivering Pernos's Robe" category_name="Poeta" nameId="1102222" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="QUEST">
@@ -1156,11 +1153,11 @@
         <rewards exp="3950">
             <reward_item item_id="182000352" count="1" />
         </rewards>
-        <quest_drop npc_id="651880" item_id="182200218" drop_each_member="1" />
-        <quest_drop npc_id="651871" item_id="182200219" />
-        <quest_drop npc_id="651872" item_id="182200219" />
-        <quest_drop npc_id="651874" item_id="182200220" />
-        <quest_drop npc_id="651875" item_id="182200220" />
+        <quest_drop npc_id="651880" item_id="182200218" drop_each_member="0" chance="100" />
+        <quest_drop npc_id="651871" item_id="182200219" chance="100" />
+        <quest_drop npc_id="651872" item_id="182200219" chance="100" />
+        <quest_drop npc_id="651874" item_id="182200220" chance="100" />
+        <quest_drop npc_id="651875" item_id="182200220" chance="100" />
         <start_conditions>
             <finished quest_id="1116" />
         </start_conditions>
@@ -1194,7 +1191,7 @@
             <collect_item item_id="182200211" count="3" />
         </collect_items>
         <rewards gold="4050" exp="6094" />
-        <quest_drop npc_id="700107" item_id="182200211" />
+        <quest_drop npc_id="700107" item_id="182200211" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1126" name="Mushroom Research" category_name="Poeta" nameId="1102226" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="QUEST">
@@ -1202,7 +1199,7 @@
             <collect_item item_id="182200212" count="3" />
         </collect_items>
         <rewards gold="3300" exp="5445" />
-        <quest_drop npc_id="651870" item_id="182200212" />
+        <quest_drop npc_id="651870" item_id="182200212" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="1127" name="Ancient Cube" category_name="Poeta" nameId="1102227" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="SIGNIFICANT">
@@ -1210,7 +1207,7 @@
             <collect_item item_id="182200215" count="1" />
         </collect_items>
         <rewards gold="2400" exp="4015" />
-        <quest_drop npc_id="700001" item_id="182200215" />
+        <quest_drop npc_id="700001" item_id="182200215" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
         <quest_work_items>
             <quest_work_item item_id="182200215" count="1" />
@@ -1229,7 +1226,7 @@
         </rewards>
         <quest_drop npc_id="651868" item_id="182200213" chance="80" />
         <quest_drop npc_id="651865" item_id="182200213" chance="80" />
-        <quest_drop npc_id="651866" item_id="182200213" />
+        <quest_drop npc_id="651866" item_id="182200213" chance="100" />
         <quest_drop npc_id="651850" item_id="182200213" chance="80" />
         <quest_drop npc_id="651851" item_id="182200213" chance="80" />
         <quest_drop npc_id="651908" item_id="182200213" chance="80" />
@@ -35794,7 +35791,7 @@
             <collect_item item_id="182214022" count="1" />
         </collect_items>
         <rewards gold="9614" exp="9614" />
-        <quest_drop npc_id="700105" item_id="182214022" />
+        <quest_drop npc_id="700105" item_id="182214022" chance="100" />
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
     <quest id="9615" name="Unlimited Battle Hidden Quest" category_name="Test zone" nameId="1100536" minlevel_permitted="1" max_repeat_count="255" race_permitted="PC_ALL" category="QUEST">
@@ -102030,7 +102027,7 @@
         <rewards gold="167" exp="80">
             <reward_item item_id="160040083" count="3" />
         </rewards>
-        <quest_drop npc_id="836530" item_id="182216247" chance="1" drop_each_member="1" collecting_step="1" />
+        <quest_drop npc_id="836530" item_id="182216247" chance="1" drop_each_member="0" collecting_step="1" />
         <start_conditions>
             <finished quest_id="60001" />
         </start_conditions>
@@ -102065,8 +102062,8 @@
         <rewards gold="653" exp="1881">
             <reward_item item_id="188070360" count="1" />
         </rewards>
-        <quest_drop npc_id="651860" item_id="182216249" drop_each_member="1" collecting_step="3" />
-        <quest_drop npc_id="651861" item_id="182216249" drop_each_member="1" collecting_step="3" />
+        <quest_drop npc_id="651860" item_id="182216249" drop_each_member="0" collecting_step="3" chance="100" />
+        <quest_drop npc_id="651861" item_id="182216249" drop_each_member="0" collecting_step="3" chance="100" />
         <start_conditions>
             <finished quest_id="60005" />
         </start_conditions>
@@ -102084,17 +102081,17 @@
         <rewards gold="653" exp="1881">
             <reward_item item_id="160040083" count="3" />
         </rewards>
-        <quest_drop npc_id="651849" item_id="182216251" drop_each_member="1" collecting_step="2" />
-        <quest_drop npc_id="651848" item_id="182216251" drop_each_member="1" collecting_step="2" />
-        <quest_drop npc_id="651862" item_id="182216251" drop_each_member="1" collecting_step="2" />
-        <quest_drop npc_id="651863" item_id="182216251" drop_each_member="1" collecting_step="2" />
-        <quest_drop npc_id="651864" item_id="182216252" drop_each_member="1" collecting_step="2" />
+        <quest_drop npc_id="651849" item_id="182216251" drop_each_member="0" collecting_step="2" chance="100" />
+        <quest_drop npc_id="651848" item_id="182216251" drop_each_member="0" collecting_step="2" chance="100" />
+        <quest_drop npc_id="651862" item_id="182216251" drop_each_member="0" collecting_step="2" chance="100" />
+        <quest_drop npc_id="651863" item_id="182216251" drop_each_member="0" collecting_step="2" chance="100" />
+        <quest_drop npc_id="651864" item_id="182216252" drop_each_member="0" collecting_step="2" chance="100" />
         <start_conditions>
             <finished quest_id="60006" />
         </start_conditions>
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
-    <quest id="60008" name="Pursuit of the Odium Transport Track" category_name="Poeta" nameId="1803991" minlevel_permitted="5" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
+    <quest id="60008" name="Pursuit of the Odium Transport Track" category_name="Poeta" nameId="1803991" minlevel_permitted="5" max_repeat_count="1" race_permitted="ELYOS" category="MISSION" can_report="true">
         <rewards gold="831" exp="2794">
             <reward_item item_id="162005000" count="3" />
         </rewards>
@@ -102103,7 +102100,7 @@
         </start_conditions>
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
-    <quest id="60009" name="Haramel's Secret" category_name="Poeta" nameId="1803992" minlevel_permitted="5" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
+    <quest id="60009" name="Haramel's Secret" category_name="Poeta" nameId="1803992" minlevel_permitted="5" max_repeat_count="1" race_permitted="ELYOS" category="MISSION" can_report="true">
         <collect_items>
             <collect_item item_id="182216580" count="3" />
         </collect_items>
@@ -102111,7 +102108,7 @@
             <selectable_reward_item item_id="160020000" count="5" />
             <selectable_reward_item item_id="160020001" count="5" />
         </rewards>
-        <quest_drop npc_id="700834" item_id="182216580" drop_each_member="1" collecting_step="6" />
+        <quest_drop npc_id="700834" item_id="182216580" drop_each_member="0" collecting_step="6" chance="100" />
         <quest_kill npc_ids="653218" seq="0" />
         <start_conditions>
             <finished quest_id="60008" />
