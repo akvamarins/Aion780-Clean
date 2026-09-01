@@ -226,7 +226,7 @@ public class GameServer {
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
 
-		Lambda.enableJitting(true);
+		//// Lambda.enableJitting(true); // Java17 - removed// not needed in Java 17
 		final GameEngine[] parallelEngines = new GameEngine[] { QuestEngine.getInstance(), InstanceEngine.getInstance(), AI2Engine.getInstance(), ChatProcessor.getInstance() };
 		final GameEngine[] worldEngines = new GameEngine[] { WorldEngine.getInstance() };
 

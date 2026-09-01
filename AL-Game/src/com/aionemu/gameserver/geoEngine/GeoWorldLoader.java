@@ -51,7 +51,7 @@ import com.aionemu.gameserver.world.zone.ZoneName;
 import com.aionemu.gameserver.world.zone.ZoneService;
 
 // import sun.misc.Cleaner - removed for Java 17
-import sun.nio.ch.DirectBuffer;
+// import sun.nio.ch.DirectBuffer; // Java 17 - removed
 import java.lang.reflect.Field;
 import sun.misc.Unsafe;
 
@@ -295,18 +295,29 @@ public class GeoWorldLoader {
 	  private static void destroyDirectByteBuffer(Buffer toBeDestroyed) {
                 if (toBeDestroyed == null) return;
                 try {
+                        // Java 9+ preferred way
                         Field unsafeField = Unsafe.class.getDeclaredField("theUnsafe");
                         unsafeField.setAccessible(true);
                         Unsafe unsafe = (Unsafe) unsafeField.get(null);
                         if (toBeDestroyed instanceof ByteBuffer) {
                                 unsafe.invokeCleaner((ByteBuffer) toBeDestroyed);
+                                return;
                         }
                 } catch (Throwable t) {
-                        try {
-                                ((DirectBuffer) toBeDestroyed).cleaner().clean();
-                        } catch (Throwable t2) {
-                                // ignore
+                        // ignore
+                }
+                // Fallback via reflection (no direct sun.nio.ch import)
+                try {
+                        java.lang.reflect.Method cleanerMethod = toBeDestroyed.getClass().getMethod("cleaner");
+                        cleanerMethod.setAccessible(true);
+                        Object cleaner = cleanerMethod.invoke(toBeDestroyed);
+                        if (cleaner != null) {
+                                java.lang.reflect.Method cleanMethod = cleaner.getClass().getMethod("clean");
+                                cleanMethod.setAccessible(true);
+                                cleanMethod.invoke(cleaner);
                         }
+                } catch (Throwable t2) {
+                        // ignore
                 }
         }
 }

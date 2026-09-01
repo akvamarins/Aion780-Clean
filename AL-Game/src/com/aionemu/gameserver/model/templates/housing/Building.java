@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.mysql.jdbc.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Rolandas
@@ -96,14 +96,14 @@ public class Building {
 	// for the buildings. Buildings template has full info though, except isDefault
 	// value for the land.
 	public String getPartsMatchTag() {
-		if (StringUtils.isNullOrEmpty(partsMatch)) {
+		if (StringUtils.isEmpty(partsMatch)) {
 			return DataManager.HOUSE_BUILDING_DATA.getBuilding(id).getPartsMatchTag();
 		}
 		return partsMatch;
 	}
 
 	public String getSize() {
-		if (StringUtils.isNullOrEmpty(size)) {
+		if (StringUtils.isEmpty(size)) {
 			return DataManager.HOUSE_BUILDING_DATA.getBuilding(id).getSize();
 		}
 		return size;
