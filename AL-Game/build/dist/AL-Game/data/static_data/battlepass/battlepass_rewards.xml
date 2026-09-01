@@ -1,0 +1,2233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<battlepass_rewards>
+    <reward id="30" season_id="2001" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="36" season_id="2001" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="40" season_id="2001" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="75" season_id="2002" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="81" season_id="2002" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="85" season_id="2002" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="120" season_id="2003" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="126" season_id="2003" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="130" season_id="2003" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="165" season_id="2004" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="171" season_id="2004" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="175" season_id="2004" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="210" season_id="2005" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="216" season_id="2005" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="220" season_id="2005" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="255" season_id="2006" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="261" season_id="2006" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="265" season_id="2006" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="300" season_id="2007" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="306" season_id="2007" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="310" season_id="2007" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="345" season_id="2008" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="351" season_id="2008" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="355" season_id="2008" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="390" season_id="2009" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="396" season_id="2009" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="400" season_id="2009" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="435" season_id="2010" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="441" season_id="2010" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="445" season_id="2010" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="480" season_id="2011" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="486" season_id="2011" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="490" season_id="2011" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="525" season_id="2012" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="531" season_id="2012" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="535" season_id="2012" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="570" season_id="2013" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="576" season_id="2013" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="580" season_id="2013" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="615" season_id="2014" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="621" season_id="2014" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="625" season_id="2014" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="660" season_id="2015" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="666" season_id="2015" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="670" season_id="2015" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="705" season_id="2016" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="711" season_id="2016" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="715" season_id="2016" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="750" season_id="2017" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="756" season_id="2017" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="760" season_id="2017" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="795" season_id="2018" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="801" season_id="2018" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="805" season_id="2018" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="840" season_id="2019" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="846" season_id="2019" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="850" season_id="2019" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="885" season_id="2020" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="4"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="4"/>
+        </dark_unlock>
+    </reward>
+    <reward id="891" season_id="2020" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="895" season_id="2020" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="4"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="4"/>
+        </dark_unlock>
+    </reward>
+    <reward id="930" season_id="2021" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="936" season_id="2021" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="6"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="6"/>
+        </dark_unlock>
+    </reward>
+    <reward id="940" season_id="2021" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="975" season_id="2022" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="981" season_id="2022" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="985" season_id="2022" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1020" season_id="2023" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1026" season_id="2023" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1030" season_id="2023" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1065" season_id="2024" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1071" season_id="2024" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1075" season_id="2024" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1110" season_id="2025" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1116" season_id="2025" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1120" season_id="2025" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1155" season_id="2026" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1161" season_id="2026" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1165" season_id="2026" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1173" season_id="2027" level="3" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+            <item id="188120134" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166023101" count="1"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+            <item id="188120134" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166023101" count="1"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1181" season_id="2027" level="11" point_reward="0">
+        <light_basic>
+            <item id="162005048" count="5"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166023101" count="1"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="162005048" count="5"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166023101" count="1"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1206" season_id="2027" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1245" season_id="2028" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1251" season_id="2028" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1255" season_id="2028" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1290" season_id="2029" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="4"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="4"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1296" season_id="2029" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1300" season_id="2029" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1335" season_id="2030" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1341" season_id="2030" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="7"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="7"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1345" season_id="2030" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1380" season_id="2031" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1386" season_id="2031" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1390" season_id="2031" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1425" season_id="2032" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1431" season_id="2032" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1435" season_id="2032" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1470" season_id="2033" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1476" season_id="2033" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1480" season_id="2033" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1515" season_id="2034" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1521" season_id="2034" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1525" season_id="2034" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1560" season_id="2035" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1566" season_id="2035" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1570" season_id="2035" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1605" season_id="2036" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1611" season_id="2036" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1615" season_id="2036" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1650" season_id="2037" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1656" season_id="2037" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1660" season_id="2037" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1695" season_id="2038" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1701" season_id="2038" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1705" season_id="2038" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1740" season_id="2039" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1746" season_id="2039" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="7"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="7"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1750" season_id="2039" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1785" season_id="2040" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="4"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="4"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1791" season_id="2040" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1795" season_id="2040" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1830" season_id="2041" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1836" season_id="2041" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1840" season_id="2041" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1875" season_id="2042" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1881" season_id="2042" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1885" season_id="2042" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1920" season_id="2043" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1926" season_id="2043" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1930" season_id="2043" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1965" season_id="2044" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1971" season_id="2044" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="1975" season_id="2044" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="2010" season_id="2045" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="6"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="6"/>
+        </dark_unlock>
+    </reward>
+    <reward id="2016" season_id="2045" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="2020" season_id="2045" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="7"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="7"/>
+        </dark_unlock>
+    </reward>
+    <reward id="2055" season_id="2046" level="30" point_reward="0">
+        <light_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166070001" count="10"/>
+            <item id="188120032" count="20"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="2061" season_id="2046" level="36" point_reward="0">
+        <light_basic>
+            <item id="188120032" count="10"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166070000" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120032" count="10"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166070000" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="2065" season_id="2046" level="40" point_reward="0">
+        <light_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </light_basic>
+        <light_unlock>
+            <item id="162005029" count="5"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="188120034" count="20"/>
+            <item id="188120032" count="50"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="162005029" count="5"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42011" season_id="22001" level="1" point_reward="0">
+        <light_unlock>
+            <item id="166023107" count="1"/>
+            <item id="162005047" count="2"/>
+        </light_unlock>
+        <dark_unlock>
+            <item id="166023107" count="1"/>
+            <item id="162005047" count="2"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42012" season_id="22001" level="2" point_reward="0">
+        <light_unlock>
+            <item id="166023107" count="1"/>
+        </light_unlock>
+        <dark_unlock>
+            <item id="166023107" count="1"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42013" season_id="22001" level="3" point_reward="0">
+        <light_unlock>
+            <item id="166023107" count="2"/>
+            <item id="162005108" count="2"/>
+        </light_unlock>
+        <dark_unlock>
+            <item id="166023107" count="2"/>
+            <item id="162005108" count="2"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42014" season_id="22001" level="4" point_reward="0">
+        <light_unlock>
+            <item id="166023107" count="3"/>
+        </light_unlock>
+        <dark_unlock>
+            <item id="166023107" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42015" season_id="22001" level="5" point_reward="0">
+        <light_basic>
+            <item id="166023100" count="1"/>
+        </light_basic>
+        <light_unlock>
+            <item id="188072852" count="1"/>
+            <item id="162005047" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166023100" count="1"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="188072852" count="1"/>
+            <item id="162005047" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42016" season_id="22001" level="6" point_reward="0">
+        <light_unlock>
+            <item id="166023107" count="4"/>
+        </light_unlock>
+        <dark_unlock>
+            <item id="166023107" count="4"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42020" season_id="22001" level="10" point_reward="0">
+        <light_unlock>
+            <item id="188072852" count="2"/>
+            <item id="162005108" count="3"/>
+        </light_unlock>
+        <dark_unlock>
+            <item id="188072852" count="2"/>
+            <item id="162005108" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42021" season_id="22001" level="11" point_reward="0">
+        <light_basic>
+            <item id="166023101" count="1"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166027000" count="1"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166023101" count="1"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166027000" count="1"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42022" season_id="22001" level="12" point_reward="0">
+        <light_unlock>
+            <item id="166027000" count="1"/>
+        </light_unlock>
+        <dark_unlock>
+            <item id="166027000" count="1"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42023" season_id="22001" level="13" point_reward="0">
+        <light_basic>
+            <item id="166023101" count="1"/>
+        </light_basic>
+        <light_unlock>
+            <item id="166027000" count="1"/>
+            <item id="162005047" count="3"/>
+        </light_unlock>
+        <dark_basic>
+            <item id="166023101" count="1"/>
+        </dark_basic>
+        <dark_unlock>
+            <item id="166027000" count="1"/>
+            <item id="162005047" count="3"/>
+        </dark_unlock>
+    </reward>
+    <reward id="42024" season_id="22001" level="14" point_reward="0">
+        <light_unlock>
+            <item id="166027000" count="1"/>
+        </light_unlock>
+        <dark_unlock>
+            <item id="166027000" count="1"/>
+        </dark_unlock>
+    </reward>
+</battlepass_rewards>

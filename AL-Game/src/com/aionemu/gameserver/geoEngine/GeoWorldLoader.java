@@ -50,8 +50,10 @@ import com.aionemu.gameserver.model.templates.materials.MaterialTemplate;
 import com.aionemu.gameserver.world.zone.ZoneName;
 import com.aionemu.gameserver.world.zone.ZoneService;
 
-import sun.misc.Cleaner;
+// import sun.misc.Cleaner - removed for Java 17
 import sun.nio.ch.DirectBuffer;
+import java.lang.reflect.Field;
+import sun.misc.Unsafe;
 
 /**
  * @author Mr. Poke
@@ -290,10 +292,21 @@ public class GeoWorldLoader {
 		return (int) ((xIntBits * 73856093 ^ yIntBits * 19349663 ^ zIntBits * 83492791) % 50000);
 	}
 
-	private static void destroyDirectByteBuffer(Buffer toBeDestroyed) {
-		Cleaner cleaner = ((DirectBuffer) toBeDestroyed).cleaner();
-		if (cleaner != null) {
-			cleaner.clean();
-		}
-	}
+	  private static void destroyDirectByteBuffer(Buffer toBeDestroyed) {
+                if (toBeDestroyed == null) return;
+                try {
+                        Field unsafeField = Unsafe.class.getDeclaredField("theUnsafe");
+                        unsafeField.setAccessible(true);
+                        Unsafe unsafe = (Unsafe) unsafeField.get(null);
+                        if (toBeDestroyed instanceof ByteBuffer) {
+                                unsafe.invokeCleaner((ByteBuffer) toBeDestroyed);
+                        }
+                } catch (Throwable t) {
+                        try {
+                                ((DirectBuffer) toBeDestroyed).cleaner().clean();
+                        } catch (Throwable t2) {
+                                // ignore
+                        }
+                }
+        }
 }

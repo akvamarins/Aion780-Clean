@@ -1,19 +1,4 @@
-/**
- * This file is part of Aion-Lightning <aion-lightning.org>.
- *
- *  Aion-Lightning is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  Aion-Lightning is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details. *
- *  You should have received a copy of the GNU General Public License
- *  along with Aion-Lightning.
- *  If not, see <http://www.gnu.org/licenses/>.
- */
+
 package com.aionemu.gameserver.dataholders;
 
 import java.io.File;
@@ -39,6 +24,11 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
@@ -49,120 +39,136 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.aionemu.gameserver.model.templates.housing.LBox;
-import com.sun.org.apache.xml.internal.serialize.OutputFormat;
-import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
-/**
- * @author Rolandas
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "lboxes")
 public class HouseScriptData {
 
-	private static final Logger log = LoggerFactory.getLogger(HouseScriptData.class);
-	private static Marshaller marshaller;
+        private static final Logger log = LoggerFactory.getLogger(HouseScriptData.class);
+        private static Marshaller marshaller;
+        private static JAXBContext jc;
 
-	static {
-		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = null;
-		JAXBContext jc = null;
+        static {
+                try {
+                        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+                        // Don't fail if xsd missing on Java 17
+                        Schema schema = null;
+                        try {
+                            File xsd = new File("./data/static_data/housing/scripts.xsd");
+                            if (xsd.exists()) {
+                                schema = sf.newSchema(xsd);
+                            }
+                        } catch (Exception e) {
+                            log.warn("Could not load housing xsd: " + e.getMessage());
+                        }
+                        jc = JAXBContext.newInstance(HouseScriptData.class);
+                        marshaller = jc.createMarshaller();
+                        if (schema != null) {
+                            marshaller.setSchema(schema);
+                        }
+                        marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+                        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+                }
+                catch (Exception e) {
+                        log.error("Could not instantiate HouseScriptData : \n" + e, e);
+                }
+        }
 
-		try {
-			schema = sf.newSchema(new File("./data/static_data/housing/scripts.xsd"));
-			jc = JAXBContext.newInstance(HouseScriptData.class);
-			marshaller = jc.createMarshaller();
-			marshaller.setSchema(schema);
-			marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-16");
-		}
-		catch (Exception e) {
-			log.error("Could not instantiate HouseScriptData : \n" + e);
-		}
-	}
+        @XmlElement(name = "lbox", required = true)
+        protected List<LBox> scriptData;
+        @XmlTransient
+        private final Map<Integer, LBox> defaultTemplates = new HashMap<Integer, LBox>();
 
-	@XmlElement(name = "lbox", required = true)
-	protected List<LBox> scriptData;
-	@XmlTransient
-	private final Map<Integer, LBox> defaultTemplates = new HashMap<Integer, LBox>();
+        void afterUnmarshal(Unmarshaller u, Object parent) {
+                if (scriptData != null) {
+                    for (LBox template : scriptData) {
+                            defaultTemplates.put(template.getId(), template);
+                    }
+                    scriptData.clear();
+                    scriptData = null;
+                }
+        }
 
-	/**
-	 * @param u
-	 * @param parent
-	 */
-	void afterUnmarshal(Unmarshaller u, Object parent) {
-		for (LBox template : scriptData) {
-			defaultTemplates.put(template.getId(), template);
-		}
-		scriptData.clear();
-		scriptData = null;
-	}
+        public static class XmlFormatter {
 
-	public static class XmlFormatter {
+                private static final Logger log = LoggerFactory.getLogger(XmlFormatter.class);
+                private static final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+                private static DocumentBuilder db;
 
-		private static final Logger log = LoggerFactory.getLogger(XmlFormatter.class);
-		private static final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		private static DocumentBuilder db;
+                static {
+                        try {
+                                dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, false);
+                                dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false);
+                                dbf.setValidating(false);
+                                dbf.setNamespaceAware(true);
+                                db = dbf.newDocumentBuilder();
+                        }
+                        catch (ParserConfigurationException e) {
+                                log.error("Could not instantiate XmlFormatter : \n" + e, e);
+                        }
+                }
 
-		static {
-			try {
-				db = dbf.newDocumentBuilder();
-			}
-			catch (ParserConfigurationException e) {
-				log.error("Could not instantiate XmlFormatter : \n" + e);
-			}
-		}
+                public static String format(String unformattedXml) {
+                        try {
+                                // Strip BOM and leading whitespace that causes "Content is not allowed in prolog" on Java 17
+                                if (unformattedXml != null) {
+                                    unformattedXml = unformattedXml.replaceFirst("^\\uFEFF", "").trim();
+                                    // remove any chars before <?xml
+                                    int idx = unformattedXml.indexOf("<?xml");
+                                    if (idx > 0) unformattedXml = unformattedXml.substring(idx);
+                                }
+                                final Document document = parseXmlFile(unformattedXml);
+                                TransformerFactory tf = TransformerFactory.newInstance();
+                                Transformer transformer = tf.newTransformer();
+                                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+                                transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+                                transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+                                Writer out = new StringWriter();
+                                transformer.transform(new DOMSource(document), new StreamResult(out));
+                                return out.toString();
+                        }
+                        catch (Exception e) {
+                            log.error("Error formatting XML", e);
+                        }
+                        return null;
+                }
 
-		public static String format(String unformattedXml) {
-			try {
-				final Document document = parseXmlFile(unformattedXml);
+                private static Document parseXmlFile(String in) {
+                        try {
+                                InputSource is = new InputSource(new StringReader(in));
+                                return db.parse(is);
+                        }
+                        catch (SAXException e) {
+                                throw new RuntimeException(e);
+                        }
+                        catch (IOException e) {
+                                throw new RuntimeException(e);
+                        }
+                }
+        }
 
-				OutputFormat format = new OutputFormat(document);
-				format.setIndenting(true);
-				format.setIndent(2);
-				format.setEncoding("UTF-16");
-				Writer out = new StringWriter();
-				XMLSerializer serializer = new XMLSerializer(out, format);
-				serializer.serialize(document);
-				return out.toString();
-			}
-			catch (IOException e) {
-			}
-			return null;
-		}
+        public String createScript(int scriptId, int position, int iconId) {
+                LBox template = defaultTemplates.get(scriptId);
+                if (template == null) return null;
+                LBox result = (LBox) template.clone();
+                result.setId(position);
+                result.setIcon(iconId);
 
-		private static Document parseXmlFile(String in) {
-			try {
-				InputSource is = new InputSource(new StringReader(in));
-				return db.parse(is);
-			}
-			catch (SAXException e) {
-				throw new RuntimeException(e);
-			}
-			catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-	}
+                HouseScriptData fragment = new HouseScriptData();
+                fragment.scriptData = new ArrayList<LBox>();
+                fragment.scriptData.add(result);
 
-	public String createScript(int scriptId, int position, int iconId) {
-		LBox template = defaultTemplates.get(scriptId);
-		LBox result = (LBox) template.clone();
-		result.setId(position);
-		result.setIcon(iconId);
+                Writer writer = new StringWriter();
+                try {
+                        marshaller.marshal(fragment, writer);
+                }
+                catch (JAXBException e) {
+                    log.error("Marshal error", e);
+                }
+                return XmlFormatter.format(writer.toString());
+        }
 
-		HouseScriptData fragment = new HouseScriptData();
-		fragment.scriptData = new ArrayList<LBox>();
-		fragment.scriptData.add(result);
-
-		Writer writer = new StringWriter();
-		try {
-			marshaller.marshal(fragment, writer);
-		}
-		catch (JAXBException e) {
-		}
-		return XmlFormatter.format(writer.toString());
-	}
-
-	public int size() {
-		return defaultTemplates.size();
-	}
+        public int size() {
+                return defaultTemplates.size();
+        }
 }
