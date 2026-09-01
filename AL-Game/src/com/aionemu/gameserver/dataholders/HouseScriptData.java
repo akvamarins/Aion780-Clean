@@ -1,4 +1,3 @@
-
 package com.aionemu.gameserver.dataholders;
 
 import java.io.File;
@@ -12,15 +11,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.XMLConstants;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -51,7 +50,6 @@ public class HouseScriptData {
         static {
                 try {
                         SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-                        // Don't fail if xsd missing on Java 17
                         Schema schema = null;
                         try {
                             File xsd = new File("./data/static_data/housing/scripts.xsd");
@@ -110,10 +108,8 @@ public class HouseScriptData {
 
                 public static String format(String unformattedXml) {
                         try {
-                                // Strip BOM and leading whitespace that causes "Content is not allowed in prolog" on Java 17
                                 if (unformattedXml != null) {
-                                    unformattedXml = unformattedXml.replaceFirst("^\\uFEFF", "").trim();
-                                    // remove any chars before <?xml
+                                    unformattedXml = unformattedXml.replaceFirst("^\uFEFF", "").trim();
                                     int idx = unformattedXml.indexOf("<?xml");
                                     if (idx > 0) unformattedXml = unformattedXml.substring(idx);
                                 }
