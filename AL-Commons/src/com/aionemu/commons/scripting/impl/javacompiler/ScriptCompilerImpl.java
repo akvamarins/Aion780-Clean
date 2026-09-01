@@ -1,126 +1,213 @@
+
 package com.aionemu.commons.scripting.impl.javacompiler;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileObject;
-import javax.tools.ToolProvider;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.scripting.CompilationResult;
 import com.aionemu.commons.scripting.ScriptClassLoader;
 import com.aionemu.commons.scripting.ScriptCompiler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.tools.*;
+import java.io.*;
+import java.net.URI;
+import java.util.*;
 
 public class ScriptCompilerImpl implements ScriptCompiler {
 
-        private static final Logger log = LoggerFactory.getLogger(ScriptCompilerImpl.class);
-        protected final JavaCompiler javaCompiler;
-        protected Iterable<File> libraries;
-        protected ScriptClassLoader parentClassLoader;
+    private static final Logger log = LoggerFactory.getLogger(ScriptCompilerImpl.class);
 
-        public ScriptCompilerImpl() {
-                JavaCompiler comp = ToolProvider.getSystemJavaCompiler();
-                if (comp == null) {
-                        try {
-                                comp = (JavaCompiler) Class.forName("com.sun.tools.javac.api.JavacTool").getMethod("create").invoke(null);
-                        } catch (Throwable t) {}
-                }
-                this.javaCompiler = comp;
-                if (javaCompiler == null) {
-                        throw new RuntimeException(new InstantiationException("JavaCompiler is not aviable."));
-                }
+    private final JavaCompiler compiler;
+    private final List<String> options;
+
+    public ScriptCompilerImpl() {
+        compiler = ToolProvider.getSystemJavaCompiler();
+        if (compiler == null) {
+            throw new IllegalStateException("JavaCompiler not available - need JDK, not JRE");
+        }
+        options = Arrays.asList("-g", "-source", "8", "-target", "8");
+    }
+
+    @Override
+    public CompilationResult compile(File[] files, ScriptClassLoader loader) {
+        DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<>();
+        StandardJavaFileManager stdFileManager = compiler.getStandardFileManager(diagnostics, null, null);
+        ClassFileManager fileManager = new ClassFileManager(stdFileManager, (ScriptClassLoaderImpl) loader);
+
+        List<JavaFileObject> compilationUnits = new ArrayList<>();
+        for (File f : files) {
+            if (f != null && f.exists()) {
+                compilationUnits.add(new SourceFile(f));
+            }
         }
 
-        @Override
-        public void setParentClassLoader(ScriptClassLoader classLoader) {
-                this.parentClassLoader = classLoader;
+        JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, diagnostics, options, null, compilationUnits);
+        boolean success = task.call();
+        
+        if (!success) {
+            for (Diagnostic<? extends JavaFileObject> d : diagnostics.getDiagnostics()) {
+                log.warn("Compile error: {}:{} {}", d.getSource() != null ? d.getSource().getName() : "unknown", d.getLineNumber(), d.getMessage(null));
+            }
         }
 
-        @Override
-        public void setLibraires(Iterable<File> files) {
-                libraries = files;
+        return doCompileWithManager(fileManager, loader);
+    }
+
+    private CompilationResult doCompileWithManager(ClassFileManager fileManager, ScriptClassLoader loader) {
+        CompilationResult result = new CompilationResult();
+        ScriptClassLoaderImpl impl = (ScriptClassLoaderImpl) loader;
+
+        Map<String, byte[]> classes = fileManager.getAllClasses();
+        if (classes == null || classes.isEmpty()) {
+            return result;
         }
 
-        @Override
-        public CompilationResult compile(String className, String sourceCode) {
-                return compile(new String[] { className }, new String[] { sourceCode });
-        }
-
-        @Override
-        public CompilationResult compile(String[] classNames, String[] sourceCode) throws IllegalArgumentException {
-                if (classNames.length != sourceCode.length) {
-                        throw new IllegalArgumentException("Amount of classes is not equal to amount of sources");
-                }
-                List<JavaFileObject> compilationUnits = new ArrayList<JavaFileObject>();
-                for (int i = 0; i < classNames.length; i++) {
-                        JavaFileObject compilationUnit = new JavaSourceFromString(classNames[i], sourceCode[i]);
-                        compilationUnits.add(compilationUnit);
-                }
-                return doCompilation(compilationUnits);
-        }
-
-        @Override
-        public CompilationResult compile(Iterable<File> compilationUnits) {
-                List<JavaFileObject> list = new ArrayList<JavaFileObject>();
-                for (File f : compilationUnits) {
-                        list.add(new JavaSourceFromFile(f, JavaFileObject.Kind.SOURCE));
-                }
-                return doCompilation(list);
-        }
-
-        protected CompilationResult doCompilation(Iterable<JavaFileObject> compilationUnits) {
-                List<String> options = Arrays.asList("-encoding", "UTF-8", "-g", "-source", "8", "-target", "8");
-                DiagnosticListener<JavaFileObject> listener = new ErrorListener();
-                JavaCompiler compForManager = this.javaCompiler;
-                if (compForManager == null) compForManager = ToolProvider.getSystemJavaCompiler();
-                ClassFileManager manager = new ClassFileManager(compForManager, listener);
-                manager.setParentClassLoader(parentClassLoader);
-
-                if (libraries != null) {
-                        try {
-                                manager.addLibraries(libraries);
-                        } catch (IOException e) {
-                                log.error("Can't set libraries for compiler.", e);
+        // Sort by dependency depth: base classes first
+        // Simple heuristic: shorter name + no inheritance chain first, or class with no superclass in same batch
+        // We will iteratively try to load, deferring failed ones
+        
+        Map<String, byte[]> remaining = new LinkedHashMap<>(classes);
+        Set<String> loadedNames = new HashSet<>();
+        int retries = remaining.size() * 2; // max iterations
+        
+        while (!remaining.isEmpty() && retries-- > 0) {
+            Iterator<Map.Entry<String, byte[]>> it = remaining.entrySet().iterator();
+            boolean progress = false;
+            
+            while (it.hasNext()) {
+                Map.Entry<String, byte[]> entry = it.next();
+                String name = entry.getKey();
+                byte[] bytes = entry.getValue();
+                
+                try {
+                    Class<?> clazz = impl.loadAndDefine(name, bytes);
+                    if (clazz != null) {
+                        result.addCompiledClass(clazz);
+                        loadedNames.add(name);
+                        it.remove();
+                        progress = true;
+                    }
+                } catch (NoClassDefFoundError | ClassNotFoundException | LinkageError e) {
+                    // Check if missing dependency is in remaining set - then defer
+                    String msg = e.getMessage();
+                    if (msg != null) msg = msg.replace('/', '.');
+                    Throwable cause = e.getCause();
+                    String causeMsg = cause != null ? cause.getMessage() : "";
+                    
+                    // If dependency is still in remaining, defer
+                    boolean depInRemaining = false;
+                    if (msg != null) {
+                        for (String rem : remaining.keySet()) {
+                            if (msg.contains(rem) || (causeMsg != null && causeMsg.contains(rem))) {
+                                depInRemaining = true;
+                                break;
+                            }
                         }
+                    }
+                    if (!depInRemaining) {
+                        // Try to extract class name from error
+                        // e.g. "ai/GeneralNpcAI2" -> "ai.GeneralNpcAI2"
+                        String missing = null;
+                        if (msg != null && msg.contains("ai.")) {
+                            // try to find ai. class
+                            int idx = msg.indexOf("ai.");
+                            if (idx >= 0) {
+                                missing = msg.substring(idx).split(" ")[0].trim();
+                            }
+                        }
+                        if (missing != null && remaining.containsKey(missing)) {
+                            depInRemaining = true;
+                        }
+                    }
+                    
+                    if (!depInRemaining) {
+                        // Real error, not dependency order - log and remove to avoid infinite loop
+                        // But only if retries low
+                        if (retries < remaining.size()) {
+                            log.warn("Failed to load {}: {}", name, e.toString());
+                            // still remove to avoid blocking others
+                            it.remove();
+                        }
+                    }
+                    // else defer - keep in remaining for next iteration
+                } catch (Exception ex) {
+                    log.warn("Failed to load {}: {}", name, ex.toString());
+                    it.remove();
                 }
-
-                JavaCompiler.CompilationTask task = javaCompiler.getTask(null, manager, listener, options, null,
-                                compilationUnits);
-
-                if (!task.call()) {
-                        throw new RuntimeException("Error while compiling classes");
+            }
+            
+            if (!progress) {
+                // No progress, try to sort remaining by name length (base classes usually shorter)
+                // and try once more with explicit sort
+                List<Map.Entry<String, byte[]>> sorted = new ArrayList<>(remaining.entrySet());
+                Collections.sort(sorted, new Comparator<Map.Entry<String, byte[]>>() {
+                    @Override
+                    public int compare(Map.Entry<String, byte[]> a, Map.Entry<String, byte[]> b) {
+                        return Integer.compare(a.getKey().length(), b.getKey().length());
+                    }
+                });
+                remaining.clear();
+                for (Map.Entry<String, byte[]> e : sorted) {
+                    remaining.put(e.getKey(), e.getValue());
                 }
-
-                ScriptClassLoader cl = manager.getClassLoader(null);
-                Class<?>[] compiledClasses = classNamesToClasses(manager.getCompiledClasses().keySet(), cl);
-                return new CompilationResult(compiledClasses, cl);
+                // One more attempt without defer
+                if (retries <= 0) break;
+            }
+        }
+        
+        // Final attempt: try to load whatever remains (may still fail, but we tried)
+        for (Map.Entry<String, byte[]> entry : remaining.entrySet()) {
+            try {
+                Class<?> clazz = impl.loadAndDefine(entry.getKey(), entry.getValue());
+                if (clazz != null) result.addCompiledClass(clazz);
+            } catch (Throwable t) {
+                log.error("Final fail to load class {}: {}", entry.getKey(), t.toString());
+            }
         }
 
-        protected Class<?>[] classNamesToClasses(Collection<String> classNames, ScriptClassLoader cl) {
-                Class<?>[] classes = new Class<?>[classNames.size()];
-                int i = 0;
-                for (String className : classNames) {
-                        try {
-                                Class<?> clazz = cl.loadClass(className);
-                                classes[i] = clazz;
-                        } catch (ClassNotFoundException e) {
-                                throw new RuntimeException(e);
-                        }
-                        i++;
-                }
-                return classes;
+        return result;
+    }
+
+    private static class SourceFile extends SimpleJavaFileObject {
+        private final File file;
+
+        SourceFile(File file) {
+            super(file.toURI(), Kind.SOURCE);
+            this.file = file;
         }
 
         @Override
-        public String[] getSupportedFileTypes() {
-                return new String[] { "java" };
+        public CharSequence getCharContent(boolean ignoreEncodingErrors) throws IOException {
+            StringBuilder sb = new StringBuilder();
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line).append('\n');
+                }
+            }
+            return sb.toString();
         }
+    }
+
+    private static class ByteCode extends SimpleJavaFileObject {
+        private final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        private final String className;
+
+        ByteCode(String className) {
+            super(URI.create("mem:///" + className.replace('.', '/') + Kind.CLASS.extension), Kind.CLASS);
+            this.className = className;
+        }
+
+        @Override
+        public OutputStream openOutputStream() {
+            return baos;
+        }
+
+        byte[] getBytes() {
+            return baos.toByteArray();
+        }
+
+        String getClassName() {
+            return className;
+        }
+    }
 }
