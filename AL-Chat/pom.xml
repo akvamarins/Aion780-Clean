@@ -5,17 +5,19 @@
   <parent>
     <groupId>com.akvamarins</groupId>
     <artifactId>Aion780-Clean-Java17</artifactId>
-    <version>7.8.0-Clean-Java17</version>
+    <version>8.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <artifactId>AL-Login</artifactId>
+  <artifactId>AL-Chat</artifactId>
   <packaging>jar</packaging>
   <dependencies>
     <dependency>
       <groupId>com.akvamarins</groupId>
       <artifactId>AL-Commons</artifactId>
-      <version>7.8.0-Clean-Java17</version>
+      <version>8.0-SNAPSHOT</version>
     </dependency>
+    <dependency><groupId>io.netty</groupId><artifactId>netty-all</artifactId><version>4.1.86.Final</version></dependency>
+    <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>1.7.36</version></dependency>
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
