@@ -37,50 +37,73 @@ import com.aionemu.gameserver.model.npcdrops.XmlDropGroup;
 import com.aionemu.gameserver.model.npcdrops.XmlNpcDrops;
 
 /**
- * @author Falke_34
+ * @author Falke_34 - fixed for Java 17 retail
  */
 @XmlRootElement(name = "npc_drops")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class XmlNpcDropData {
 
-	static Logger log = LoggerFactory.getLogger(XmlNpcDropData.class);
-	@XmlElement(name = "npc_drop")
-	private List<XmlNpcDrops> nds;
-	private HashMap<Integer, ArrayList<DropGroup>> drops;
+        static Logger log = LoggerFactory.getLogger(XmlNpcDropData.class);
+        @XmlElement(name = "npc_drop")
+        private List<XmlNpcDrops> nds;
+        private HashMap<Integer, ArrayList<DropGroup>> drops;
 
-	void afterUnmarshal(Unmarshaller u, Object parent) {
-		this.drops = new HashMap<Integer, ArrayList<DropGroup>>();
-		for (XmlNpcDrops nd : this.nds) {
-			List<DropGroup> newDg = new ArrayList<DropGroup>();
-			for (XmlDropGroup dg : nd.getDropGroup()) {
-				List<Drop> dr = new ArrayList<Drop>();
-				for (XmlDrop xd : dg.getDrop()) {
-					Drop datDg = new Drop(xd.getItemId(), xd.getMinAmount(), xd.getMaxAmount(), xd.getChance(), xd.isNoReduction(), xd.isEachMember());
-					dr.add(datDg);
-				}
-				DropGroup datDg = new DropGroup(dr, dg.getRace(), dg.isUseCategory(), dg.getGroupName());
-				newDg.add(datDg);
-			}
-			if (this.drops.containsKey(Integer.valueOf(nd.getNpcId()))) {
-				log.warn("Drop NPC duplicate List ID: " + nd.getNpcId());
-			}
-			else {
-				this.drops.put(nd.getNpcId(), new ArrayList<DropGroup>());
-			}
-			this.drops.get(nd.getNpcId()).addAll(newDg);
-		}
-	}
+        void afterUnmarshal(Unmarshaller u, Object parent) {
+                this.drops = new HashMap<Integer, ArrayList<DropGroup>>();
+                // JAVA 17 FIX: nds can be null if validation failed
+                if (this.nds == null) {
+                        log.warn("[JAVA17 FIX] XmlNpcDropData nds is null after unmarshal - no drops loaded (check XML validation)");
+                        return;
+                }
+                for (XmlNpcDrops nd : this.nds) {
+                        if (nd == null) continue;
+                        // JAVA 17 FIX: getDropGroup can return null on JAXB 2.3.1 Java 17
+                        List<XmlDropGroup> dropGroups = nd.getDropGroup();
+                        if (dropGroups == null) {
+                                continue;
+                        }
+                        List<DropGroup> newDg = new ArrayList<DropGroup>();
+                        for (XmlDropGroup dg : dropGroups) {
+                                if (dg == null) continue;
+                                // JAVA 17 FIX: getDrop() now returns empty list instead of null (fixed in XmlDropGroup)
+                                // But keep extra null check for safety
+                                List<XmlDrop> xmlDrops = dg.getDrop();
+                                if (xmlDrops == null) {
+                                        continue;
+                                }
+                                List<Drop> dr = new ArrayList<Drop>();
+                                for (XmlDrop xd : xmlDrops) {
+                                        if (xd == null) continue;
+                                        Drop datDg = new Drop(xd.getItemId(), xd.getMinAmount(), xd.getMaxAmount(), xd.getChance(), xd.isNoReduction(), xd.isEachMember());
+                                        dr.add(datDg);
+                                }
+                                // Skip empty groups - retail does this
+                                if (dr.isEmpty()) continue;
+                                DropGroup datDg = new DropGroup(dr, dg.getRace(), dg.isUseCategory(), dg.getGroupName());
+                                newDg.add(datDg);
+                        }
+                        if (this.drops.containsKey(Integer.valueOf(nd.getNpcId()))) {
+                                log.warn("Drop NPC duplicate List ID: " + nd.getNpcId());
+                        }
+                        else {
+                                this.drops.put(nd.getNpcId(), new ArrayList<DropGroup>());
+                        }
+                        this.drops.get(nd.getNpcId()).addAll(newDg);
+                }
+        }
 
-	public int size() {
-		return this.nds.size();
-	}
+        public int size() {
+                return this.nds != null ? this.nds.size() : 0;
+        }
 
-	public HashMap<Integer, ArrayList<DropGroup>> getDrops() {
-		return this.drops;
-	}
+        public HashMap<Integer, ArrayList<DropGroup>> getDrops() {
+                return this.drops;
+        }
 
-	public void clear() {
-		this.drops.clear();
-		this.drops = null;
-	}
+        public void clear() {
+                if (this.drops != null) {
+                        this.drops.clear();
+                }
+                this.drops = null;
+        }
 }

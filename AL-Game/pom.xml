@@ -22,15 +22,19 @@
       <version>8.0-SNAPSHOT</version>
     </dependency>
 
-    <!-- JAXB -->
+    <!-- JAXB FIXED for Java 17 - ONLY javax stack, NO jakarta mixing -->
     <dependency><groupId>javax.xml.bind</groupId><artifactId>jaxb-api</artifactId><version>2.3.1</version></dependency>
+    <dependency><groupId>com.sun.xml.bind</groupId><artifactId>jaxb-core</artifactId><version>2.3.0.1</version></dependency>
     <dependency><groupId>com.sun.xml.bind</groupId><artifactId>jaxb-impl</artifactId><version>2.3.1</version></dependency>
+    <dependency><groupId>com.sun.istack</groupId><artifactId>istack-commons-runtime</artifactId><version>3.0.11</version></dependency>
+    <dependency><groupId>org.glassfish.jaxb</groupId><artifactId>txw2</artifactId><version>2.3.1</version></dependency>
+    <dependency><groupId>com.sun.xml.fastinfoset</groupId><artifactId>FastInfoset</artifactId><version>1.2.15</version></dependency>
     <dependency><groupId>javax.activation</groupId><artifactId>activation</artifactId><version>1.1.1</version></dependency>
-    <dependency><groupId>jakarta.xml.bind</groupId><artifactId>jakarta.xml.bind-api</artifactId><version>4.0.2</version></dependency>
-    <dependency><groupId>org.glassfish.jaxb</groupId><artifactId>jaxb-runtime</artifactId><version>4.0.5</version></dependency>
 
-    <!-- Missing deps causing 100 errors -->
+    <!-- cglib + asm FIXED for Java 17 -->
     <dependency><groupId>com.googlecode.lambdaj</groupId><artifactId>lambdaj</artifactId><version>2.3.3</version></dependency>
+    <dependency><groupId>cglib</groupId><artifactId>cglib</artifactId><version>3.3.0</version></dependency>
+    <dependency><groupId>org.ow2.asm</groupId><artifactId>asm</artifactId><version>9.6</version></dependency>
     <dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-all</artifactId><version>1.3</version></dependency>
     <dependency><groupId>joda-time</groupId><artifactId>joda-time</artifactId><version>2.10</version></dependency>
     <dependency><groupId>com.google.code.findbugs</groupId><artifactId>jsr305</artifactId><version>3.0.2</version></dependency>
@@ -52,8 +56,8 @@
     <!-- Netty -->
     <dependency><groupId>io.netty</groupId><artifactId>netty-all</artifactId><version>4.1.86.Final</version></dependency>
 
-    <!-- DB -->
-    <dependency><groupId>mysql</groupId><artifactId>mysql-connector-java</artifactId><version>8.0.33</version></dependency>
+    <!-- DB FIXED -->
+    <dependency><groupId>com.mysql</groupId><artifactId>mysql-connector-j</artifactId><version>8.0.33</version></dependency>
     <dependency><groupId>com.zaxxer</groupId><artifactId>HikariCP</artifactId><version>4.0.3</version></dependency>
     <dependency><groupId>com.jolbox</groupId><artifactId>bonecp</artifactId><version>0.8.0.RELEASE</version></dependency>
 
@@ -63,11 +67,10 @@
     <dependency><groupId>ch.qos.logback</groupId><artifactId>logback-core</artifactId><version>1.2.12</version></dependency>
     <dependency><groupId>log4j</groupId><artifactId>log4j</artifactId><version>1.2.17</version></dependency>
 
-    <!-- Javassist, Quartz etc -->
-    <dependency><groupId>org.javassist</groupId><artifactId>javassist</artifactId><version>3.20.0-GA</version></dependency>
+    <!-- Javassist FIXED for Java 17 -->
+    <dependency><groupId>org.javassist</groupId><artifactId>javassist</artifactId><version>3.29.2-GA</version></dependency>
     <dependency><groupId>org.quartz-scheduler</groupId><artifactId>quartz</artifactId><version>2.3.2</version></dependency>
 
-    <!-- For Building.java StringUtils -->
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -79,7 +82,8 @@
         <configuration>
           <source>17</source>
           <target>17</target>
-          <compilerArgs><arg>-Xlint:none</arg></compilerArgs>
+          <compilerArgs><arg>-Xlint:none</arg>
+            <arg>-XDignore.symbol.file</arg></compilerArgs>
         </configuration>
       </plugin>
     </plugins>

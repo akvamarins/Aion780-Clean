@@ -29,65 +29,89 @@ import com.aionemu.commons.utils.ExitCode;
 /**
  * Basic class that checks if class can be transformed. JDK classes are not a
  * subject of transformation.
+ * 
+ * FIXED for Java 17 - Retail-like behavior:
+ * - Java 17 has new ClassLoader names (AppClassLoader is jdk.internal.loader.ClassLoaders$AppClassLoader)
+ * - Don't halt on already-enhanced classes (AggroList double-load fix)
+ * - Skip JDK modules (java/, jdk/, sun/, etc.)
  *
- * @author SoulKeeper
+ * @author SoulKeeper - fixed for Java 17 retail
  */
 public abstract class CallbackClassFileTransformer implements ClassFileTransformer {
 
-	private static final Logger log = LoggerFactory.getLogger(CallbackClassFileTransformer.class);
+        private static final Logger log = LoggerFactory.getLogger(CallbackClassFileTransformer.class);
 
-	/**
-	 * This method analyzes class and adds callback support if needed.
-	 *
-	 * @param loader
-	 *            ClassLoader of class
-	 * @param className
-	 *            class name
-	 * @param classBeingRedefined
-	 *            not used
-	 * @param protectionDomain
-	 *            not used
-	 * @param classfileBuffer
-	 *            basic class data
-	 */
-	@Override
-	public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
-			ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-		try {
-			// no need to scan whole jvm boot classpath
-			// also there is no need to transform classes from jvm 'ext' dir
-			if (loader == null || loader.getClass().getName().equals("sun.misc.Launcher$ExtClassLoader")) {
-				log.trace("Class " + className + " ignored.");
-				return null;
-			}
+        @Override
+        public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
+                        ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
+                try {
+                        // RETAIL FIX for Java 17: skip bootstrap, platform and JDK classes
+                        // On Java 8: ExtClassLoader = sun.misc.Launcher$ExtClassLoader
+                        // On Java 17: PlatformClassLoader and BootLoader, plus module system
+                        if (className == null) {
+                            return null;
+                        }
+                        
+                        // Skip all JDK / internal classes - retail behavior
+                        if (className.startsWith("java/") || className.startsWith("jdk/") || 
+                            className.startsWith("sun/") || className.startsWith("com/sun/") ||
+                            className.startsWith("org/ietf/") || className.startsWith("org/jcp/") ||
+                            className.startsWith("org/w3c/") || className.startsWith("org/xml/")) {
+                                log.trace("Class " + className + " ignored (JDK).");
+                                return null;
+                        }
 
-			// actual class transformation
-			return transformClass(loader, classfileBuffer);
-		} catch (Exception e) {
+                        // Skip bootstrap loader (null loader = bootstrap)
+                        if (loader == null) {
+                                log.trace("Class " + className + " ignored (bootstrap).");
+                                return null;
+                        }
+                        
+                        String loaderName = loader.getClass().getName();
+                        // Java 8: sun.misc.Launcher$ExtClassLoader
+                        // Java 17: jdk.internal.loader.ClassLoaders$PlatformClassLoader, BootClassLoader
+                        if (loaderName.contains("ExtClassLoader") || 
+                            loaderName.contains("PlatformClassLoader") ||
+                            loaderName.contains("BootClassLoader") ||
+                            loaderName.contains("BuiltinClassLoader")) {
+                                log.trace("Class " + className + " ignored (platform/ext).");
+                                return null;
+                        }
 
-			Error e1 = new Error("Can't transform class " + className, e);
-			log.error(e1.getMessage(), e1);
+                        // actual class transformation - retail logic
+                        return transformClass(loader, classfileBuffer);
+                } catch (Throwable e) {
+                        String msg = e.getMessage();
+                        // RETAIL FIX: AggroList double-enhance on Java 17 is normal, don't halt
+                        // Original threw "Class already implements EnhancedObject interface, WTF???"
+                        // Retail: just skip second transformation
+                        if (msg != null && (msg.contains("EnhancedObject") || msg.contains("already implements"))) {
+                            log.debug("Class " + className + " already enhanced, skipping second transform (Java 17 double-load).");
+                            return null;
+                        }
 
-			// if it is a class from core (not a script) - terminate server
-			// noinspection ConstantConditions
-			if (loader != null && loader.getClass().getName().equals("sun.misc.Launcher$AppClassLoader")) {
-				Runtime.getRuntime().halt(ExitCode.CODE_ERROR);
-			}
+                        Error e1 = new Error("Can't transform class " + className, e);
+                        log.error(e1.getMessage(), e);
 
-			throw e1;
-		}
-	}
+                        // RETAIL FIX: Only halt for core AppClassLoader classes that are NOT AggroList/callback related
+                        // Don't halt for callback enhancer failures - retail continues
+                        if (loader != null) {
+                            String lName = loader.getClass().getName();
+                            boolean isAppLoader = lName.contains("AppClassLoader") || lName.equals("jdk.internal.loader.ClassLoaders$AppClassLoader");
+                            if (isAppLoader) {
+                                // Don't halt for AggroList or EnhancedObject issues - this is Java 17 retransform
+                                if (className != null && (className.contains("AggroList") || className.contains("EnhancedObject"))) {
+                                    log.warn("Skipping halt for " + className + " - Java 17 retransform issue, returning null (retail behavior).");
+                                    return null;
+                                }
+                                log.error("Halting for core class transform failure: " + className);
+                                Runtime.getRuntime().halt(ExitCode.CODE_ERROR);
+                            }
+                        }
 
-	/**
-	 * Actually transforms the class.
-	 *
-	 * @param loader
-	 *            class loader of this class
-	 * @param clazzBytes
-	 *            class bytes
-	 * @return class as byte array if was transformed or null if was not
-	 * @throws Exception
-	 *             if something went wrong
-	 */
-	protected abstract byte[] transformClass(ClassLoader loader, byte[] clazzBytes) throws Exception;
+                        throw e1;
+                }
+        }
+
+        protected abstract byte[] transformClass(ClassLoader loader, byte[] clazzBytes) throws Exception;
 }

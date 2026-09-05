@@ -17,6 +17,7 @@
 
 package com.aionemu.gameserver.model.npcdrops;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,25 +28,46 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author Falke_34
+ * FIXED for Java 17 + common_drop_group support
+ * @author Falke_34 - fixed by Viktors
  */
 @XmlRootElement(name = "npc_drop")
 @XmlAccessorType(XmlAccessType.NONE)
 public class XmlNpcDrops {
 
-	@XmlElement(name = "drop_group")
-	protected List<XmlDropGroup> dropGroup;
-	@XmlAttribute(name = "npc_id", required = true)
-	protected int npcId;
+        @XmlElement(name = "drop_group")
+        protected List<XmlDropGroup> dropGroup;
 
-	public List<XmlDropGroup> getDropGroup() {
-		if (this.dropGroup == null) {
-			return Collections.emptyList();
-		}
-		return this.dropGroup;
-	}
+        // FIX: 7.8/8.0 datapack uses common_drop_group - was missing, caused XML validation WARN and no drops ingame
+        @XmlElement(name = "common_drop_group")
+        protected List<XmlDropGroup> commonDropGroup;
 
-	public int getNpcId() {
-		return this.npcId;
-	}
+        @XmlAttribute(name = "npc_id", required = true)
+        protected int npcId;
+
+        public List<XmlDropGroup> getDropGroup() {
+                if (this.dropGroup == null && this.commonDropGroup == null) {
+                        return Collections.emptyList();
+                }
+                List<XmlDropGroup> all = new ArrayList<>();
+                if (this.dropGroup != null) {
+                        all.addAll(this.dropGroup);
+                }
+                if (this.commonDropGroup != null) {
+                        all.addAll(this.commonDropGroup);
+                }
+                return all;
+        }
+
+        // Optional getter for common if needed elsewhere
+        public List<XmlDropGroup> getCommonDropGroup() {
+                if (this.commonDropGroup == null) {
+                        return Collections.emptyList();
+                }
+                return this.commonDropGroup;
+        }
+
+        public int getNpcId() {
+                return this.npcId;
+        }
 }

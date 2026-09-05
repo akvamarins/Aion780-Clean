@@ -20,21 +20,22 @@ import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * @author MrPoke
+ * @author MrPoke - fixed for Java 17 retail 7.8+ CORE zone
  */
 @XmlType(name = "ZoneClassName")
 @XmlEnum
 public enum ZoneClassName {
 
-	DUMMY,
-	SUB,
-	FLY,
-	ARTIFACT,
-	FORT,
-	LIMIT,
-	ITEM_USE,
-	PVP,
-	DUEL,
-	HOUSE,
-	WEATHER;
+        DUMMY,
+        SUB,
+        FLY,
+        ARTIFACT,
+        FORT,
+        LIMIT,
+        ITEM_USE,
+        PVP,
+        DUEL,
+        HOUSE,
+        WEATHER,
+        CORE; // JAVA 17 FIX: Added for 7.8+ retail data - vortex/core zones use CORE type
 }

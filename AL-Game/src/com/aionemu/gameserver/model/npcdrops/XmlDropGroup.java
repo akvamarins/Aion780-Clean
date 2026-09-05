@@ -17,6 +17,7 @@
 
 package com.aionemu.gameserver.model.npcdrops;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -27,36 +28,41 @@ import javax.xml.bind.annotation.XmlElement;
 import com.aionemu.gameserver.model.Race;
 
 /**
- * @author Falke_34
+ * @author Falke_34 - fixed for Java 17 retail
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class XmlDropGroup {
 
-	@XmlElement(name = "drop")
-	protected List<XmlDrop> drop;
-	@XmlAttribute
-	protected Race race = Race.PC_ALL;
-	@XmlAttribute(name = "use_category")
-	protected Boolean useCategory = Boolean.valueOf(true);
-	@XmlAttribute(name = "name")
-	protected String group_name;
+        @XmlElement(name = "drop")
+        protected List<XmlDrop> drop;
+        @XmlAttribute
+        protected Race race = Race.PC_ALL;
+        @XmlAttribute(name = "use_category")
+        protected Boolean useCategory = Boolean.valueOf(true);
+        @XmlAttribute(name = "name")
+        protected String group_name;
 
-	public List<XmlDrop> getDrop() {
-		return this.drop;
-	}
+        public List<XmlDrop> getDrop() {
+                // JAVA 17 FIX: JAXB 2.3.1 returns null instead of empty list on Java 17
+                // Retail behavior: return empty list, not null
+                if (this.drop == null) {
+                        this.drop = new ArrayList<XmlDrop>();
+                }
+                return this.drop;
+        }
 
-	public Race getRace() {
-		return this.race;
-	}
+        public Race getRace() {
+                return this.race;
+        }
 
-	public Boolean isUseCategory() {
-		return this.useCategory;
-	}
+        public Boolean isUseCategory() {
+                return this.useCategory;
+        }
 
-	public String getGroupName() {
-		if (this.group_name == null) {
-			return "";
-		}
-		return this.group_name;
-	}
+        public String getGroupName() {
+                if (this.group_name == null) {
+                        return "";
+                }
+                return this.group_name;
+        }
 }

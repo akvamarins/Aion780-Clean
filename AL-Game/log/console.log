@@ -1,0 +1,74 @@
+2026-09-05 15:36:04,878 INFO  [main] com.aionemu.gameserver.GameServer [GameServer.java:495] [GameServer] JavaAgent [Callback Support] is configured.
+2026-09-05 15:36:04,911 INFO  [main] org.quartz.impl.StdSchedulerFactory [StdSchedulerFactory.java:1220] Using default implementation for ThreadExecutor
+2026-09-05 15:36:04,925 INFO  [main] org.quartz.core.SchedulerSignalerImpl [SchedulerSignalerImpl.java:61] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2026-09-05 15:36:04,925 INFO  [main] org.quartz.core.QuartzScheduler [QuartzScheduler.java:229] Quartz Scheduler v.2.3.2 created.
+2026-09-05 15:36:04,927 INFO  [main] org.quartz.simpl.RAMJobStore [RAMJobStore.java:155] RAMJobStore initialized.
+2026-09-05 15:36:04,928 INFO  [main] org.quartz.core.QuartzScheduler [QuartzScheduler.java:294] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 1 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2026-09-05 15:36:04,928 INFO  [main] org.quartz.impl.StdSchedulerFactory [StdSchedulerFactory.java:1374] Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+2026-09-05 15:36:04,928 INFO  [main] org.quartz.impl.StdSchedulerFactory [StdSchedulerFactory.java:1378] Quartz scheduler version: 2.3.2
+2026-09-05 15:36:04,928 INFO  [main] org.quartz.core.QuartzScheduler [QuartzScheduler.java:547] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-09-05 15:36:04,931 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:85] [Config] Loading: mygs.properties
+2026-09-05 15:36:04,932 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:89] [Config] No override properties found
+2026-09-05 15:36:04,957 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:100] [Config] Loading: ./config/administration/admin.properties
+2026-09-05 15:36:04,958 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:103] [Config] Loading: ./config/administration/developer.properties
+2026-09-05 15:36:04,975 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:113] [Config] Loading: ./config/main/ai.properties
+2026-09-05 15:36:04,977 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:116] [Config] Loading: ./config/main/autogroup.properties
+2026-09-05 15:36:04,979 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:119] [Config] Loading: ./config/main/base.properties
+2026-09-05 15:36:04,980 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:122] [Config] Loading: ./config/main/composition.properties
+2026-09-05 15:36:04,981 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:125] [Config] Loading: ./config/main/conqueror.properties
+2026-09-05 15:36:04,981 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:128] [Config] Loading: ./config/main/DualBoxConfig.properties
+2026-09-05 15:36:04,981 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:131] [Config] Loading: ./config/main/commons.properties
+2026-09-05 15:36:04,982 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:134] [Config] Loading: ./config/main/cache.properties
+2026-09-05 15:36:04,983 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:137] [Config] Loading: ./config/main/cleaning.properties
+2026-09-05 15:36:04,983 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:140] [Config] Loading: ./config/main/composition.properties
+2026-09-05 15:36:04,984 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:143] [Config] Loading: ./config/main/craft.properties
+2026-09-05 15:36:04,989 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:146] [Config] Loading: ./config/main/custom.properties
+2026-09-05 15:36:04,989 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:149] [Config] Loading: ./config/main/drop.properties
+2026-09-05 15:36:04,991 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:152] [Config] Loading: ./config/main/enchants.properties
+2026-09-05 15:36:04,993 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:155] [Config] Loading: ./config/main/events.properties
+2026-09-05 15:36:04,994 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:158] [Config] Loading: ./config/main/falldamage.properties
+2026-09-05 15:36:04,995 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:161] [Config] Loading: ./config/main/fasttrack.properties
+2026-09-05 15:36:04,996 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:164] [Config] Loading: ./config/main/gameserver.properties
+2026-09-05 15:36:04,997 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:167] [Config] Loading: ./config/main/geodata.properties
+2026-09-05 15:36:04,997 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:170] [Config] Loading: ./config/main/group.properties
+2026-09-05 15:36:04,998 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:173] [Config] Loading: ./config/main/housing.properties
+2026-09-05 15:36:04,998 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:176] [Config] Loading: ./config/main/html.properties
+2026-09-05 15:36:05,000 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:179] [Config] Loading: ./config/main/legion.properties
+2026-09-05 15:36:05,002 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:182] [Config] Loading: ./config/main/logging.properties
+2026-09-05 15:36:05,002 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:185] [Config] Loading: ./config/main/lunasystem.properties
+2026-09-05 15:36:05,004 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:188] [Config] Loading: ./config/main/membership.properties
+2026-09-05 15:36:05,004 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:191] [Config] Loading: ./config/main/name.properties
+2026-09-05 15:36:05,005 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:194] [Config] Loading: ./config/main/periodicsave.properties
+2026-09-05 15:36:05,005 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:197] [Config] Loading: ./config/main/playertransfer.properties
+2026-09-05 15:36:05,005 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:200] [Config] Loading: ./config/main/prices.properties
+2026-09-05 15:36:05,006 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:203] [Config] Loading: ./config/main/punishment.properties
+2026-09-05 15:36:05,006 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:206] [Config] Loading: ./config/main/ranking.properties
+2026-09-05 15:36:05,007 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:209] [Config] Loading: ./config/main/rates.properties
+2026-09-05 15:36:05,008 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:212] [Config] Loading: ./config/main/security.properties
+2026-09-05 15:36:05,008 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:215] [Config] Loading: ./config/main/shutdown.properties
+2026-09-05 15:36:05,010 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:218] [Config] Loading: ./config/main/siege.properties
+2026-09-05 15:36:05,010 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:221] [Config] Loading: ./config/main/thread.properties
+2026-09-05 15:36:05,010 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:224] [Config] Loading: ./config/main/weddings.properties
+2026-09-05 15:36:05,011 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:227] [Config] Loading: ./config/main/world.properties
+2026-09-05 15:36:05,013 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:236] [Config] Loading: ./config/network/database.properties
+2026-09-05 15:36:05,015 INFO  [main] com.aionemu.gameserver.configs.Config [Config.java:239] [Config] Loading: ./config/network/network.properties
+2026-09-05 15:36:05,264 INFO  [main] com.aionemu.commons.database.DatabaseFactory [DatabaseFactory.java:126] Successfully connected to database
+2026-09-05 15:36:05,394 ERROR [main] com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler [ThreadUncaughtExceptionHandler.java:39] Critical Error - Thread: main terminated abnormaly: java.lang.Error: Cannot invoke "com.aionemu.commons.scripting.impl.javacompiler.ScriptClassLoaderImpl.getClassFileManager()" because "scl" is null
+java.lang.Error: Cannot invoke "com.aionemu.commons.scripting.impl.javacompiler.ScriptClassLoaderImpl.getClassFileManager()" because "scl" is null
+	at com.aionemu.commons.database.dao.DAOManager.init(DAOManager.java:79)
+	at com.aionemu.gameserver.GameServer.initUtilityServicesAndConfig(GameServer.java:510)
+	at com.aionemu.gameserver.GameServer.main(GameServer.java:236)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.aionemu.commons.scripting.impl.javacompiler.ScriptClassLoaderImpl.getClassFileManager()" because "scl" is null
+	at com.aionemu.commons.scripting.impl.javacompiler.ScriptCompilerImpl.compile(ScriptCompilerImpl.java:34)
+	at com.aionemu.commons.scripting.ScriptCompiler.compile(ScriptCompiler.java:34)
+	at com.aionemu.commons.scripting.impl.ScriptContextImpl.init(ScriptContextImpl.java:147)
+	at com.aionemu.commons.scripting.scriptmanager.ScriptManager.load(ScriptManager.java:105)
+	at com.aionemu.commons.database.dao.DAOManager.init(DAOManager.java:77)
+	... 2 common frames omitted

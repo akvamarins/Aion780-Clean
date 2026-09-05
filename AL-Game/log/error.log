@@ -1,0 +1,12 @@
+2026-09-05 15:36:05,394 Critical Error - Thread: main terminated abnormaly: java.lang.Error: Cannot invoke "com.aionemu.commons.scripting.impl.javacompiler.ScriptClassLoaderImpl.getClassFileManager()" because "scl" is null
+java.lang.Error: Cannot invoke "com.aionemu.commons.scripting.impl.javacompiler.ScriptClassLoaderImpl.getClassFileManager()" because "scl" is null
+	at com.aionemu.commons.database.dao.DAOManager.init(DAOManager.java:79)
+	at com.aionemu.gameserver.GameServer.initUtilityServicesAndConfig(GameServer.java:510)
+	at com.aionemu.gameserver.GameServer.main(GameServer.java:236)
+Caused by: java.lang.NullPointerException: Cannot invoke "com.aionemu.commons.scripting.impl.javacompiler.ScriptClassLoaderImpl.getClassFileManager()" because "scl" is null
+	at com.aionemu.commons.scripting.impl.javacompiler.ScriptCompilerImpl.compile(ScriptCompilerImpl.java:34)
+	at com.aionemu.commons.scripting.ScriptCompiler.compile(ScriptCompiler.java:34)
+	at com.aionemu.commons.scripting.impl.ScriptContextImpl.init(ScriptContextImpl.java:147)
+	at com.aionemu.commons.scripting.scriptmanager.ScriptManager.load(ScriptManager.java:105)
+	at com.aionemu.commons.database.dao.DAOManager.init(DAOManager.java:77)
+	... 2 common frames omitted

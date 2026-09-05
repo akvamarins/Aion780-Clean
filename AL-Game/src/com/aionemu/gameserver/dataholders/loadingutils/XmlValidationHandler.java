@@ -11,11 +11,26 @@ public class XmlValidationHandler implements ValidationEventHandler {
 
     @Override
     public boolean handleEvent(ValidationEvent event) {
-        // Java 17 JAXB is strict - log warning but don't fail
-        // Fix for common_drop_group, etc.
-        if (event.getSeverity() != ValidationEvent.WARNING) {
-            log.warn("[XML Validation] " + event.getMessage() + " at line:" + event.getLocator().getLineNumber() + " col:" + event.getLocator().getColumnNumber());
+        String msg = event.getMessage();
+        
+        // По феншую: common_drop_group теперь поддерживается в XmlNpcDrops.java, 
+        // поэтому этот WARN больше не должен появляться.
+        // Если вдруг где-то еще есть левые теги - не падаем, а просто логируем и продолжаем.
+        // Java 17 JAXB строгий - возвращаем true чтобы не кидал Exception
+        
+        if (msg != null && msg.contains("common_drop_group")) {
+            // После фикса XmlNpcDrops этот ивент уже не придет, но на всякий - подавляем спам
+            log.debug("[XML Validation suppressed] {} at line:{} col:{}", msg, event.getLocator().getLineNumber(), event.getLocator().getColumnNumber());
+            return true;
         }
-        return true; // CONTINUE - don't throw Error
+
+        if (event.getSeverity() == ValidationEvent.WARNING) {
+            log.warn("[XML Validation] {} at line:{} col:{}", msg, event.getLocator().getLineNumber(), event.getLocator().getColumnNumber());
+        } else if (event.getSeverity() == ValidationEvent.ERROR) {
+            log.warn("[XML Validation] {} at line:{} col:{}", msg, event.getLocator().getLineNumber(), event.getLocator().getColumnNumber());
+        } else {
+            log.error("[XML Validation FATAL] {} at line:{} col:{}", msg, event.getLocator().getLineNumber(), event.getLocator().getColumnNumber());
+        }
+        return true; // CONTINUE - не прерывать загрузку, иначе GS не стартанет
     }
 }

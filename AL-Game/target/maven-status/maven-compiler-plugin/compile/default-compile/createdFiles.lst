@@ -1710,6 +1710,7 @@ com\aionemu\gameserver\dao\SurveyControllerDAO.class
 com\aionemu\gameserver\dataholders\TransformBookData.class
 com\aionemu\gameserver\model\gameobjects\player\MinionCommonData.class
 com\aionemu\gameserver\network\aion\clientpackets\CM_OBJECT_SEARCH$1.class
+com\aionemu\gameserver\dataholders\loadingutils\XmlDataLoader$1.class
 com\aionemu\gameserver\model\templates\item\Disposition.class
 com\aionemu\gameserver\model\autogroup\AutoGroupType$68.class
 com\aionemu\gameserver\utils\PacketSendUtility$1.class
@@ -3144,7 +3145,6 @@ com\aionemu\gameserver\network\loginserver\serverpackets\SM_MAC.class
 com\aionemu\gameserver\model\account\AccountTransfo.class
 com\aionemu\gameserver\model\gameobjects\player\HousingFlags.class
 com\aionemu\gameserver\model\stats\calc\functions\PvPDefenseFunction.class
-com\aionemu\gameserver\utils\javaagent\JavaAgentUtils$CheckCallback.class
 com\aionemu\gameserver\ai2\scenario\ScenarioTemplate.class
 com\aionemu\gameserver\model\IExpirable.class
 com\aionemu\gameserver\utils\stats\enums\EVASION.class

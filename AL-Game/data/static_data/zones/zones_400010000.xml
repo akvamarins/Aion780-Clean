@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <zones>
+    <zone mapid="400010000" name="CORE_400010000" area_type="POLYGON" zone_type="CORE" flags="0" priority="0">
+        <points bottom="0.0" top="3000.0">
+            <point x="0.0" y="0.0"/>
+            <point x="3100.0" y="0.0"/>
+            <point x="3100.0" y="3100.0"/>
+            <point x="0.0" y="3100.0"/>
+        </points>
+    </zone>
+
     <zone mapid="400010000" name="AB1_07" area_type="POLYGON" zone_type="FLY" flags="63">
         <points bottom="1772.98877" top="2772.98877">
             <point x="1062.158691" y="1924.256836"/>

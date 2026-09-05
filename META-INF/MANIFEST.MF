@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.3.0
+Build-Jdk-Spec: 17
+Agent-Class: com.aionemu.gameserver.utils.javaagent.JavaAgentUtils
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Premain-Class: com.aionemu.gameserver.utils.javaagent.JavaAgentUtils
+

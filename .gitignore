@@ -1,0 +1,24 @@
+# build
+build/
+target/
+AL-Game/build/
+AL-Game/target/
+AL-Chat/target/
+AL-Login/target/
+AL-Commons/target/
+dist/
+
+# cache & geo - генерируется при старте
+AL-Game/cache/
+AL-Game/data/geo/meshs.geo
+**/cache/static_data.xml
+**/data/geo/meshs.geo
+*.geo
+*.lfs
+
+# IDE
+.idea/
+*.iml
+.settings/
+.classpath
+.project
