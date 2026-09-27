@@ -16,9 +16,6 @@
  */
 package com.aionemu.gameserver.dataholders;
 
-import static ch.lambdaj.Lambda.extractIterator;
-import static ch.lambdaj.Lambda.flatten;
-import static ch.lambdaj.Lambda.on;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -250,7 +247,11 @@ public class SpawnsData2 {
 		if (!allSpawnMaps.containsKey(worldId)) {
 			return Collections.emptyList();
 		}
-		return flatten(extractIterator(allSpawnMaps.get(worldId).values(), on(SimpleEntry.class).getKey()));
+		List<SpawnGroup2> result = new ArrayList<>();
+		for (SimpleEntry<SpawnGroup2, Spawn> entry : allSpawnMaps.get(worldId).values()) {
+			result.add(entry.getKey());
+		}
+		return result;
 	}
 
 	public Spawn getSpawnsForNpc(int worldId, int npcId) {

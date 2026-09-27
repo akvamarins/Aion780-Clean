@@ -1,5 +1,4 @@
 /**
-/**
  * This file is part of Aion-Lightning <aion-lightning.org>.
  *
  *  Aion-Lightning is free software: you can redistribute it and/or modify
@@ -29,7 +28,7 @@ import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
 import com.aionemu.gameserver.dao.PlayerWorldBanDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import java.sql.SQLDataException;
+import com.mysql.jdbc.exceptions.MySQLDataException;
 
 /**
  * @author blakawk, Dr.Nism
@@ -53,7 +52,7 @@ public class MySQL5PlayerWorldBanDAO extends PlayerWorldBanDAO {
 			rs.close();
 			stmt.close();
 		}
-		catch (SQLDataException mde) {
+		catch (MySQLDataException mde) {
 		}
 		catch (Exception e) {
 			log.error("cannot load world ban for player #" + player.getObjectId());
@@ -92,7 +91,7 @@ public class MySQL5PlayerWorldBanDAO extends PlayerWorldBanDAO {
 				result = false;
 			}
 		}
-		catch (SQLDataException mde) {
+		catch (MySQLDataException mde) {
 			result = false;
 		}
 		catch (Exception e) {
@@ -118,7 +117,7 @@ public class MySQL5PlayerWorldBanDAO extends PlayerWorldBanDAO {
 			stmt.execute();
 			stmt.close();
 		}
-		catch (SQLDataException mde) {
+		catch (MySQLDataException mde) {
 		}
 		catch (Exception e) {
 			log.error("cannot delete world ban for player #" + playerObjId);

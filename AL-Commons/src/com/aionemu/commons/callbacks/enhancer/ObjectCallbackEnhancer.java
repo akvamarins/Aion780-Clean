@@ -34,72 +34,46 @@ public class ObjectCallbackEnhancer extends CallbackClassFileTransformer {
 
         @Override
         protected byte[] transformClass(ClassLoader loader, byte[] clazzBytes) throws Exception {
-                CtClass clazz = null;
-                try {
-                        // RETAIL FIX for Java 17: Proper ClassPool with loader hierarchy
-                        ClassPool cp = new ClassPool(ClassPool.getDefault());
-                        cp.appendSystemPath();
-                        if (loader != null) {
-                            cp.appendClassPath(new LoaderClassPath(loader));
-                        }
-                        clazz = cp.makeClass(new ByteArrayInputStream(clazzBytes), false);
-                        
-                        // Java 17: CtClass can be frozen after first load
-                        if (clazz.isFrozen()) {
-                            clazz.defrost();
-                        }
+                // FIX for Java 17: use parent ClassPool with system path
+                ClassPool cp = new ClassPool(ClassPool.getDefault());
+                cp.appendSystemPath();
+                if (loader != null) {
+                    cp.appendClassPath(new LoaderClassPath(loader));
+                }
+                CtClass clazz = cp.makeClass(new ByteArrayInputStream(clazzBytes), false);
 
-                        Set<CtMethod> methdosToEnhance = new HashSet<CtMethod>();
+                Set<CtMethod> methdosToEnhance = new HashSet<CtMethod>();
 
-                        for (CtMethod method : clazz.getDeclaredMethods()) {
-                                if (!isEnhanceable(method)) {
-                                        continue;
+                for (CtMethod method : clazz.getDeclaredMethods()) {
+                        if (!isEnhanceable(method)) {
+                                continue;
+                        }
+                        methdosToEnhance.add(method);
+                }
+
+                if (!methdosToEnhance.isEmpty()) {
+                        CtClass eo = cp.get(EnhancedObject.class.getName());
+                        for (CtClass i : clazz.getInterfaces()) {
+                                if (i.getName().equals(eo.getName())) {
+                                        // already enhanced
+                                        clazz.detach();
+                                        return null;
                                 }
-                                methdosToEnhance.add(method);
                         }
 
-                        if (!methdosToEnhance.isEmpty()) {
-                                // RETAIL FIX: Check if already implements EnhancedObject BEFORE enhancing
-                                // On Java 17, class can be loaded twice (AppClassLoader + Instrument)
-                                CtClass eo = cp.get(EnhancedObject.class.getName());
-                                for (CtClass i : clazz.getInterfaces()) {
-                                        if (i.getName().equals(eo.getName())) {
-                                                // RETAIL BEHAVIOR: Already enhanced - return null to skip
-                                                // Original retail threw WTF??? but that was bug on Java 17
-                                                // Fixed retail: just skip second enhance, don't throw
-                                                log.debug("[RETAIL JAVA17] Class " + clazz.getName() + " already implements EnhancedObject, skipping re-enhance.");
-                                                if (clazz != null) clazz.detach();
-                                                return null;
-                                        }
-                                }
+                        log.info("[JAVA17 FIX] Enhancing class: " + clazz.getName());
+                        writeEnhancedObjectImpl(clazz);
 
-                                log.info("[RETAIL JAVA17] Enhancing class: " + clazz.getName());
-                                writeEnhancedObjectImpl(clazz);
+                        for (CtMethod method : methdosToEnhance) {
+                                log.debug("Enhancing method: " + method.getLongName());
+                                enhanceMethod(method);
+                        }
 
-                                for (CtMethod method : methdosToEnhance) {
-                                        log.debug("Enhancing method: " + method.getLongName());
-                                        enhanceMethod(method);
-                                }
-
-                                byte[] bytecode = clazz.toBytecode();
-                                clazz.detach();
-                                return bytecode;
-                        } else {
-                                if (clazz != null) clazz.detach();
-                                return null;
-                        }
-                } catch (Throwable t) {
-                        // RETAIL FIX: Never crash GS for AggroList double-load
-                        if (clazz != null) {
-                            try { clazz.detach(); } catch (Exception e) {}
-                        }
-                        String msg = t.getMessage();
-                        if (msg != null && (msg.contains("EnhancedObject") || msg.contains("already implements") || msg.contains("frozen"))) {
-                            log.debug("Skipping already enhanced/frozen class (Java 17 double-load): " + t.getMessage());
-                            return null;
-                        }
-                        // For other errors, log and return null - retail doesn't halt for single class failure
-                        log.warn("[RETAIL JAVA17] Failed to enhance class " + (clazz != null ? clazz.getName() : "unknown") + ", skipping: " + t.getMessage());
+                        byte[] bytecode = clazz.toBytecode();
+                        clazz.detach();
+                        return bytecode;
+                } else {
+                        clazz.detach();
                         return null;
                 }
         }

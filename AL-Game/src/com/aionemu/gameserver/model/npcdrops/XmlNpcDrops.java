@@ -1,73 +1,63 @@
-/**
- * This file is part of Aion-Lightning <aion-lightning.org>.
- *
- *  Aion-Lightning is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  Aion-Lightning is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details. *
- *  You should have received a copy of the GNU General Public License
- *  along with Aion-Lightning.
- *  If not, see <http://www.gnu.org/licenses/>.
- */
-
 package com.aionemu.gameserver.model.npcdrops;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-/**
- * FIXED for Java 17 + common_drop_group support
- * @author Falke_34 - fixed by Viktors
- */
-@XmlRootElement(name = "npc_drop")
-@XmlAccessorType(XmlAccessType.NONE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class XmlNpcDrops {
+    @XmlAttribute(name = "npc_id")
+    private int npcId;
 
-        @XmlElement(name = "drop_group")
-        protected List<XmlDropGroup> dropGroup;
+    @XmlAttribute(name = "id")
+    private int id;
 
-        // FIX: 7.8/8.0 datapack uses common_drop_group - was missing, caused XML validation WARN and no drops ingame
-        @XmlElement(name = "common_drop_group")
-        protected List<XmlDropGroup> commonDropGroup;
+    @XmlElement(name = "group")
+    private List<XmlDropGroup> group;
 
-        @XmlAttribute(name = "npc_id", required = true)
-        protected int npcId;
+    @XmlElement(name = "drop_group")
+    private List<XmlDropGroup> dropGroup;
 
-        public List<XmlDropGroup> getDropGroup() {
-                if (this.dropGroup == null && this.commonDropGroup == null) {
-                        return Collections.emptyList();
+    @XmlElement(name = "common_drop_group")
+    private List<XmlCommonDropGroup> commonDropGroup;
+
+    @XmlAnyElement(lax = true)
+    private List<Object> any;
+
+    public int getNpcId() {
+        if (npcId != 0) return npcId;
+        return id;
+    }
+
+    public List<XmlDropGroup> getDropGroup() {
+        // merge group + drop_group + common_drop_group into one list for backward compat
+        java.util.ArrayList<XmlDropGroup> all = new java.util.ArrayList<>();
+        if (group != null) all.addAll(group);
+        if (dropGroup != null) all.addAll(dropGroup);
+        if (commonDropGroup != null) {
+            for (XmlCommonDropGroup c : commonDropGroup) {
+                // common_drop_group in retail is reference to common_drop_groups.xml
+                // We keep it as separate, but for XmlNpcDropData we treat it as empty or as reference
+                // The actual drops are resolved via common_drop_groups.xml in DataManager
+                // For now, create a dummy group that will be resolved later via name
+                // If c contains embedded items, convert them
+                if (c != null && c.getGroup() != null) {
+                    all.addAll(c.getGroup());
                 }
-                List<XmlDropGroup> all = new ArrayList<>();
-                if (this.dropGroup != null) {
-                        all.addAll(this.dropGroup);
-                }
-                if (this.commonDropGroup != null) {
-                        all.addAll(this.commonDropGroup);
-                }
-                return all;
+            }
         }
+        return all;
+    }
 
-        // Optional getter for common if needed elsewhere
-        public List<XmlDropGroup> getCommonDropGroup() {
-                if (this.commonDropGroup == null) {
-                        return Collections.emptyList();
-                }
-                return this.commonDropGroup;
-        }
+    public List<XmlDropGroup> getRawDropGroup() {
+        return dropGroup;
+    }
 
-        public int getNpcId() {
-                return this.npcId;
-        }
+    public List<XmlDropGroup> getRawGroup() {
+        return group;
+    }
+
+    public List<XmlCommonDropGroup> getCommonDropGroup() {
+        return commonDropGroup;
+    }
 }

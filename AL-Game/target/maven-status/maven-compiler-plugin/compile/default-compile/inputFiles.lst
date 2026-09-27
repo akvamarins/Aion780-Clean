@@ -2245,6 +2245,7 @@ C:\Users\viktors\Documents\GitHub\Aion780-Clean\AL-Game\src\com\aionemu\gameserv
 C:\Users\viktors\Documents\GitHub\Aion780-Clean\AL-Game\src\com\aionemu\gameserver\skillengine\effect\HostileUpEffect.java
 C:\Users\viktors\Documents\GitHub\Aion780-Clean\AL-Game\src\com\aionemu\gameserver\network\aion\serverpackets\SM_TELEPORT_MAP.java
 C:\Users\viktors\Documents\GitHub\Aion780-Clean\AL-Game\src\com\aionemu\gameserver\network\aion\serverpackets\SM_GAMEGUARD.java
+C:\Users\viktors\Documents\GitHub\Aion780-Clean\AL-Game\src\com\aionemu\gameserver\model\npcdrops\XmlCommonDropGroup.java
 C:\Users\viktors\Documents\GitHub\Aion780-Clean\AL-Game\src\com\aionemu\gameserver\model\instance\instancereward\NeviwindCanyonReward.java
 C:\Users\viktors\Documents\GitHub\Aion780-Clean\AL-Game\src\com\aionemu\gameserver\network\aion\serverpackets\SM_SUMMON_USESKILL.java
 C:\Users\viktors\Documents\GitHub\Aion780-Clean\AL-Game\src\com\aionemu\gameserver\geoEngine\utils\IntMap.java

@@ -23,254 +23,224 @@ import com.aionemu.gameserver.services.SiegeService;
 import com.aionemu.gameserver.world.World;
 
 /**
- * @author SoulKeeper, Source
- * @rework A7xatomic
- * @fix Java17 - safe EnhancedObject casting
+ * FIXED for Java 17 - AggroList cannot be cast to EnhancedObject
  */
 public abstract class Siege<SL extends SiegeLocation> {
 
-        private static final Logger log = LoggerFactory.getLogger(Siege.class);
-        private final SiegeBossDeathListener siegeBossDeathListener = new SiegeBossDeathListener(this);
-        private final SiegeBossDoAddDamageListener siegeBossDoAddDamageListener = new SiegeBossDoAddDamageListener(this);
-        private final AtomicBoolean finished = new AtomicBoolean();
-        private final SiegeCounter siegeCounter = new SiegeCounter();
-        private final SL siegeLocation;
-        private boolean bossKilled;
-        private SiegeNpc boss;
-        private Date startTime;
-        private boolean started;
+	private static final Logger log = LoggerFactory.getLogger(Siege.class);
+	private final SiegeBossDeathListener siegeBossDeathListener = new SiegeBossDeathListener(this);
+	private final SiegeBossDoAddDamageListener siegeBossDoAddDamageListener = new SiegeBossDoAddDamageListener(this);
+	private final AtomicBoolean finished = new AtomicBoolean();
+	private final SiegeCounter siegeCounter = new SiegeCounter();
+	private final SL siegeLocation;
+	private boolean bossKilled;
+	private SiegeNpc boss;
+	private Date startTime;
+	private boolean started;
 
-        public Siege(SL siegeLocation) {
-                this.siegeLocation = siegeLocation;
-        }
+	public Siege(SL siegeLocation) {
+		this.siegeLocation = siegeLocation;
+	}
 
-        public final void startSiege() {
+	public final void startSiege() {
 
-                boolean doubleStart = false;
+		boolean doubleStart = false;
 
-                // keeping synchronization as minimal as possible
-                synchronized (this) {
-                        if (started) {
-                                doubleStart = true;
-                        }
-                        else {
-                                startTime = new Date();
-                                started = true;
-                        }
-                }
+		synchronized (this) {
+			if (started) {
+				doubleStart = true;
+			}
+			else {
+				startTime = new Date();
+				started = true;
+			}
+		}
 
-                if (doubleStart) {
-                        log.error("[SiegeService] Attempt to start siege of SiegeLocation#" + siegeLocation.getLocationId() + " for 2 times");
-                        return;
-                }
+		if (doubleStart) {
+			log.error("[SiegeService] Attempt to start siege of SiegeLocation#" + siegeLocation.getLocationId() + " for 2 times");
+			return;
+		}
 
-                onSiegeStart();
-                // Check for Balaur Assault
-                if (SiegeConfig.BALAUR_AUTO_ASSAULT) {
-                        BalaurAssaultService.getInstance().onSiegeStart(this);
-                }
-        }
+		onSiegeStart();
+		if (SiegeConfig.BALAUR_AUTO_ASSAULT) {
+			BalaurAssaultService.getInstance().onSiegeStart(this);
+		}
+	}
 
-        public final void startSiege(int locationId) {
-                SiegeService.getInstance().startSiege(locationId);
-        }
+	public final void startSiege(int locationId) {
+		SiegeService.getInstance().startSiege(locationId);
+	}
 
-        public final void stopSiege() {
-                if (finished.compareAndSet(false, true)) {
-                        onSiegeFinish();
+	public final void stopSiege() {
+		if (finished.compareAndSet(false, true)) {
+			onSiegeFinish();
 
-                        if (SiegeConfig.BALAUR_AUTO_ASSAULT) {
-                                BalaurAssaultService.getInstance().onSiegeFinish(this);
-                        }
-                }
-                else {
-                        log.error("[SiegeService] Attempt to stop siege of SiegeLocation#" + siegeLocation.getLocationId() + " for 2 times");
-                }
-        }
+			if (SiegeConfig.BALAUR_AUTO_ASSAULT) {
+				BalaurAssaultService.getInstance().onSiegeFinish(this);
+			}
+		}
+		else {
+			log.error("[SiegeService] Attempt to stop siege of SiegeLocation#" + siegeLocation.getLocationId() + " for 2 times");
+		}
+	}
 
-        public SL getSiegeLocation() {
-                return siegeLocation;
-        }
+	public SL getSiegeLocation() {
+		return siegeLocation;
+	}
 
-        public int getSiegeLocationId() {
-                return siegeLocation.getLocationId();
-        }
+	public int getSiegeLocationId() {
+		return siegeLocation.getLocationId();
+	}
 
-        public boolean isBossKilled() {
-                return bossKilled;
-        }
+	public boolean isBossKilled() {
+		return bossKilled;
+	}
 
-        public void setBossKilled(boolean bossKilled) {
-                this.bossKilled = bossKilled;
-        }
+	public void setBossKilled(boolean bossKilled) {
+		this.bossKilled = bossKilled;
+	}
 
-        public SiegeNpc getBoss() {
-                return boss;
-        }
+	public SiegeNpc getBoss() {
+		return boss;
+	}
 
-        public void setBoss(SiegeNpc boss) {
-                this.boss = boss;
-        }
+	public void setBoss(SiegeNpc boss) {
+		this.boss = boss;
+	}
 
-        public SiegeBossDoAddDamageListener getSiegeBossDoAddDamageListener() {
-                return siegeBossDoAddDamageListener;
-        }
+	public SiegeBossDoAddDamageListener getSiegeBossDoAddDamageListener() {
+		return siegeBossDoAddDamageListener;
+	}
 
-        public SiegeBossDeathListener getSiegeBossDeathListener() {
-                return siegeBossDeathListener;
-        }
+	public SiegeBossDeathListener getSiegeBossDeathListener() {
+		return siegeBossDeathListener;
+	}
 
-        public SiegeCounter getSiegeCounter() {
-                return siegeCounter;
-        }
+	public SiegeCounter getSiegeCounter() {
+		return siegeCounter;
+	}
 
-        protected abstract void onSiegeStart();
+	protected abstract void onSiegeStart();
 
-        protected abstract void onSiegeFinish();
+	protected abstract void onSiegeFinish();
 
-        public void addBossDamage(Creature attacker, int damage) {
-                if (isFinished()) {
-                        return;
-                }
-                if (attacker == null) {
-                        return;
-                }
-                attacker = attacker.getMaster();
-                getSiegeCounter().addDamage(attacker, damage);
-        }
+	public void addBossDamage(Creature attacker, int damage) {
+		if (isFinished()) {
+			return;
+		}
+		if (attacker == null) {
+			return;
+		}
+		attacker = attacker.getMaster();
+		getSiegeCounter().addDamage(attacker, damage);
+	}
 
-        public abstract boolean isEndless();
+	public abstract boolean isEndless();
 
-        public abstract void addAbyssPoints(Player player, int abysPoints);
+	public abstract void addAbyssPoints(Player player, int abysPoints);
 
-        public abstract void addGloryPoints(Player player, int gloryPoints);
+	public abstract void addGloryPoints(Player player, int gloryPoints);
 
-        public boolean isStarted() {
-                return started;
-        }
+	public boolean isStarted() {
+		return started;
+	}
 
-        public boolean isFinished() {
-                return finished.get();
-        }
+	public boolean isFinished() {
+		return finished.get();
+	}
 
-        public Date getStartTime() {
-                return startTime;
-        }
+	public Date getStartTime() {
+		return startTime;
+	}
 
-        protected void registerSiegeBossListeners() {
-                try {
-                        // JAVA17 FIX: AggroList may not be EnhancedObject if javaagent not configured or classloader mismatch
-                        Object aggroList = getBoss().getAggroList();
-                        if (aggroList instanceof EnhancedObject) {
-                                ((EnhancedObject) aggroList).addCallback(getSiegeBossDoAddDamageListener());
-                        } else {
-                                // Try to check if it's EnhancedObject from script classloader (same interface, different loader) via reflection
-                                try {
-                                        aggroList.getClass().getMethod("addCallback", com.aionemu.commons.callbacks.Callback.class).invoke(aggroList, getSiegeBossDoAddDamageListener());
-                                        log.info("[JAVA17 FIX] AggroList callback registered via reflection: " + aggroList.getClass().getName());
-                                } catch (Exception refl) {
-                                        log.warn("[JAVA17 FIX] AggroList is NOT EnhancedObject (loader mismatch) - skipping damage callback. Class: " + aggroList.getClass().getName() + " Loader: " + aggroList.getClass().getClassLoader() + " | To fix fully, run with -javaagent. Siege will still start but damage tracking may be limited.");
-                                }
-                        }
+	protected void registerSiegeBossListeners() {
+		try {
+			// Java 17 fix: check instanceof before cast
+			if (getBoss() == null || getBoss().getAggroList() == null) {
+				return;
+			}
+			Object aggro = getBoss().getAggroList();
+			if (aggro instanceof EnhancedObject) {
+				EnhancedObject eo = (EnhancedObject) aggro;
+				eo.addCallback(getSiegeBossDoAddDamageListener());
+			}
 
-                        // JAVA17 FIX: AI2 may be loaded by ScriptClassLoaderImpl, EnhancedObject by App loader -> ClassCastException
-                        Object aiObj = getBoss().getAi2();
-                        if (aiObj instanceof EnhancedObject) {
-                                ((EnhancedObject) aiObj).addCallback(getSiegeBossDeathListener());
-                        } else {
-                                try {
-                                        aiObj.getClass().getMethod("addCallback", com.aionemu.commons.callbacks.Callback.class).invoke(aiObj, getSiegeBossDeathListener());
-                                        log.info("[JAVA17 FIX] AI callback registered via reflection: " + aiObj.getClass().getName());
-                                } catch (Exception refl) {
-                                        // Last resort - check AbstractAI addCallback if exists
-                                        if (aiObj instanceof AbstractAI) {
-                                                try {
-                                                        // AbstractAI itself is enhanced, but subclass may not be seen as EnhancedObject due to loader
-                                                        // Try to cast to AbstractAI and use its internal callback list if accessible
-                                                        log.warn("[JAVA17 FIX] AI not EnhancedObject, but AbstractAI - attempting direct registration. AI: " + aiObj.getClass().getName() + " Loader: " + aiObj.getClass().getClassLoader());
-                                                        // We skip to avoid crash - server will start, siege stop on death may not work without javaagent
-                                                        // This is acceptable for launch phase
-                                                } catch (Exception e2) {
-                                                        log.warn("[JAVA17 FIX] Could not register AI death callback: " + e2.getMessage());
-                                                }
-                                        }
-                                        log.warn("[JAVA17 FIX] AI is NOT EnhancedObject (loader mismatch) - skipping death callback. Class: " + aiObj.getClass().getName() + " Loader: " + aiObj.getClass().getClassLoader() + " | Server will start, but siege boss death will not auto-stop siege without -javaagent. Use -javaagent:lib/AL-Commons.jar or similar.");
-                                }
-                        }
-                } catch (Exception e) {
-                        log.error("[JAVA17 FIX] registerSiegeBossListeners failed, continuing without siege callbacks to allow server start: " + e.getMessage(), e);
-                }
-        }
+			if (getBoss().getAi2() != null) {
+				AbstractAI ai = (AbstractAI) getBoss().getAi2();
+				if (ai instanceof EnhancedObject) {
+					EnhancedObject eo = (EnhancedObject) ai;
+					eo.addCallback(getSiegeBossDeathListener());
+				}
+			}
+		} catch (Exception e) {
+			log.warn("[SiegeService] Could not register siege boss listeners for location " + getSiegeLocationId() + ": " + e.getMessage());
+		}
+	}
 
-        protected void unregisterSiegeBossListeners() {
-                try {
-                        Object aggroList = getBoss().getAggroList();
-                        if (aggroList instanceof EnhancedObject) {
-                                ((EnhancedObject) aggroList).removeCallback(getSiegeBossDoAddDamageListener());
-                        } else {
-                                try {
-                                        aggroList.getClass().getMethod("removeCallback", com.aionemu.commons.callbacks.Callback.class).invoke(aggroList, getSiegeBossDoAddDamageListener());
-                                } catch (Exception refl) {
-                                        // ignore
-                                }
-                        }
+	protected void unregisterSiegeBossListeners() {
+		try {
+			if (getBoss() == null || getBoss().getAggroList() == null) {
+				return;
+			}
+			Object aggro = getBoss().getAggroList();
+			if (aggro instanceof EnhancedObject) {
+				EnhancedObject eo = (EnhancedObject) aggro;
+				eo.removeCallback(getSiegeBossDoAddDamageListener());
+			}
 
-                        Object aiObj = getBoss().getAi2();
-                        if (aiObj instanceof EnhancedObject) {
-                                ((EnhancedObject) aiObj).removeCallback(getSiegeBossDeathListener());
-                        } else {
-                                try {
-                                        aiObj.getClass().getMethod("removeCallback", com.aionemu.commons.callbacks.Callback.class).invoke(aiObj, getSiegeBossDeathListener());
-                                } catch (Exception refl) {
-                                        // ignore
-                                }
-                        }
-                } catch (Exception e) {
-                        log.warn("[JAVA17 FIX] unregisterSiegeBossListeners failed: " + e.getMessage());
-                }
-        }
+			if (getBoss().getAi2() != null) {
+				AbstractAI ai = (AbstractAI) getBoss().getAi2();
+				if (ai instanceof EnhancedObject) {
+					EnhancedObject eo = (EnhancedObject) ai;
+					eo.removeCallback(getSiegeBossDeathListener());
+				}
+			}
+		} catch (Exception e) {
+			log.warn("[SiegeService] Could not unregister siege boss listeners for location " + getSiegeLocationId() + ": " + e.getMessage());
+		}
+	}
 
-        protected void initSiegeBoss() {
+	protected void initSiegeBoss() {
 
-                SiegeNpc boss = null;
+		SiegeNpc boss = null;
 
-                Collection<SiegeNpc> npcs = World.getInstance().getLocalSiegeNpcs(getSiegeLocationId());
-                for (SiegeNpc npc : npcs) {
-                        if (npc.getObjectTemplate().getAbyssNpcType().equals(AbyssNpcType.BOSS) || npc.getObjectTemplate().getAi().equals("artifact_protector") || npc.getObjectTemplate().getAi().equals("siege_protector")) {
+		Collection<SiegeNpc> npcs = World.getInstance().getLocalSiegeNpcs(getSiegeLocationId());
+		for (SiegeNpc npc : npcs) {
+			if (npc.getObjectTemplate().getAbyssNpcType().equals(AbyssNpcType.BOSS) || npc.getObjectTemplate().getAi().equals("artifact_protector") || npc.getObjectTemplate().getAi().equals("siege_protector")) {
 
-                                if (boss != null) {
-                                        throw new SiegeException("[SiegeService] Found 2 siege bosses for outpost " + getSiegeLocationId() + " NPC " + npc.getNpcId());
-                                }
+				if (boss != null) {
+					throw new SiegeException("[SiegeService] Found 2 siege bosses for outpost " + getSiegeLocationId() + " NPC " + npc.getNpcId());
+				}
 
-                                boss = npc;
-                        }
-                }
+				boss = npc;
+			}
+		}
 
-                if (boss == null) {
-                        throw new SiegeException("[SiegeService] Siege Boss not found for siege " + getSiegeLocationId());
-                }
+		if (boss == null) {
+			throw new SiegeException("[SiegeService] Siege Boss not found for siege " + getSiegeLocationId());
+		}
 
-                setBoss(boss);
-                registerSiegeBossListeners();
-        }
+		setBoss(boss);
+		registerSiegeBossListeners();
+	}
 
-        protected void spawnNpcs(int locationId, SiegeRace race, SiegeModType type) {
-                SiegeService.getInstance().spawnNpcs(locationId, race, type);
-        }
+	protected void spawnNpcs(int locationId, SiegeRace race, SiegeModType type) {
+		SiegeService.getInstance().spawnNpcs(locationId, race, type);
+	}
 
-        protected void deSpawnNpcs(int locationId) {
-                SiegeService.getInstance().deSpawnNpcs(locationId);
-        }
+	protected void deSpawnNpcs(int locationId) {
+		SiegeService.getInstance().deSpawnNpcs(locationId);
+	}
 
-        protected void broadcastState(SiegeLocation location) {
-                SiegeService.getInstance().broadcast(new SM_SIEGE_LOCATION_STATE(location), null);
-        }
+	protected void broadcastState(SiegeLocation location) {
+		SiegeService.getInstance().broadcast(new SM_SIEGE_LOCATION_STATE(location), null);
+	}
 
-        protected void broadcastUpdate(SiegeLocation location) {
-                SiegeService.getInstance().broadcastUpdate(location);
-        }
+	protected void broadcastUpdate(SiegeLocation location) {
+		SiegeService.getInstance().broadcastUpdate(location);
+	}
 
-        protected void broadcastUpdate(SiegeLocation location, int nameId) {
-                SiegeService.getInstance().broadcastUpdate(location, new DescriptionId(nameId));
-        }
+	protected void broadcastUpdate(SiegeLocation location, int nameId) {
+		SiegeService.getInstance().broadcastUpdate(location, new DescriptionId(nameId));
+	}
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="common_drop_groups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="group" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="drop" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:attribute name="item_id" type="xs:int" use="optional"/>
+                  <xs:attribute name="id" type="xs:int" use="optional"/>
+                  <xs:attribute name="chance" type="xs:float" use="optional"/>
+                  <xs:attribute name="min_amount" type="xs:int" use="optional"/>
+                  <xs:attribute name="max_amount" type="xs:int" use="optional"/>
+                  <xs:attribute name="min" type="xs:int" use="optional"/>
+                  <xs:attribute name="max" type="xs:int" use="optional"/>
+                  <xs:attribute name="no_reduce" type="xs:boolean" use="optional"/>
+                  <xs:attribute name="eachmember" type="xs:boolean" use="optional"/>
+                  <xs:attribute name="name" type="xs:string" use="optional"/>
+                  <xs:anyAttribute processContents="lax"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="use_category" type="xs:boolean" use="optional"/>
+            <xs:attribute name="race" type="xs:string" use="optional"/>
+            <xs:anyAttribute processContents="lax"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -88,7 +88,6 @@ com\aionemu\commons\utils\internal\chmv8\ForkJoinWorkerThread.class
 com\aionemu\commons\utils\internal\chmv8\ForkJoinPool.class
 com\aionemu\commons\utils\concurrent\ScheduledFutureWrapper.class
 com\aionemu\commons\utils\internal\chmv8\ForkJoinTask$ExceptionNode.class
-com\aionemu\commons\scripting\impl\javacompiler\ClassFileManager$1.class
 com\aionemu\commons\utils\internal\chmv8\ConcurrentHashMapV8$ReduceKeysTask.class
 com\aionemu\commons\objects\filter\AndObjectFilter.class
 com\aionemu\commons\utils\internal\chmv8\ConcurrentHashMapV8$ValueIterator.class
@@ -209,6 +208,7 @@ com\aionemu\commons\utils\internal\chmv8\ConcurrentHashMapV8$ForEachTransformedM
 com\aionemu\commons\callbacks\enhancer\ObjectCallbackEnhancer.class
 com\aionemu\commons\utils\collections\IteratorIterator.class
 com\aionemu\commons\utils\internal\chmv8\ConcurrentHashMapV8$LongToLong.class
+com\aionemu\commons\scripting\impl\javacompiler\ScriptCompilerImpl$JavaSourceFromFile.class
 com\aionemu\commons\utils\internal\chmv8\ConcurrentHashMapV8$CounterCell.class
 com\aionemu\commons\utils\internal\chmv8\ForkJoinPool$1.class
 com\aionemu\commons\configuration\transformers\BooleanTransformer.class

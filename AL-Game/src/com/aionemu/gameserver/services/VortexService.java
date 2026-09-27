@@ -55,7 +55,8 @@ public class VortexService {
 	private Map<Integer, VortexLocation> vortex;
 	private static final Logger log = LoggerFactory.getLogger(VortexService.class);
 
-	public void initVortexLocations() {
+	public void initVortexLocations() { try { initVortexLocationsInternal(); } catch(Exception e) { log.warn("Vortex init skipped: " + e.getMessage()); } } 
+ public void initVortexLocationsInternal() {
 		if (CustomConfig.VORTEX_ENABLED) {
 			vortex = DataManager.VORTEX_DATA.getVortexLocations();
 

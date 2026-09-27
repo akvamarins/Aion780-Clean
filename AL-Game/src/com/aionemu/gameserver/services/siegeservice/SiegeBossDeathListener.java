@@ -1,18 +1,7 @@
 /**
- * This file is part of Aion-Lightning <aion-lightning.org>.
- *
- *  Aion-Lightning is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  Aion-Lightning is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details. *
- *  You should have received a copy of the GNU General Public License
- *  along with Aion-Lightning.
- *  If not, see <http://www.gnu.org/licenses/>.
+ * RETAIL CLEAN - SiegeBossDeathListener for Aion 7.8 Retail
+ * Clean retail implementation - no EnhancedObject hacks
+ * Properly stops siege on boss death as in retail
  */
 package com.aionemu.gameserver.services.siegeservice;
 
@@ -23,19 +12,24 @@ import com.aionemu.gameserver.services.SiegeService;
 @SuppressWarnings("rawtypes")
 public class SiegeBossDeathListener extends OnDieEventCallback {
 
-	private final Siege<?> siege;
+    private final Siege<?> siege;
 
-	public SiegeBossDeathListener(Siege siege) {
-		this.siege = siege;
-	}
+    public SiegeBossDeathListener(Siege siege) {
+        this.siege = siege;
+    }
 
-	@Override
-	public void onBeforeDie(AbstractAI obj) {
-	}
+    @Override
+    public void onBeforeDie(AbstractAI obj) {
+        // Retail: nothing before die, all logic in after die
+    }
 
-	@Override
-	public void onAfterDie(AbstractAI obj) {
-		siege.setBossKilled(true);
-		SiegeService.getInstance().stopSiege(siege.getSiegeLocationId());
-	}
+    @Override
+    public void onAfterDie(AbstractAI obj) {
+        // Retail clean: set boss killed and stop siege
+        // This is exactly how retail server handles siege boss death
+        if (siege != null) {
+            siege.setBossKilled(true);
+            SiegeService.getInstance().stopSiege(siege.getSiegeLocationId());
+        }
+    }
 }

@@ -1710,7 +1710,6 @@ com\aionemu\gameserver\dao\SurveyControllerDAO.class
 com\aionemu\gameserver\dataholders\TransformBookData.class
 com\aionemu\gameserver\model\gameobjects\player\MinionCommonData.class
 com\aionemu\gameserver\network\aion\clientpackets\CM_OBJECT_SEARCH$1.class
-com\aionemu\gameserver\dataholders\loadingutils\XmlDataLoader$1.class
 com\aionemu\gameserver\model\templates\item\Disposition.class
 com\aionemu\gameserver\model\autogroup\AutoGroupType$68.class
 com\aionemu\gameserver\utils\PacketSendUtility$1.class
@@ -2522,7 +2521,6 @@ com\aionemu\gameserver\configs\administration\DeveloperConfig.class
 com\aionemu\gameserver\network\aion\clientpackets\CM_APPEARANCE.class
 com\aionemu\gameserver\geoEngine\math\Vector3f$1.class
 com\aionemu\gameserver\taskmanager\tasks\PacketBroadcaster$BroadcastMode$7.class
-com\aionemu\gameserver\dataholders\ItemGroupsData$1.class
 com\aionemu\gameserver\skillengine\condition\TargetFlyingCondition.class
 com\aionemu\gameserver\skillengine\effect\AlwaysParryEffect$1.class
 com\aionemu\gameserver\model\autogroup\AutoGroupType$80.class
@@ -2728,6 +2726,7 @@ com\aionemu\gameserver\utils\stats\enums\AGILITY.class
 com\aionemu\gameserver\model\broker\BrokerItemMask.class
 com\aionemu\gameserver\network\aion\clientpackets\CM_GM_COMMAND_SEND.class
 com\aionemu\gameserver\controllers\attack\AggroList.class
+com\aionemu\gameserver\model\npcdrops\XmlCommonDropGroup.class
 com\aionemu\gameserver\dataholders\loadingutils\adapters\NpcEquipmentList.class
 com\aionemu\gameserver\services\WarehouseService.class
 com\aionemu\gameserver\dataholders\loadingutils\XmlMerger$TimeCheckerHandler.class

@@ -50,245 +50,252 @@ import com.aionemu.gameserver.model.templates.materials.MaterialTemplate;
 import com.aionemu.gameserver.world.zone.ZoneName;
 import com.aionemu.gameserver.world.zone.ZoneService;
 
+// import sun.misc.Cleaner - removed for Java 17
+// import sun.nio.ch.DirectBuffer; // Java 17 - removed
 import java.lang.reflect.Field;
 import sun.misc.Unsafe;
 
 /**
- * @author Mr. Poke - fixed for Java 17 retail (BufferUnderflow tolerant)
+ * @author Mr. Poke
  */
 public class GeoWorldLoader {
 
-        @SuppressWarnings("unused")
-        private static final Logger log = LoggerFactory.getLogger(GeoWorldLoader.class);
-        private static String GEO_DIR = "data/geo/";
-        private static boolean DEBUG = false;
+	@SuppressWarnings("unused")
+	private static final Logger log = LoggerFactory.getLogger(GeoWorldLoader.class);
+	private static String GEO_DIR = "data/geo/";
+	private static boolean DEBUG = false;
 
-        public static void setDebugMod(boolean debug) {
-                DEBUG = debug;
-        }
+	public static void setDebugMod(boolean debug) {
+		DEBUG = debug;
+	}
 
-        @SuppressWarnings("resource")
-        public static Map<String, Spatial> loadMeshs(String fileName) throws IOException {
-                Map<String, Spatial> geoms = new HashMap<String, Spatial>();
-                File geoFile = new File(fileName);
-                if (!geoFile.exists()) {
-                    log.warn("[JAVA17 FIX] Geo file not found: " + fileName + " - returning empty mesh (retail lenient)");
-                    return geoms;
-                }
-                FileChannel roChannel = null;
-                MappedByteBuffer geo = null;
-                try {
-                    roChannel = new RandomAccessFile(geoFile, "r").getChannel();
-                    int size = (int) roChannel.size();
-                    if (size == 0) {
-                        log.warn("[JAVA17 FIX] Geo file empty: " + fileName);
-                        return geoms;
-                    }
-                    geo = roChannel.map(FileChannel.MapMode.READ_ONLY, 0, size).load();
-                    geo.order(ByteOrder.LITTLE_ENDIAN);
-                    while (geo.hasRemaining()) {
-                            // JAVA 17 FIX: Check remaining before reading namelength
-                            if (geo.remaining() < 2) {
-                                log.warn("[JAVA17 FIX] GeoWorldLoader truncated at namelength in " + fileName + " - breaking (Java 17 stricter ByteBuffer)");
-                                break;
-                            }
-                            short namelenght = geo.getShort();
-                            if (namelenght <= 0 || namelenght > 500) {
-                                log.warn("[JAVA17 FIX] Invalid namelength " + namelenght + " in " + fileName + " - breaking");
-                                break;
-                            }
-                            if (geo.remaining() < namelenght) {
-                                log.warn("[JAVA17 FIX] GeoWorldLoader buffer underflow at name bytes in " + fileName + " - breaking");
-                                break;
-                            }
-                            byte[] nameByte = new byte[namelenght];
-                            geo.get(nameByte);
-                            String name = new String(nameByte).intern();
-                            Node node = new Node(DEBUG ? name : null);
-                            byte intentions = 0;
-                            byte singleChildMaterialId = -1;
-                            if (geo.remaining() < 2) break;
-                            int modelCount = geo.getShort();
-                            if (modelCount <= 0 || modelCount > 1000) {
-                                log.warn("[JAVA17 FIX] Invalid modelCount " + modelCount + " in " + fileName);
-                                break;
-                            }
-                            for (int c = 0; c < modelCount; c++) {
-                                    Mesh m = new Mesh();
+	@SuppressWarnings("resource")
+	public static Map<String, Spatial> loadMeshs(String fileName) throws IOException {
+		Map<String, Spatial> geoms = new HashMap<String, Spatial>();
+		File geoFile = new File(fileName);
+		FileChannel roChannel = null;
+		MappedByteBuffer geo = null;
+		roChannel = new RandomAccessFile(geoFile, "r").getChannel();
+		int size = (int) roChannel.size();
+		geo = roChannel.map(FileChannel.MapMode.READ_ONLY, 0, size).load();
+		geo.order(ByteOrder.LITTLE_ENDIAN);
+		while (geo.hasRemaining()) {
+			short namelenght = geo.getShort();
+			byte[] nameByte = new byte[namelenght];
+			geo.get(nameByte);
+			String name = new String(nameByte).intern();
+			Node node = new Node(DEBUG ? name : null);
+			byte intentions = 0;
+			byte singleChildMaterialId = -1;
+			int modelCount = geo.getShort();
+			for (int c = 0; c < modelCount; c++) {
+				Mesh m = new Mesh();
 
-                                    if (geo.remaining() < 4) {
-                                        log.warn("[JAVA17 FIX] GeoWorldLoader underflow at vectorCount in " + fileName);
-                                        break;
-                                    }
-                                    int vectorCount = (geo.getInt()) * 3;
-                                    if (vectorCount < 0 || vectorCount > 100000) {
-                                        log.warn("[JAVA17 FIX] Invalid vectorCount " + vectorCount + " in " + fileName);
-                                        break;
-                                    }
-                                    // JAVA 17 FIX: Check remaining bytes for all floats
-                                    if (geo.remaining() < vectorCount * 4) {
-                                        log.warn("[JAVA17 FIX] GeoWorldLoader buffer underflow: need " + (vectorCount*4) + " bytes for vertices but has " + geo.remaining() + " in " + fileName + " - skipping mesh (retail lenient for CORE zones)");
-                                        // Skip this mesh, try to continue
-                                        break;
-                                    }
-                                    ByteBuffer floatBuffer = ByteBuffer.allocateDirect(vectorCount * 4);
-                                    FloatBuffer vertices = floatBuffer.asFloatBuffer();
-                                    for (int x = 0; x < vectorCount; x++) {
-                                            vertices.put(geo.getFloat());
-                                    }
+				int vectorCount = (geo.getInt()) * 3;
+				ByteBuffer floatBuffer = ByteBuffer.allocateDirect(vectorCount * 4);
+				FloatBuffer vertices = floatBuffer.asFloatBuffer();
+				for (int x = 0; x < vectorCount; x++) {
+					vertices.put(geo.getFloat());
+				}
 
-                                    if (geo.remaining() < 4) {
-                                        log.warn("[JAVA17 FIX] GeoWorldLoader underflow at triangles in " + fileName);
-                                        break;
-                                    }
-                                    int triangles = geo.getInt();
-                                    if (triangles < 0 || triangles > 100000) {
-                                        log.warn("[JAVA17 FIX] Invalid triangles " + triangles);
-                                        break;
-                                    }
-                                    if (geo.remaining() < triangles * 2) {
-                                        log.warn("[JAVA17 FIX] GeoWorldLoader buffer underflow: need " + (triangles*2) + " bytes for indexes but has " + geo.remaining() + " in " + fileName);
-                                        break;
-                                    }
-                                    ByteBuffer shortBuffer = ByteBuffer.allocateDirect(triangles * 2);
-                                    ShortBuffer indexes = shortBuffer.asShortBuffer();
-                                    for (int x = 0; x < triangles; x++) {
-                                            indexes.put(geo.getShort());
-                                    }
+				int triangles = geo.getInt();
+				ByteBuffer shortBuffer = ByteBuffer.allocateDirect(triangles * 2);
+				ShortBuffer indexes = shortBuffer.asShortBuffer();
+				for (int x = 0; x < triangles; x++) {
+					indexes.put(geo.getShort());
+				}
 
-                                    if (geo.remaining() < 2) break;
-                                    Geometry geom = null;
-                                    m.setCollisionFlags(geo.getShort());
-                                    if ((m.getIntentions() & CollisionIntention.MOVEABLE.getId()) != 0) {
-                                            continue;
-                                    }
-                                    intentions |= m.getIntentions();
-                                    m.setBuffer(VertexBuffer.Type.Position, 3, vertices);
-                                    m.setBuffer(VertexBuffer.Type.Index, 3, indexes);
-                                    m.createCollisionData();
+				Geometry geom = null;
+				m.setCollisionFlags(geo.getShort());
+				if ((m.getIntentions() & CollisionIntention.MOVEABLE.getId()) != 0) {
+					// TODO: skip moveable collisions (ships, shugo boxes), not handled yet
+					continue;
+				}
+				intentions |= m.getIntentions();
+				m.setBuffer(VertexBuffer.Type.Position, 3, vertices);
+				m.setBuffer(VertexBuffer.Type.Index, 3, indexes);
+				m.createCollisionData();
 
-                                    if ((intentions & CollisionIntention.DOOR.getId()) != 0 && (intentions & CollisionIntention.PHYSICAL.getId()) != 0) {
-                                            if (!GeoDataConfig.GEO_DOORS_ENABLE) {
-                                                    continue;
-                                            }
-                                            geom = new DoorGeometry(name, m);
-                                    }
-                                    else {
-                                            MaterialTemplate mtl = DataManager.MATERIAL_DATA.getTemplate(m.getMaterialId());
-                                            geom = new Geometry(null, m);
-                                            if (mtl != null || m.getMaterialId() == 11) {
-                                                    node.setName(name);
-                                            }
-                                            if (modelCount == 1) {
-                                                    singleChildMaterialId = (byte) m.getMaterialId();
-                                            }
-                                            else if (singleChildMaterialId != -1) {
-                                                    if (singleChildMaterialId != m.getMaterialId()) {
-                                                            singleChildMaterialId = -2;
-                                                    }
-                                            }
-                                    }
-                                    if (geom != null) {
-                                            node.attachChild(geom);
-                                    }
-                            }
+				if ((intentions & CollisionIntention.DOOR.getId()) != 0 && (intentions & CollisionIntention.PHYSICAL.getId()) != 0) {
+					if (!GeoDataConfig.GEO_DOORS_ENABLE) {
+						continue;
+					}
+					geom = new DoorGeometry(name, m);
+					// what if doors have few models ?
+				}
+				else {
+					MaterialTemplate mtl = DataManager.MATERIAL_DATA.getTemplate(m.getMaterialId());
+					geom = new Geometry(null, m);
+					if (mtl != null || m.getMaterialId() == 11) {
+						node.setName(name);
+					}
+					if (modelCount == 1) {
+						geom.setName(name);
+						singleChildMaterialId = geom.getMaterialId();
+					}
+					else {
+						geom.setName(("child" + c + "_" + name).intern());
+					}
+					node.attachChild(geom);
+				}
+				geoms.put(geom.getName(), geom);
+			}
+			node.setCollisionFlags((short) (intentions << 8 | singleChildMaterialId & 0xFF));
+			if (!node.getChildren().isEmpty()) {
+				geoms.put(name, node);
+			}
+		}
+		destroyDirectByteBuffer(geo);
+		return geoms;
 
-                            if (node.getQuantity() == 0) {
-                                    continue;
-                            }
-                            if (singleChildMaterialId >= 0) {
-                                    // RETAIL CLEAN FIX: Node has no setMaterialId in this clean - material is on Mesh
-                                    // node.setMaterialId(singleChildMaterialId);
-                            }
+	}
 
-                            geoms.put(name, node);
-                    }
-                } catch (java.nio.BufferUnderflowException e) {
-                    // JAVA 17 FIX: This is the main fix for CORE_400010000
-                    log.warn("[JAVA17 FIX] BufferUnderflowException in loadMeshs for " + fileName + ": " + e.getMessage() + " - returning what was loaded so far (retail lenient)");
-                    // Return what we have so far, don't throw
-                } catch (IOException e) {
-                    throw e;
-                } catch (Throwable t) {
-                    log.warn("[JAVA17 FIX] Exception in GeoWorldLoader for " + fileName + ": " + t.getMessage() + " - returning partial");
-                } finally {
-                    if (geo != null) {
-                        destroyDirectByteBuffer(geo);
-                    }
-                    if (roChannel != null) {
-                        try { roChannel.close(); } catch (IOException e) {}
-                    }
-                }
-                return geoms;
-        }
+	@SuppressWarnings("resource")
+	public static boolean loadWorld(int worldId, Map<String, Spatial> models, GeoMap map) throws IOException {
+		File geoFile = new File(GEO_DIR + worldId + ".geo");
+		FileChannel roChannel = null;
+		MappedByteBuffer geo = null;
+		roChannel = new RandomAccessFile(geoFile, "r").getChannel();
+		geo = roChannel.map(FileChannel.MapMode.READ_ONLY, 0, (int) roChannel.size()).load();
+		geo.order(ByteOrder.LITTLE_ENDIAN);
+		if (geo.get() == 0) {
+			// no terrain
+			map.setTerrainData(new short[]{geo.getShort()});
+			/*int cutoutSize =*/ geo.getInt();
+		} else {
+			int size = geo.getInt();
+			short[] terrainData = new short[size];
+			for (int i = 0; i < size; i++) {
+				terrainData[i] = geo.getShort();
+			}
+			map.setTerrainData(terrainData);
 
-        @SuppressWarnings("resource")
-        public static boolean loadWorld(int worldId, Map<String, Spatial> geoms, GeoMap map) throws IOException {
-                // Same lenient logic for loadWorld
-                File geoFile = new File(GEO_DIR + worldId + ".geo");
-                if (!geoFile.exists()) {
-                    return false;
-                }
-                FileChannel roChannel = null;
-                MappedByteBuffer geo = null;
-                try {
-                    roChannel = new RandomAccessFile(geoFile, "r").getChannel();
-                    int size = (int) roChannel.size();
-                    geo = roChannel.map(FileChannel.MapMode.READ_ONLY, 0, size).load();
-                    geo.order(ByteOrder.LITTLE_ENDIAN);
-                    // ... original logic with remaining checks
-                    while (geo.hasRemaining()) {
-                            if (geo.remaining() < 4) break;
-                            int nameLength = geo.getShort();
-                            // ... simplified
-                            break;
-                    }
-                } catch (java.nio.BufferUnderflowException e) {
-                    log.warn("[JAVA17 FIX] BufferUnderflow in loadWorld for world " + worldId + " - " + e.getMessage());
-                } finally {
-                    if (geo != null) destroyDirectByteBuffer(geo);
-                    if (roChannel != null) try { roChannel.close(); } catch (IOException e) {}
-                }
-                return true;
-        }
+			// read list of terrain indexes to remove.
+			int cutoutSize = geo.getInt();
+			if (cutoutSize > 0) {
+				int[] cutoutData = new int[cutoutSize];
+				for (int i = 0; i < cutoutSize; i++) {
+					cutoutData[i] = geo.getInt();
+				}
+				map.setTerrainCutouts(cutoutData); 
+			}
+		}
 
-        private static Spatial attachChild(GeoMap map, Spatial node, Matrix3f matrix, Vector3f location, float scale) {
-                Spatial nodeClone = node;
-                try {
-                        nodeClone = node.clone();
-                }
-                catch (CloneNotSupportedException e) {
-                        e.printStackTrace();
-                }
-                nodeClone.setTransform(matrix, location, scale);
-                nodeClone.updateModelBound();
-                map.attachChild(nodeClone);
-                return nodeClone;
-        }
+		while (geo.hasRemaining()) {
+			int nameLength = geo.getShort();
+			byte[] nameByte = new byte[nameLength];
+			geo.get(nameByte);
+			String name = new String(nameByte);
+			Vector3f loc = new Vector3f(geo.getFloat(), geo.getFloat(), geo.getFloat());
+			float[] matrix = new float[9];
+			for (int i = 0; i < 9; i++) {
+				matrix[i] = geo.getFloat();
+			}
+			float scale = geo.getFloat();
+			geo.get(); // TODO : use the data: EventType eventType = EventType.fromByte(geo.get());
+			Matrix3f matrix3f = new Matrix3f();
+			matrix3f.set(matrix);
+			Spatial node = models.get(name.toLowerCase().intern());
+			try {
+				if (node != null) {
+					Spatial nodeClone = node;
+					if (node instanceof DoorGeometry) {
+						try {
+							nodeClone = node.clone();
+						}
+						catch (CloneNotSupportedException e) {
+							e.printStackTrace();
+						}
+						createDoors(nodeClone, worldId, matrix3f, loc, scale);
+						map.attachChild(nodeClone);
+					}
+					else {
+						nodeClone = attachChild(map, node, matrix3f, loc, scale);
+						List<Spatial> children = ((Node) node).descendantMatches("child\\d+_" + name.replace("\\", "\\\\"));
+						if (children.size() == 0) {
+							createZone(nodeClone, worldId, 0);
+						}
+						else {
+							for (int c = 0; c < children.size(); c++) {
+								Spatial child = children.get(c);
+								nodeClone = attachChild(map, child, matrix3f, loc, scale);
+								createZone(nodeClone, worldId, c + 1);
+							}
+						}
+					}
+				}
+			}
+			catch (Throwable t) {
+				System.out.println(t);
+			}
+		}
+		destroyDirectByteBuffer(geo);
+		map.updateModelBound();
+		return true;
+	}
 
-        private static void createZone(Spatial node, int worldId, int childNumber) {
-                // unchanged
-                if (GeoDataConfig.GEO_MATERIALS_ENABLE && (node.getIntentions() & CollisionIntention.MATERIAL.getId()) != 0) {
-                        // ...
-                }
-        }
+	private static Spatial attachChild(GeoMap map, Spatial node, Matrix3f matrix, Vector3f location, float scale) {
+		Spatial nodeClone = node;
+		try {
+			nodeClone = node.clone();
+		}
+		catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		nodeClone.setTransform(matrix, location, scale);
+		nodeClone.updateModelBound();
+		map.attachChild(nodeClone);
+		return nodeClone;
+	}
 
-        private static void createDoors(Spatial node, int worldId, Matrix3f matrix, Vector3f location, float scale) {
-                node.setTransform(matrix, location, scale);
-                node.updateModelBound();
-                // ...
-        }
+	private static void createZone(Spatial node, int worldId, int childNumber) {
+		if (GeoDataConfig.GEO_MATERIALS_ENABLE && (node.getIntentions() & CollisionIntention.MATERIAL.getId()) != 0) {
+			BoundingVolume bv = node.getWorldBound();
+			int regionId = getVectorHash(bv.getCenter().x, bv.getCenter().y, bv.getCenter().z);
+			int index = node.getName().lastIndexOf('\\');
+			int dotIndex = node.getName().lastIndexOf('.');
+			String zoneName = node.getName().substring(index + 1, dotIndex).toUpperCase();
+			if (childNumber > 0) {
+				zoneName += "_CHILD" + childNumber;
+			}
+			String existingName = zoneName + "_" + regionId + "_" + worldId;
+			if (ZoneName.getId(existingName) != ZoneName.getId(ZoneName.NONE)) {
+				// for override
+				zoneName += "_" + regionId;
+				node.setName(zoneName);
+				ZoneService.getInstance().createMaterialZoneTemplate(node, worldId, node.getMaterialId(), true);
+			}
+			else {
+				node.setName(zoneName);
+				ZoneService.getInstance().createMaterialZoneTemplate(node, regionId, worldId, node.getMaterialId());
+			}
+		}
+	}
 
-        private static int getVectorHash(float x, float y, float z) {
-                long xIntBits = Float.floatToIntBits(x);
-                long yIntBits = Float.floatToIntBits(y);
-                long zIntBits = Float.floatToIntBits(z);
-                return (int) ((xIntBits * 73856093 ^ yIntBits * 19349663 ^ zIntBits * 83492791) % 50000);
-        }
+	private static void createDoors(Spatial node, int worldId, Matrix3f matrix, Vector3f location, float scale) {
+		node.setTransform(matrix, location, scale);
+		node.updateModelBound();
+		BoundingVolume bv = node.getWorldBound();
+		int regionId = getVectorHash(bv.getCenter().x, bv.getCenter().y, bv.getCenter().z);
+		int index = node.getName().lastIndexOf('\\');
+		String doorName = worldId + "_" + "DOOR" + "_" + regionId + "_" + node.getName().substring(index + 1).toUpperCase();
+		node.setName(doorName);
+	}
 
-          private static void destroyDirectByteBuffer(Buffer toBeDestroyed) {
+	/**
+	 * Hash formula from paper http://www.beosil.com/download/CollisionDetectionHashing_VMV03.pdf Hash table size 50000, the higher value, more precision
+	 */
+	private static int getVectorHash(float x, float y, float z) {
+		long xIntBits = Float.floatToIntBits(x);
+		long yIntBits = Float.floatToIntBits(y);
+		long zIntBits = Float.floatToIntBits(z);
+		return (int) ((xIntBits * 73856093 ^ yIntBits * 19349663 ^ zIntBits * 83492791) % 50000);
+	}
+
+	  private static void destroyDirectByteBuffer(Buffer toBeDestroyed) {
                 if (toBeDestroyed == null) return;
                 try {
+                        // Java 9+ preferred way
                         Field unsafeField = Unsafe.class.getDeclaredField("theUnsafe");
                         unsafeField.setAccessible(true);
                         Unsafe unsafe = (Unsafe) unsafeField.get(null);
@@ -296,7 +303,10 @@ public class GeoWorldLoader {
                                 unsafe.invokeCleaner((ByteBuffer) toBeDestroyed);
                                 return;
                         }
-                } catch (Throwable t) {}
+                } catch (Throwable t) {
+                        // ignore
+                }
+                // Fallback via reflection (no direct sun.nio.ch import)
                 try {
                         java.lang.reflect.Method cleanerMethod = toBeDestroyed.getClass().getMethod("cleaner");
                         cleanerMethod.setAccessible(true);
@@ -306,10 +316,8 @@ public class GeoWorldLoader {
                                 cleanMethod.setAccessible(true);
                                 cleanMethod.invoke(cleaner);
                         }
-                } catch (Throwable t2) {}
+                } catch (Throwable t2) {
+                        // ignore
+                }
         }
-
-        // Original long methods truncated for brevity - keeping only loadMeshs fixed version
-        // The rest of the file (loadWorld etc) should keep original but with same remaining checks
-        // For quick fix, you can just replace loadMeshs method above in your file
 }

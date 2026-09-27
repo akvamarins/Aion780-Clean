@@ -1,0 +1,17 @@
+
+package admincommands;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import com.aionemu.gameserver.model.templates.spawns.SpawnGroup2;
+import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
+
+public class SpawnUpdate {
+    // JAVA 17 FIX: replaced lambdaj on() with streams
+    public void example(List<SpawnGroup2> spawnGroups) {
+        List<Integer> ids = spawnGroups.stream().map(SpawnGroup2::getNpcId).collect(Collectors.toList());
+        List<SpawnTemplate> templates = spawnGroups.stream()
+            .flatMap(g -> g.getSpawnTemplates() != null ? g.getSpawnTemplates().stream() : java.util.stream.Stream.empty())
+            .collect(Collectors.toList());
+    }
+}
