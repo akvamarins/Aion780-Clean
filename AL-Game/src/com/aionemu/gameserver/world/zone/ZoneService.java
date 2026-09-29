@@ -129,7 +129,7 @@ public final class ZoneService implements GameEngine {
 					handlers.put(zoneName, handler);
 				}
 				catch (Exception e) {
-					log.warn("Missing ZoneName: " + idAnnotation.value());
+					if (!idAnnotation.value().contains("CORE_400010000")) { log.warn("Missing ZoneName: " + idAnnotation.value()); }
 				}
 			}
 		}

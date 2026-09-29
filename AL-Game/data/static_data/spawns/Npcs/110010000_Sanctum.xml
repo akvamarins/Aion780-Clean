@@ -580,5 +580,18 @@
 		<spawn npc_id="837214" respawn_time="295">
 			<spot x="1456.5" y="1530.51" z="573.0719" h="73"/>
 		</spawn>
-	</spawn_map>
+	
+                <!-- Lephar - FIXED for quest 1007 A Ceremony in Sanctum -->
+                <spawn npc_id="203989" respawn_time="295">
+                        <spot x="1394.5" y="1510.5" z="572.9942" h="0"/>
+                </spawn>
+                <!-- Additional Sanctum quest NPCs for 7.9 -->
+                <spawn npc_id="203900" respawn_time="295">
+                        <spot x="1396.0" y="1512.0" z="572.9942" h="10"/>
+                </spawn>
+                <!-- Jucleas duplicate for safety -->
+                <spawn npc_id="203725" respawn_time="295">
+                        <spot x="1392.067" y="1512.0193" z="572.9942" h="0"/>
+                </spawn>
+        </spawn_map>
 </spawns>

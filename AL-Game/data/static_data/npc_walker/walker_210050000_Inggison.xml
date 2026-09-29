@@ -63,7 +63,7 @@
     </walker_template>
     <!-- SHA-Tag: E9F35BE03AB4B45C0F7421980EED95A7F242A751 -->
     <!-- NPC-IDs: 209009, 209028, 209048 -->
-    <walker_template route_id="LF4_NPCPATHLF4_NPC_GUARD2" pool="3" formation="SQUARE" rows="1,2">
+    <walker_template route_id="LF4_NPCPATHLF4_NPC_GUARD2" pool="1">
         <routestep step="1" x="1346.25" y="456.96" z="549.45"/>
         <routestep step="2" x="1344.07" y="461.23" z="548.06"/>
         <routestep step="3" x="1340.91" y="468.41" z="545.58"/>
@@ -83,7 +83,7 @@
     </walker_template>
     <!-- SHA-Tag: 3935FC65895C5C2A5DE94FB986DB9BD05674F165 -->
     <!-- NPC-IDs: 209008, 209018, 209049 -->
-    <walker_template route_id="LF4_NPCPATHLF4_NPC_GUARD3" pool="3" formation="SQUARE" rows="1,2">
+    <walker_template route_id="LF4_NPCPATHLF4_NPC_GUARD3" pool="2" formation="SQUARE" rows="1,1">
         <routestep step="1" x="1497.94" y="338.39" z="550.10"/>
         <routestep step="2" x="1510.91" y="338.15" z="549.37"/>
         <routestep step="3" x="1516.65" y="337.60" z="546.10"/>
@@ -118,7 +118,7 @@
     </walker_template>
     <!-- SHA-Tag: A8744A5CA688CB63070539C9BA37832CBE0C7FCD -->
     <!-- NPC-IDs: 209014, 209018 -->
-    <walker_template route_id="LF4_NPCPATHLF4_NPC_GUARD4" pool="2" formation="SQUARE" rows="1,1">
+    <walker_template route_id="LF4_NPCPATHLF4_NPC_GUARD4" pool="1">
         <routestep step="1" x="1352.71" y="298.37" z="590.10"/>
         <routestep step="2" x="1356.87" y="303.13" z="590.08"/>
         <routestep step="3" x="1359.58" y="306.20" z="589.58"/>
@@ -1612,7 +1612,7 @@
     </walker_template>
     <!-- SHA-Tag: A3D76C7B0482C218FF628BB803A1CE8D7CA6E54B -->
     <!-- NPC-IDs: 650583, 650584, 650752 -->
-    <walker_template route_id="LF4_LF4_B4_LIZARDPR_NAMED_54_AN_PATH" pool="3" formation="SQUARE" rows="1,2">
+    <walker_template route_id="LF4_LF4_B4_LIZARDPR_NAMED_54_AN_PATH" pool="2" formation="SQUARE" rows="1,1">
         <routestep step="1" x="1440.43" y="1220.76" z="400.10"/>
         <routestep step="2" x="1449.38" y="1224.74" z="399.44"/>
         <routestep step="3" x="1459.95" y="1228.12" z="399.47"/>
