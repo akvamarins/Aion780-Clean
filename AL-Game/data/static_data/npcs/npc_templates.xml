@@ -3263,6 +3263,22 @@
         </equipment>
         <bound_radius front="0.5" side="0.7" upper="2.0" />
         <talk_info distance="5" is_dialog="true" func_dialogs="2 3" />
+   </npc_template>
+   <npc_template npc_id="203007" level="10" name="Royer" name_id="1100353" name_desc="Old Friend Royer" height="2.0" title_id="350374" rank="DISCIPLINED" rating="NORMAL" race="ELYOS" tribe="GENERAL" type="GENERAL" ai="general" srange="20" arange="2" adelay="2100" arate="1000" hpgauge="3">
+        <stats maxHp="5080" maxXp="1015" main_hand_attack="75" main_hand_accuracy="358" pdef="280" mresist="358" power="60" evasion="358" accuracy="230">
+            <speeds walk="1.5" run="6.0" run_fight="4.2" />
+        </stats>
+        <equipment>
+            <item>125000652</item>
+            <item>110100306</item>
+            <item>113100276</item>
+            <item>114100294</item>
+            <item>112100256</item>
+            <item>111100277</item>
+            <item>100600426</item>
+        </equipment>
+        <bound_radius front="0.5" side="0.7" upper="2.0" />
+        <talk_info distance="5" is_dialog="true" func_dialogs="2 3" />
     </npc_template>
     <npc_template npc_id="203062" level="10" name="Ager" name_id="351005" name_desc="Ager" height="1.8" title_id="350542" rank="DISCIPLINED" rating="NORMAL" race="ELYOS" tribe="GENERAL" type="GENERAL" ai="general" srange="20" arange="2" adelay="2100" arate="1000" hpgauge="3">
         <stats maxHp="5080" maxXp="1015" main_hand_attack="75" main_hand_accuracy="358" pdef="280" mresist="358" power="60" evasion="358" accuracy="230">

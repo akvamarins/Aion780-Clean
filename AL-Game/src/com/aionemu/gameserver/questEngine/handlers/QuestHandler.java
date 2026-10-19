@@ -303,11 +303,14 @@ public abstract class QuestHandler extends AbstractQuestHandler implements Const
 		Player player = env.getPlayer();
 		int dialogId = env.getDialogId();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
+		org.slf4j.LoggerFactory.getLogger("QDIAG").info("[QDIAG] sendQuestEndDialog questId=" + questId + " dialogId=" + dialogId + " reward=" + reward + " qsStatus=" + (qs == null ? "null" : qs.getStatus()) + " qsVar=" + (qs == null ? "null" : qs.getQuestVars().getQuestVars()));
 		if (dialogId >= DialogAction.SELECTED_QUEST_REWARD1.id() && dialogId <= DialogAction.SELECTED_QUEST_NOREWARD.id()) {
 			if (qs == null || qs.getStatus() != QuestStatus.REWARD) {
 				return false; // reward packet exploitation fix
 			}
-			if (QuestService.finishQuest(env, reward)) {
+			boolean qdiagFinished = QuestService.finishQuest(env, reward);
+			org.slf4j.LoggerFactory.getLogger("QDIAG").info("[QDIAG] sendQuestEndDialog finishQuest result=" + qdiagFinished + " questId=" + questId);
+			if (qdiagFinished) {
 				Npc npc = (Npc) env.getVisibleObject();
 				if ("useitem".equals(npc.getAi2().getName()) || ("quest_use_item".equals(npc.getAi2().getName()))) {
 					return closeDialogWindow(env);

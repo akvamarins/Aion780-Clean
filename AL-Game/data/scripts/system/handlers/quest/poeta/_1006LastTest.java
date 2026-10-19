@@ -175,7 +175,7 @@ public class _1006LastTest extends QuestHandler {
 					return sendQuestDialog(env, 1694);
 				case SETPRO3:
 					playQuestMovie(env, 14);
-					return true;
+					return closeDialogWindow(env);
 				default:
 					break;
 				}

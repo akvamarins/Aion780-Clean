@@ -122,7 +122,7 @@ public class _61100InstancePreventionOfAethertapping extends QuestHandler {
 		} else if (qs.getStatus() == QuestStatus.REWARD) {
 			if (targetId == 0) {
 				if (dialog == DialogAction.QUEST_AUTO_REWARD) {
-					return sendQuestDialog(env, 5);
+					return false; // instant reward: CM_DIALOG_SELECT finishes the quest itself when no handler consumed QUEST_AUTO_REWARD
 				}
 				return sendQuestEndDialog(env);
 			}

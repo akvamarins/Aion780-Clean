@@ -122,6 +122,7 @@ public final class QuestService {
 		Rewards extendedRewards = new Rewards();
 		QuestTemplate template = questsData.getQuestById(id);
 		
+		org.slf4j.LoggerFactory.getLogger("QDIAG").info("[QDIAG] finishQuest questId=" + id + " reward=" + reward + " template=" + (template == null ? "NULL" : template.getCategory()) + " qsStatus=" + (qs == null ? "null" : qs.getStatus()) + " rewards=" + (template == null ? "-" : template.getRewards().size()) + " bonus=" + (template == null ? "-" : template.getBonus().size()));
 		if (qs == null || template.getCategory() != QuestCategory.TUTORIAL && qs.getStatus() != QuestStatus.REWARD) {
 			return false;
 		}
@@ -183,6 +184,7 @@ public final class QuestService {
 			return setFinishingState(env, template, reward);
 		}
 		else {
+			org.slf4j.LoggerFactory.getLogger("QDIAG").info("[QDIAG] finishQuest questId=" + id + " rewardItems=" + questItems.size() + " freeSlots=" + player.getInventory().getFreeSlots() + " inventoryFull=" + player.getInventory().isFull());
 			if (ItemService.addQuestItems(player, questItems)) {
 				giveReward(env, rewards);
 				giveReward(env, extendedRewards);

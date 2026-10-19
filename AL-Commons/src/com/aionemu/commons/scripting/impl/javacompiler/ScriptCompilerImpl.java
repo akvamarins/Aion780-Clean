@@ -83,12 +83,18 @@ public class ScriptCompilerImpl extends ScriptCompiler {
                 try {
                     String className = entry.getKey();
                     BinaryClass binaryClass = entry.getValue();
-                    Class<?> clazz = scl.defineClassPublic(className, binaryClass.getBytes());
+                    // FIX: a superclass may already be defined by the loader (findClass) while its
+                    // subclass was being defined. Defining it again throws LinkageError (duplicate
+                    // class definition) and the class was silently dropped from the result.
+                    Class<?> clazz = binaryClass.getDefinedClass();
+                    if (clazz == null) {
+                        clazz = scl.defineClassPublic(className, binaryClass.getBytes());
+                    }
                     binaryClass.setDefinedClass(clazz);
                     scl.setDefinedClass(className, clazz);
                     result.addCompiledClass(clazz);
                 } catch (Throwable e) {
-                    // Skip failed class definition
+                    System.err.println("[SCRIPT DEFINE ERROR] " + entry.getKey() + ": " + e);
                 }
             }
         } else {

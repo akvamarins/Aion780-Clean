@@ -86,6 +86,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket {
 	protected void runImpl() {
 		final Player player = getConnection().getActivePlayer();
 		QuestTemplate questTemplate = DataManager.QUEST_DATA.getQuestById(questId);
+		log.info("[QDIAG] CM_DIALOG_SELECT player=" + (player == null ? "null" : player.getName()) + " target=" + targetObjectId + " dialogId=" + dialogId + " questId=" + questId + " extReward=" + extendedRewardIndex + " lastPage=" + lastPage + " unk=" + unk + " mappedAction=" + DialogAction.getActionByDialogId(dialogId));
 		QuestEnv env = new QuestEnv(null, player, questId, 0);
 		if (player.isTrading()) {
 			return;

@@ -1,15 +1,11 @@
 package ai;
 
 import com.aionemu.gameserver.ai2.AIName;
-import com.aionemu.gameserver.ai2.NpcAI2;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
+/**
+ * Dialogs of this NPC type are handled by DialogService; quests are handled by QuestEngine.
+ * Both are done in GeneralNpcAI2 (TalkEventHandler.onTalk), so no overrides are needed.
+ */
 @AIName("merchant")
-public class MerchantAI2 extends NpcAI2 {
-    @Override
-    protected void handleDialogStart(Player player) {
-        PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getObjectId(), 13));
-    }
+public class MerchantAI2 extends GeneralNpcAI2 {
 }
