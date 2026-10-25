@@ -59519,18 +59519,11 @@
         </rewards>
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
-    <quest id="19900" name="The New Minion Friend" category_name="Minion" nameId="1803765" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="PRIMARY">
+    <quest id="19900" name="The New Minion Friend" category_name="Minion" nameId="1803765" minlevel_permitted="10" max_repeat_count="1" race_permitted="ELYOS" category="PRIMARY">
         <collect_items /><rewards exp="1">
             <reward_item item_id="190080012" count="1" />
         </rewards>
-        <start_conditions>
-            <finished quest_id="1007" />
-            <unfinished>15545</unfinished>
-        </start_conditions>
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
-        <quest_work_items>
-            <quest_work_item item_id="190080020" count="1" />
-        </quest_work_items>
     </quest>
     <quest id="19910" name="The New Minion Friend" category_name="Minion" nameId="1803767" minlevel_permitted="1" max_repeat_count="1" race_permitted="ELYOS" category="PRIMARY">
         <collect_items /><rewards exp="1">
@@ -81878,18 +81871,11 @@
         </rewards>
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
-    <quest id="29900" name="The New Minion Comrade" category_name="Minion" nameId="1803766" minlevel_permitted="1" max_repeat_count="1" race_permitted="ASMODIANS" category="PRIMARY">
+    <quest id="29900" name="The New Minion Comrade" category_name="Minion" nameId="1803766" minlevel_permitted="10" max_repeat_count="1" race_permitted="ASMODIANS" category="PRIMARY">
         <collect_items /><rewards exp="1">
             <reward_item item_id="190080012" count="1" />
         </rewards>
-        <start_conditions>
-            <finished quest_id="2009" />
-            <unfinished>25545</unfinished>
-        </start_conditions>
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
-        <quest_work_items>
-            <quest_work_item item_id="190080021" count="1" />
-        </quest_work_items>
     </quest>
     <quest id="29910" name="The New Minion Comrade" category_name="Minion" nameId="1803771" minlevel_permitted="1" max_repeat_count="1" race_permitted="ASMODIANS" category="PRIMARY">
         <collect_items /><rewards exp="1">
@@ -102115,10 +102101,9 @@
         </start_conditions>
         <class_permitted>WARRIOR SCOUT MAGE CLERIC ENGINEER ARTIST GLADIATOR TEMPLAR ASSASSIN RANGER SORCERER SPIRIT_MASTER CHANTER PRIEST GUNNER BARD RIDER PAINTER</class_permitted>
     </quest>
-    <quest id="60100" name="Daeva Certification" category_name="Sanctum" nameId="1803994" minlevel_permitted="9" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
+    <quest id="60100" name="Daeva Certification" category_name="Sanctum" nameId="1803994" minlevel_permitted="10" max_repeat_count="1" race_permitted="ELYOS" category="MISSION">
         <collect_items /><rewards gold="1872" exp="11681">
-            <reward_item item_id="188071452" count="1" />
-            <reward_item item_id="164020508" count="10" />
+            <reward_item item_id="188073210" count="1" />
         </rewards>
         <start_conditions>
             <finished quest_id="1006" />

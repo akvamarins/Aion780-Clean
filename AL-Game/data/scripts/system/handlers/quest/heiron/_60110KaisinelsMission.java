@@ -1,19 +1,3 @@
-/**
- * This file is part of Aion-Lightning <aion-lightning.org>.
- *
- *  Aion-Lightning is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  Aion-Lightning is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details. *
- *  You should have received a copy of the GNU General Public License
- *  along with Aion-Lightning.
- *  If not, see <http://www.gnu.org/licenses/>.
- */
 package quest.heiron;
 
 import com.aionemu.gameserver.model.DialogAction;
@@ -23,85 +7,37 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 
-/**
- * @author QuestGenerator by Mariella
- */
 public class _60110KaisinelsMission extends QuestHandler {
-
-	private final static int questId = 60110;
-
-	public _60110KaisinelsMission() {
-		super(questId);
-	}
-
-	@Override
-	public void register() {
-		qe.registerOnLevelUp(questId);
-		qe.registerQuestNpc(798600).addOnTalkEvent(questId); // Eremitia
-		qe.registerQuestNpc(800349).addOnTalkEvent(questId); // Kaisinel
-	}
-
-	@Override
-	public boolean onLvlUpEvent(QuestEnv env) {
-		return defaultOnLvlUpEvent(env, 60200, false);
-	}
-
-	@Override
-	public boolean onDialogEvent(QuestEnv env) {
-		Player player = env.getPlayer();
-		QuestState qs = player.getQuestStateList().getQuestState(questId);
-		DialogAction dialog = env.getDialog();
-		int targetId = env.getTargetId();
-
-		if (qs == null) {
-			return false;
-		}
-
-		if (qs.getStatus() == QuestStatus.START) {
-			switch (targetId) {
-				case 798600: {
-					switch (dialog) {
-						case QUEST_SELECT: {
-							return sendQuestDialog(env, 1011);
-						}
-						case SETPRO1: {
-							qs.setQuestVar(1);
-							updateQuestStatus(env);
-							return closeDialogWindow(env);
-						}
-						default: 
-							break;
-					}
-					break;
-				}
-				case 800349: {
-					switch (dialog) {
-						case QUEST_SELECT: {
-							return sendQuestDialog(env, 1352);
-						}
-						case SET_SUCCEED: {
-							qs.setQuestVar(2);
-							qs.setStatus(QuestStatus.REWARD);
-							updateQuestStatus(env);
-							return closeDialogWindow(env);
-						}
-						default: 
-							break;
-					}
-					break;
-				}
-				default:
-					break;
-			}
-		} else if (qs.getStatus() == QuestStatus.REWARD) {
-			if (targetId == 798600) {
-				if (dialog == DialogAction.USE_OBJECT) {
-					return sendQuestDialog(env, 10002);
-				}
-				return sendQuestEndDialog(env);
-			}
-		}
-
-		return false;
-	}
+    private final static int questId = 60110;
+    private final static int EREMITIA = 798600;
+    private final static int KAISINEL = 800349;
+    public _60110KaisinelsMission() { super(questId); }
+    @Override
+    public void register() {
+        qe.registerOnLevelUp(questId);
+        qe.registerQuestNpc(EREMITIA).addOnTalkEvent(questId);
+        qe.registerQuestNpc(KAISINEL).addOnTalkEvent(questId);
+    }
+            @Override
+        public boolean onLvlUpEvent(QuestEnv env) { return defaultOnLvlUpEvent(env, 14043, true); }
+    @Override
+    public boolean onDialogEvent(QuestEnv env) {
+        Player player = env.getPlayer();
+        QuestState qs = player.getQuestStateList().getQuestState(questId);
+        if (qs == null) return false;
+        int targetId = env.getTargetId();
+        DialogAction dialog = env.getDialog();
+        if (qs.getStatus() == QuestStatus.START) {
+            if (targetId == EREMITIA && qs.getQuestVarById(0) == 0) {
+                if (dialog == DialogAction.QUEST_SELECT) return sendQuestDialog(env, 1011);
+                if (dialog == DialogAction.SETPRO1) { qs.setQuestVar(1); updateQuestStatus(env); return closeDialogWindow(env); }
+            } else if (targetId == KAISINEL && qs.getQuestVarById(0) == 1) {
+                if (dialog == DialogAction.QUEST_SELECT) return sendQuestDialog(env, 1352);
+                if (dialog == DialogAction.SET_SUCCEED) { qs.setStatus(QuestStatus.REWARD); updateQuestStatus(env); return closeDialogWindow(env); }
+            }
+        } else if (qs.getStatus() == QuestStatus.REWARD) {
+            if (targetId == EREMITIA) return sendQuestEndDialog(env);
+        }
+        return false;
+    }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Karamatis - Abyss Gate interior for quest 1020 (Sealing the Abyss Gate) -->
+<spawns>
+	<spawn_map map_id="310030000">
+		<!-- Abyss Gate (inside) -->
+		<spawn npc_id="700551" respawn_time="295">
+			<spot x="258.9" y="230.0" z="217.06035" h="0"/>
+		</spawn>
+		<!-- Seal of the Abyss Gate -->
+		<spawn npc_id="700142" respawn_time="295">
+			<spot x="262.5" y="233.0" z="217.06035" h="0"/>
+		</spawn>
+	</spawn_map>
+</spawns>

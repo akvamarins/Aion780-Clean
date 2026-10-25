@@ -185196,7 +185196,7 @@
 	</item_template>
 	<item_template id="188073210" name="Simple Legionary's Equipment Chest" desc="4023887" name_desc="wrap_growth_pve_10_gear" level="10" mask="4168" category="NONE" max_stack_count="1" item_type="NORMAL" quality="ANCIENT" price="0" race="PC_ALL" restrict="10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10" bonus_apply="INVENTORY" enchant_type="NONE" activate_target="STANDALONE" activate_count="1">
 		<actions>
-			<decompose/>
+			<decompose select="true"/>
 		</actions>
 	</item_template>
 	<item_template id="188073211" name="Simple Legionary's Equipment Chest (Templar)" desc="4023889" name_desc="wrap_growth_pve_10_gear_kn" level="10" mask="4168" category="NONE" max_stack_count="1" item_type="NORMAL" quality="ANCIENT" price="0" race="PC_ALL" restrict="10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10" bonus_apply="INVENTORY" enchant_type="NONE" activate_target="STANDALONE" activate_count="1">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <portal_locs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="portal_loc.xsd">
 
-    <!-- EXISTING - оставляем -->
+    <!-- EXISTING - Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÐ¼ -->
     <portal_loc world_id="600082000" loc_id="6000820" x="657.6" y="611.0" z="55.412617" h="0"/>
     <portal_loc world_id="600082000" loc_id="6000821" x="657.6" y="611.0" z="55.412617" h="0"/>
     <portal_loc world_id="210050000" loc_id="2100501" x="1378.0" y="302.0" z="588.625" h="0"/>
@@ -50,7 +50,7 @@
     <portal_loc world_id="220080000" loc_id="2200801" x="419.75958" y="2293.8433" z="215.95665" h="71"/>
     <portal_loc world_id="210070000" loc_id="2100701" x="2844.3015" y="850.38074" z="562.38153" h="84"/>
 
-    <!-- TODO: Makarna, Narakkalli, Silentera, Kubrinerk - ГЛАВНЫЕ -->
+    <!-- TODO: Makarna, Narakkalli, Silentera, Kubrinerk - Ð“Ð›ÐÐ’ÐÐ«Ð• -->
     <portal_loc world_id="301520000" loc_id="3015200" x="324.51382" y="183.24435" z="1687.2552" h="0"/>
     <portal_loc world_id="220080000" loc_id="2200804" x="2860.444" y="1677.3759" z="306.6721" h="12"/>
     <portal_loc world_id="210070000" loc_id="2100704" x="97.33919" y="1471.4121" z="491.61053" h="45"/>
@@ -59,10 +59,37 @@
     <portal_loc world_id="302440000" loc_id="3024401" x="481.84207" y="445.26535" z="328.93826" h="105"/>
     <portal_loc world_id="302460000" loc_id="3024600" x="400.3279" y="290.5061" z="198.64015" h="60"/>
 
-    <!-- Остальные из Teleports.txt -->
+    <!-- ÐžÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¸Ð· Teleports.txt -->
     <portal_loc world_id="300520000" loc_id="3005200" x="503.46375" y="526.6514" z="240.26651" h="0"/>
     <portal_loc world_id="300520000" loc_id="3005201" x="513.8032" y="511.18176" z="417.40433" h="60"/>
     <portal_loc world_id="300280000" loc_id="3002800" x="557.61523" y="593.1484" z="154.125" h="73"/>
-    <portal_loc world_id="600200000" loc_id="6002002" x="557.6848" y="2176.164" z="284.76025" h="100"/>
+    <portal_loc world_id="800020000" loc_id="6002002" x="557.6848" y="2176.164" z="284.76025" h="100"/>
     <portal_loc world_id="301550000" loc_id="3015500" x="1484.535" y="780.51636" z="1035.2672" h="60"/>
-</portal_locs>
+    <!-- === ADDED: missing portal locations (new maps & capitals) === -->
+    <portal_loc world_id="110010000" loc_id="1100100" x="1313.25" y="1512.011" z="568.107" h="0"/>
+    <portal_loc world_id="110010000" loc_id="1100102" x="1930.9808" y="1514.3209" z="590.01074" h="60"/>
+    <portal_loc world_id="110020000" loc_id="1100200" x="2183.665" y="1552.2333" z="1204.9952" h="75"/>
+    <portal_loc world_id="110070000" loc_id="1100700" x="479.40924" y="279.1825" z="127.51457" h="90"/>
+    <portal_loc world_id="110070000" loc_id="1100702" x="479.40924" y="279.1825" z="127.51457" h="90"/>
+    <portal_loc world_id="120010000" loc_id="1200100" x="1685.7" y="1400.5" z="195.48618" h="60"/>
+    <portal_loc world_id="120080000" loc_id="1200800" x="528.83246" y="269.6238" z="93.88659" h="115"/>
+    <portal_loc world_id="210040000" loc_id="2100400" x="2542.2327" y="339.2828" z="411.66394" h="36"/>
+    <portal_loc world_id="210050000" loc_id="2100500" x="1367.6366" y="317.03244" z="581.3067" h="17"/>
+    <portal_loc world_id="210070000" loc_id="2100700" x="2947.6506" y="855.2476" z="572.7626" h="0"/>
+    <portal_loc world_id="220040000" loc_id="2200400" x="398.3" y="400.8" z="222.79721" h="23"/>
+    <portal_loc world_id="220070000" loc_id="2200700" x="1836.376" y="2807.696" z="529.55084" h="36"/>
+    <portal_loc world_id="220080000" loc_id="2200800" x="427.91165" y="2231.3667" z="220.37758" h="0"/>
+    <portal_loc world_id="600010000" loc_id="6000101" x="484.51968" y="390.9988" z="327.06125" h="20"/>
+    <portal_loc world_id="600010000" loc_id="6000102" x="522.27637" y="1145.9817" z="332.50418" h="61"/>
+    <portal_loc world_id="800020000" loc_id="6002000" x="557.6848" y="2176.164" z="284.76025" h="100"/>
+    <portal_loc world_id="800020000" loc_id="6002001" x="557.6848" y="2176.164" z="284.76025" h="100"/>
+    <portal_loc world_id="700010000" loc_id="7000101" x="1178.576" y="1853.733" z="99.750" h="18"/>
+    <portal_loc world_id="710010000" loc_id="7100100" x="1129.402" y="1476.817" z="100.250" h="65"/>
+    <portal_loc world_id="800030000" loc_id="8000300" x="1418.0098" y="869.7345" z="137.82704" h="0"/>
+    <portal_loc world_id="800030000" loc_id="8000301" x="1583.781" y="2151.2307" z="168.35152" h="50"/>
+    <portal_loc world_id="300920000" loc_id="3009200" x="1476.7037" y="249.04787" z="243.45805" h="30"/>
+    <portal_loc world_id="302430000" loc_id="3024301" x="881.74805" y="771.0323" z="757.54047" h="60"/>
+    <portal_loc world_id="302500000" loc_id="3025000" x="348.78" y="576.69" z="241.883209" h="0"/>
+    <portal_loc world_id="302520000" loc_id="3025200" x="459.66248" y="407.5619" z="129.76265" h="21"/>
+    <portal_loc world_id="800080000" loc_id="8000801" x="753.64" y="101.89" z="1106.371582" h="0"/>
+    <portal_loc world_id="800080000" loc_id="8000802" x="749.85" y="1436.24" z="1106.371582" h="0"/></portal_locs>

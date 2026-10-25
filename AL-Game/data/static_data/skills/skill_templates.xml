@@ -95350,6 +95350,31 @@
         </effects>
         <motion instant_skill="true"/>
     </skill_template>
+    <!-- Kerubiel S / Griffon S minion skills (added for 7.9, modelled on existing minion skills) -->
+    <skill_template skill_id="4910" name="Sleeping Dragon Kick" nameId="4580923" name_desc="Kick_S001_1_1" cooldownId="1862" stack="SKILLN_BP_CH_KICK_S001_1" lvl="5" skill_group="BP_Ch_Kick" skilltype="MAGICAL" skillsubtype="BUFF" tslot="NOSHOW" dispel_category="BUFF" req_dispel_level="2" activation="TOGGLE" cooldown="0" duration="0" cancel_rate="20">
+        <properties first_target="ME" first_target_range="1" target_relation="FRIEND" target_type="ONLYONE"/>
+        <effects>
+            <provoker skill_id="9367" provoke_target="OPPONENT" effectid="936612" e="1" noresist="true" hittype="NMLATK" element="WIND" hoptype="SKILLLV"/>
+        </effects>
+        <motion instant_skill="true"/>
+    </skill_template>
+    <skill_template skill_id="4912" name="Griffon's Severe Blow" nameId="4581897" name_desc="BP_Gr_SevereBlow_S001" cooldownId="411" stack="BP_GR_SEVEREBLOW_S001" lvl="1" skill_group="NONE" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="5" duration="0" cancel_rate="10">
+        <properties first_target="ME" target_relation="ENEMY" target_type="AREA" target_maxcount="5" effective_altitude="5" effective_range="5"/>
+        <effects>
+            <noreducespellatk value="1000" effectid="104111" e="1" basiclvl="1" noresist="true" element="FIRE" critprobmod2="10" hoptype="SKILLLV"/>
+            <hostileup value="3500000" e="2" noresist="true" preeffect="1" hoptype="SKILLLV"/>
+        </effects>
+        <motion name="tornadoslash2"/>
+    </skill_template>
+    <skill_template skill_id="4915" name="Griffon's Feed on Life" nameId="4581909" name_desc="BP_Gr_FeedOnLife_S001" stack="BP_GR_FEEDONLIFE_S001" lvl="1" skill_group="NONE" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="50" duration="0" cancel_rate="10">
+        <properties first_target="ME" target_relation="ENEMY" target_type="AREA" target_maxcount="3" effective_altitude="5" effective_range="8"/>
+        <effects>
+            <noreducespellatk value="500" effectid="104181" e="1" basiclvl="1" noresist="true" element="FIRE" critprobmod2="10" hoptype="SKILLLV"/>
+            <hostileup value="1000" e="2" noresist="true" preeffect="1" hoptype="SKILLLV"/>
+            <stun duration2="1000" e="3" accmod2="500" element="EARTH" preeffect="1"/>
+        </effects>
+        <motion name="areafire2"/>
+    </skill_template>
     <skill_template skill_id="4920" name="Severe Blow of Life" nameId="4581897" name_desc="IDEvent_Def_Base_A" cooldownId="411" stack="IDEVENT_DEF_BASE_A" lvl="1" skill_group="NONE" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="5" duration="0" cancel_rate="10">
         <properties first_target="ME" target_relation="ENEMY" target_type="AREA" target_maxcount="5" effective_altitude="5" effective_range="5"/>
         <startconditions>

@@ -881,6 +881,14 @@
 		<spawn npc_id="836074" respawn_time="295">
 			<spot x="1634.0027" y="1390.0638" z="193.12703" h="43"/>
 		</spawn>
+		<!-- Sanid ||| DF3_Sanid_E -->
+		<spawn npc_id="838072" respawn_time="295">
+			<spot x="1631.8" y="1388.2" z="193.12703" h="43"/>
+		</spawn>
+		<!-- Leanor ||| Elsi_Quest_Get_Reward -->
+		<spawn npc_id="820321" respawn_time="295">
+			<spot x="1636.3" y="1392.0" z="193.12703" h="43"/>
+		</spawn>
 		<!-- Kerubar ||| Deco_Cherubim_D_MINION -->
 		<spawn npc_id="836120" respawn_time="295">
 			<spot x="1634.3335" y="1387.4034" z="193.12697" h="108"/>

@@ -1,19 +1,3 @@
-/**
- * This file is part of Aion-Lightning <aion-lightning.org>.
- *
- *  Aion-Lightning is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  Aion-Lightning is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details. *
- *  You should have received a copy of the GNU General Public License
- *  along with Aion-Lightning.
- *  If not, see <http://www.gnu.org/licenses/>.
- */
 package quest.heiron;
 
 import com.aionemu.gameserver.model.DialogAction;
@@ -23,119 +7,49 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 
-/**
- * @author QuestGenerator by Mariella
- */
 public class _14043OffToBalaurea extends QuestHandler {
-
-	private final static int questId = 14043;
-
-	public _14043OffToBalaurea() {
-		super(questId);
-	}
-
-	@Override
-	public void register() {
-		qe.registerOnLevelUp(questId);
-		qe.registerQuestNpc(798600).addOnTalkEvent(questId); // Eremitia
-		qe.registerQuestNpc(798026).addOnTalkEvent(questId); // Kunberunerk
-		qe.registerQuestNpc(798025).addOnTalkEvent(questId); // Mapirerk
-		qe.registerQuestItem(182215351, questId);			 // Balaur language potion
-		qe.registerQuestItem(182215352, questId);			 // Asmodian Airship Sketch
-	}
-
-	@Override
-	public boolean onLvlUpEvent(QuestEnv env) {
-		return defaultOnLvlUpEvent(env, 60200, false);
-	}
-
-	@Override
-	public boolean onDialogEvent(QuestEnv env) {
-		Player player = env.getPlayer();
-		QuestState qs = player.getQuestStateList().getQuestState(questId);
-		DialogAction dialog = env.getDialog();
-		int targetId = env.getTargetId();
-
-		if (qs == null) {
-			return false;
-		}
-
-		if (qs.getStatus() == QuestStatus.START) {
-			int var = qs.getQuestVarById(0);
-			switch (targetId) {
-				case 798600: {
-					switch (dialog) {
-						case QUEST_SELECT: {
-							return sendQuestDialog(env, 1011);
-						}
-						case SETPRO1: {
-						//  giveQuestItem(env, 182215351, 1);
-							qs.setQuestVar(1);
-							updateQuestStatus(env);
-							return closeDialogWindow(env);
-						}
-						default: 
-							break;
-					}
-					break;
-				}
-				case 798026: {
-					switch (dialog) {
-						case QUEST_SELECT: {
-							switch (var) {
-								case 1: {
-									return sendQuestDialog(env, 1352);
-								}
-								case 3: {
-									return sendQuestDialog(env, 2034);
-								}
-							}
-						}
-						case SETPRO2: {
-						//  giveQuestItem(env, 182215351, 1);
-							qs.setQuestVar(2);
-							updateQuestStatus(env);
-							return closeDialogWindow(env);
-						}
-						case SETPRO4: {
-						//  giveQuestItem(env, 182215351, 1);
-							qs.setQuestVar(4);
-							updateQuestStatus(env);
-							return closeDialogWindow(env);
-						}
-						default: 
-							break;
-					}
-					break;
-				}
-				case 798025: {
-					switch (dialog) {
-						case QUEST_SELECT: {
-							return sendQuestDialog(env, 1693);
-						}
-						case SETPRO3: {
-						//  giveQuestItem(env, 182215351, 1);
-							qs.setQuestVar(3);
-							updateQuestStatus(env);
-							return closeDialogWindow(env);
-						}
-						default: 
-							break;
-					}
-					break;
-				}
-				default:
-					break;
-			}
-		} else if (qs.getStatus() == QuestStatus.REWARD) {
-			if (targetId == 798026) {
-				if (dialog == DialogAction.USE_OBJECT) {
-					return sendQuestDialog(env, 10002);
-				}
-				return sendQuestEndDialog(env);
-			}
-		}
-
-		return false;
-	}
+    private final static int questId = 14043;
+    private final static int EREMITIA = 798600;
+    private final static int KUNBERUNERK = 798026;
+    private final static int MAPIRERK = 798025;
+    public _14043OffToBalaurea() { super(questId); }
+    @Override
+    public void register() {
+        qe.registerOnLevelUp(questId);
+        qe.registerQuestNpc(EREMITIA).addOnTalkEvent(questId);
+        qe.registerQuestNpc(KUNBERUNERK).addOnTalkEvent(questId);
+        qe.registerQuestNpc(MAPIRERK).addOnTalkEvent(questId);
+        qe.registerQuestItem(182215351, questId);
+        qe.registerQuestItem(182215352, questId);
+    }
+            @Override
+        public boolean onLvlUpEvent(QuestEnv env) { return defaultOnLvlUpEvent(env, 60208, true); }
+    @Override
+    public boolean onDialogEvent(QuestEnv env) {
+        Player player = env.getPlayer();
+        QuestState qs = player.getQuestStateList().getQuestState(questId);
+        if (qs == null) return false;
+        int targetId = env.getTargetId();
+        DialogAction dialog = env.getDialog();
+        int var = qs.getQuestVarById(0);
+        if (qs.getStatus() == QuestStatus.START) {
+            if (targetId == EREMITIA && var == 0) {
+                if (dialog == DialogAction.QUEST_SELECT) return sendQuestDialog(env, 1011);
+                if (dialog == DialogAction.SETPRO1) { giveQuestItem(env, 182215351, 1); qs.setQuestVar(1); updateQuestStatus(env); return closeDialogWindow(env); }
+            } else if (targetId == KUNBERUNERK) {
+                if (var == 1 && dialog == DialogAction.QUEST_SELECT) return sendQuestDialog(env, 1352);
+                if (var == 1 && dialog == DialogAction.SETPRO2) { qs.setQuestVar(2); updateQuestStatus(env); return closeDialogWindow(env); }
+                if (var == 3 && dialog == DialogAction.QUEST_SELECT) return sendQuestDialog(env, 2034);
+                if (var == 3 && dialog == DialogAction.SETPRO4) { removeQuestItem(env, 182215351, 1); giveQuestItem(env, 182215352, 1); qs.setQuestVar(4); updateQuestStatus(env); return closeDialogWindow(env); }
+                if (var == 4 && dialog == DialogAction.QUEST_SELECT) return sendQuestDialog(env, 10002);
+                if (var == 4 && dialog == DialogAction.SELECT_QUEST_REWARD) { qs.setStatus(QuestStatus.REWARD); updateQuestStatus(env); return sendQuestDialog(env, 5); }
+            } else if (targetId == MAPIRERK && var == 2) {
+                if (dialog == DialogAction.QUEST_SELECT) return sendQuestDialog(env, 1693);
+                if (dialog == DialogAction.SETPRO3) { qs.setQuestVar(3); updateQuestStatus(env); return closeDialogWindow(env); }
+            }
+        } else if (qs.getStatus() == QuestStatus.REWARD) {
+            if (targetId == KUNBERUNERK) return sendQuestEndDialog(env);
+        }
+        return false;
+    }
 }

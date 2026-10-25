@@ -1,28 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
 <minions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="minions.xsd">
-    <minion id="980010" name="Kerubar" nameid="1614348" grade="D" level="1" growthPoints="10">
+    <minion id="980010" name="Kerubar" nameid="1614348" grade="D" level="1" growthPoints="10" growthMax="500" growthCost="1000">
         <modifiers>
             <add name="MAXHP" value="50" />
         </modifiers>
         <actions>
-            <skill skill_id="4909" energyCost="48" />
+            <skill skill_id="4909" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" />
         <bound front="0.22" side="0.22" upper="0.49" />
+        <evolved itemId="190200000" evolvedNum="10" evolvedCost="10000" />
     </minion>
-    <minion id="980011" name="Kerubian" nameid="1614350" grade="C" level="1" growthPoints="100">
+    <minion id="980011" name="Kerubian" nameid="1614350" grade="C" level="1" growthPoints="100" growthMax="2000" growthCost="1000">
         <modifiers>
             <add name="MAXHP" value="100" />
             <add name="PHYSICAL_ATTACK" value="1" />
             <add name="BOOST_MAGICAL_SKILL" value="6" />
         </modifiers>
         <actions>
-            <skill skill_id="4908" energyCost="48" />
+            <skill skill_id="4908" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" />
         <bound front="0.22" side="0.22" upper="0.49" />
+        <evolved itemId="190200000" evolvedNum="10" evolvedCost="10000" />
     </minion>
-    <minion id="980012" name="Kerubiel" nameid="1614352" grade="B" level="1" growthPoints="1300">
+    <minion id="980012" name="Kerubiel" nameid="1614352" grade="B" level="1" growthPoints="1300" growthMax="10000" growthCost="1000">
         <modifiers>
             <add name="MAXHP" value="110" />
             <add name="PHYSICAL_ATTACK" value="1" />
@@ -31,12 +33,13 @@
             <add name="MAGICAL_ACCURACY" value="4" />
         </modifiers>
         <actions>
-            <skill skill_id="4907" energyCost="48" />
+            <skill skill_id="4907" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" />
         <bound front="0.22" side="0.22" upper="0.49" />
+        <evolved itemId="190200000" evolvedNum="2" evolvedCost="10000" />
     </minion>
-    <minion id="980013" name="Arch Kerubiel" nameid="1614354" grade="A" level="1" growthPoints="4000">
+    <minion id="980013" name="Arch Kerubiel" nameid="1614354" grade="A" level="1" growthPoints="4000" growthMax="50000" growthCost="1000">
         <modifiers>
             <add name="MAXHP" value="161" />
             <add name="PHYSICAL_ATTACK" value="2" />
@@ -47,10 +50,11 @@
             <add name="MAGICAL_CRITICAL" value="4" />
         </modifiers>
         <actions>
-            <skill skill_id="4906" energyCost="48" />
+            <skill skill_id="4906" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" />
         <bound front="0.22" side="0.22" upper="0.49" />
+        <evolved itemId="190200000" evolvedNum="6" evolvedCost="10000" />
     </minion>
     <minion id="980020" name="Seiren" nameid="1614356" grade="C" level="1" growthPoints="100" growthMax="2000" growthCost="1000">
         <modifiers>
@@ -59,7 +63,7 @@
             <add name="BOOST_MAGICAL_SKILL" value="6" />
         </modifiers>
         <actions>
-            <skill skill_id="4902" energyCost="120" />
+            <skill skill_id="4902" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -72,7 +76,7 @@
             <add name="BOOST_MAGICAL_SKILL" value="14" />
         </modifiers>
         <actions>
-            <skill skill_id="4903" energyCost="120" />
+            <skill skill_id="4903" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -85,8 +89,8 @@
             <add name="BOOST_MAGICAL_SKILL" value="22" />
         </modifiers>
         <actions>
-            <skill skill_id="4903" energyCost="120" />
-            <skill skill_id="4904" energyCost="240" />
+            <skill skill_id="4903" energyCost="0" />
+            <skill skill_id="4904" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -99,8 +103,8 @@
             <add name="BOOST_MAGICAL_SKILL" value="30" />
         </modifiers>
         <actions>
-            <skill skill_id="4903" energyCost="120" />
-            <skill skill_id="4905" energyCost="240" />
+            <skill skill_id="4903" energyCost="0" />
+            <skill skill_id="4905" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -113,7 +117,7 @@
             <add name="BOOST_MAGICAL_SKILL" value="6" />
         </modifiers>
         <actions>
-            <skill skill_id="4898" energyCost="48" />
+            <skill skill_id="4898" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.17" side="0.17" upper="0.47" />
@@ -126,7 +130,7 @@
             <add name="BOOST_MAGICAL_SKILL" value="14" />
         </modifiers>
         <actions>
-            <skill skill_id="4899" energyCost="48" />
+            <skill skill_id="4899" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.17" side="0.17" upper="0.47" />
@@ -139,8 +143,8 @@
             <add name="BOOST_MAGICAL_SKILL" value="22" />
         </modifiers>
         <actions>
-            <skill skill_id="4899" energyCost="48" />
-            <skill skill_id="4900" energyCost="240" />
+            <skill skill_id="4899" energyCost="0" />
+            <skill skill_id="4900" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.17" side="0.17" upper="0.47" />
@@ -153,8 +157,8 @@
             <add name="BOOST_MAGICAL_SKILL" value="30" />
         </modifiers>
         <actions>
-            <skill skill_id="4899" energyCost="48" />
-            <skill skill_id="4901" energyCost="240" />
+            <skill skill_id="4899" energyCost="0" />
+            <skill skill_id="4901" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.17" side="0.17" upper="0.47" />
@@ -169,7 +173,7 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="4894" energyCost="48" />
+            <skill skill_id="4894" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -184,7 +188,7 @@
             <add name="MAGICAL_ACCURACY" value="17" />
         </modifiers>
         <actions>
-            <skill skill_id="4895" energyCost="48" />
+            <skill skill_id="4895" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -199,8 +203,8 @@
             <add name="MAGICAL_ACCURACY" value="27" />
         </modifiers>
         <actions>
-            <skill skill_id="4895" energyCost="48" />
-            <skill skill_id="4896" energyCost="240" />
+            <skill skill_id="4895" energyCost="0" />
+            <skill skill_id="4896" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -215,8 +219,8 @@
             <add name="MAGICAL_ACCURACY" value="37" />
         </modifiers>
         <actions>
-            <skill skill_id="4895" energyCost="48" />
-            <skill skill_id="4897" energyCost="240" />
+            <skill skill_id="4895" energyCost="0" />
+            <skill skill_id="4897" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -231,7 +235,7 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="4890" energyCost="48" />
+            <skill skill_id="4890" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -246,7 +250,7 @@
             <add name="MAGICAL_ACCURACY" value="17" />
         </modifiers>
         <actions>
-            <skill skill_id="4891" energyCost="48" />
+            <skill skill_id="4891" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -261,8 +265,8 @@
             <add name="MAGICAL_ACCURACY" value="27" />
         </modifiers>
         <actions>
-            <skill skill_id="4891" energyCost="48" />
-            <skill skill_id="4892" energyCost="360" />
+            <skill skill_id="4891" energyCost="0" />
+            <skill skill_id="4892" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -277,8 +281,8 @@
             <add name="MAGICAL_ACCURACY" value="37" />
         </modifiers>
         <actions>
-            <skill skill_id="4891" energyCost="48" />
-            <skill skill_id="4893" energyCost="360" />
+            <skill skill_id="4891" energyCost="0" />
+            <skill skill_id="4893" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -295,7 +299,7 @@
             <add name="MAGICAL_CRITICAL" value="8" />
         </modifiers>
         <actions>
-            <skill skill_id="4886" energyCost="48" />
+            <skill skill_id="4886" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.15" side="0.15" upper="0.60" />
@@ -312,7 +316,7 @@
             <add name="MAGICAL_CRITICAL" value="28" />
         </modifiers>
         <actions>
-            <skill skill_id="4887" energyCost="48" />
+            <skill skill_id="4887" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.15" side="0.15" upper="0.60" />
@@ -329,8 +333,8 @@
             <add name="MAGICAL_CRITICAL" value="48" />
         </modifiers>
         <actions>
-            <skill skill_id="4887" energyCost="48" />
-            <skill skill_id="4888" energyCost="360" />
+            <skill skill_id="4887" energyCost="0" />
+            <skill skill_id="4888" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.15" side="0.15" upper="0.60" />
@@ -347,8 +351,8 @@
             <add name="MAGICAL_CRITICAL" value="68" />
         </modifiers>
         <actions>
-            <skill skill_id="4887" energyCost="48" />
-            <skill skill_id="4889" energyCost="360" />
+            <skill skill_id="4887" energyCost="0" />
+            <skill skill_id="4889" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.15" side="0.15" upper="0.60" />
@@ -365,7 +369,7 @@
             <add name="MAGICAL_CRITICAL" value="8" />
         </modifiers>
         <actions>
-            <skill skill_id="4882" energyCost="48" />
+            <skill skill_id="4882" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -382,7 +386,7 @@
             <add name="MAGICAL_CRITICAL" value="28" />
         </modifiers>
         <actions>
-            <skill skill_id="4883" energyCost="48" />
+            <skill skill_id="4883" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -399,8 +403,8 @@
             <add name="MAGICAL_CRITICAL" value="48" />
         </modifiers>
         <actions>
-            <skill skill_id="4883" energyCost="48" />
-            <skill skill_id="4884" energyCost="300" />
+            <skill skill_id="4883" energyCost="0" />
+            <skill skill_id="4884" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -417,8 +421,8 @@
             <add name="MAGICAL_CRITICAL" value="68" />
         </modifiers>
         <actions>
-            <skill skill_id="4883" energyCost="48" />
-            <skill skill_id="4885" energyCost="300" />
+            <skill skill_id="4883" energyCost="0" />
+            <skill skill_id="4885" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -433,7 +437,7 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="4967" energyCost="48" />
+            <skill skill_id="4967" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -448,7 +452,7 @@
             <add name="MAGICAL_ACCURACY" value="17" />
         </modifiers>
         <actions>
-            <skill skill_id="4968" energyCost="48" />
+            <skill skill_id="4968" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -463,8 +467,8 @@
             <add name="MAGICAL_ACCURACY" value="27" />
         </modifiers>
         <actions>
-            <skill skill_id="4968" energyCost="48" />
-            <skill skill_id="4969" energyCost="300" />
+            <skill skill_id="4968" energyCost="0" />
+            <skill skill_id="4969" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -479,8 +483,8 @@
             <add name="MAGICAL_ACCURACY" value="37" />
         </modifiers>
         <actions>
-            <skill skill_id="4968" energyCost="48" />
-            <skill skill_id="4970" energyCost="300" />
+            <skill skill_id="4968" energyCost="0" />
+            <skill skill_id="4970" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -495,7 +499,7 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="4971" energyCost="48" />
+            <skill skill_id="4971" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -510,7 +514,7 @@
             <add name="MAGICAL_ACCURACY" value="17" />
         </modifiers>
         <actions>
-            <skill skill_id="4972" energyCost="48" />
+            <skill skill_id="4972" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -525,8 +529,8 @@
             <add name="MAGICAL_ACCURACY" value="27" />
         </modifiers>
         <actions>
-            <skill skill_id="4972" energyCost="48" />
-            <skill skill_id="4973" energyCost="300" />
+            <skill skill_id="4972" energyCost="0" />
+            <skill skill_id="4973" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -541,8 +545,8 @@
             <add name="MAGICAL_ACCURACY" value="37" />
         </modifiers>
         <actions>
-            <skill skill_id="4972" energyCost="48" />
-            <skill skill_id="4974" energyCost="300" />
+            <skill skill_id="4972" energyCost="0" />
+            <skill skill_id="4974" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -559,7 +563,7 @@
             <add name="MAGICAL_CRITICAL" value="8" />
         </modifiers>
         <actions>
-            <skill skill_id="4955" energyCost="60" />
+            <skill skill_id="4955" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -576,7 +580,7 @@
             <add name="MAGICAL_CRITICAL" value="28" />
         </modifiers>
         <actions>
-            <skill skill_id="4956" energyCost="60" />
+            <skill skill_id="4956" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -593,8 +597,8 @@
             <add name="MAGICAL_CRITICAL" value="48" />
         </modifiers>
         <actions>
-            <skill skill_id="4956" energyCost="60" />
-            <skill skill_id="4957" energyCost="360" />
+            <skill skill_id="4956" energyCost="0" />
+            <skill skill_id="4957" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -611,8 +615,8 @@
             <add name="MAGICAL_CRITICAL" value="68" />
         </modifiers>
         <actions>
-            <skill skill_id="4956" energyCost="60" />
-            <skill skill_id="4958" energyCost="360" />
+            <skill skill_id="4956" energyCost="0" />
+            <skill skill_id="4958" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -629,7 +633,7 @@
             <add name="MAGICAL_CRITICAL" value="8" />
         </modifiers>
         <actions>
-            <skill skill_id="4959" energyCost="60" />
+            <skill skill_id="4959" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -646,7 +650,7 @@
             <add name="MAGICAL_CRITICAL" value="28" />
         </modifiers>
         <actions>
-            <skill skill_id="4960" energyCost="60" />
+            <skill skill_id="4960" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -663,8 +667,8 @@
             <add name="MAGICAL_CRITICAL" value="48" />
         </modifiers>
         <actions>
-            <skill skill_id="4960" energyCost="60" />
-            <skill skill_id="4961" energyCost="300" />
+            <skill skill_id="4960" energyCost="0" />
+            <skill skill_id="4961" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -681,8 +685,8 @@
             <add name="MAGICAL_CRITICAL" value="68" />
         </modifiers>
         <actions>
-            <skill skill_id="4960" energyCost="60" />
-            <skill skill_id="4962" energyCost="300" />
+            <skill skill_id="4960" energyCost="0" />
+            <skill skill_id="4962" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -699,7 +703,7 @@
             <add name="MAGICAL_CRITICAL" value="8" />
         </modifiers>
         <actions>
-            <skill skill_id="4963" energyCost="48" />
+            <skill skill_id="4963" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -716,7 +720,7 @@
             <add name="MAGICAL_CRITICAL" value="28" />
         </modifiers>
         <actions>
-            <skill skill_id="4964" energyCost="48" />
+            <skill skill_id="4964" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -733,8 +737,8 @@
             <add name="MAGICAL_CRITICAL" value="48" />
         </modifiers>
         <actions>
-            <skill skill_id="4964" energyCost="48" />
-            <skill skill_id="4965" energyCost="360" />
+            <skill skill_id="4964" energyCost="0" />
+            <skill skill_id="4965" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -751,36 +755,38 @@
             <add name="MAGICAL_CRITICAL" value="68" />
         </modifiers>
         <actions>
-            <skill skill_id="4964" energyCost="48" />
-            <skill skill_id="4966" energyCost="360" />
+            <skill skill_id="4964" energyCost="0" />
+            <skill skill_id="4966" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
         <evolved itemId="190200000" evolvedNum="40" evolvedCost="10000" />
     </minion>
-    <minion id="981010" name="Kerubar" nameid="1614348" grade="D" level="1" growthPoints="10">
+    <minion id="981010" name="Kerubar" nameid="1614348" grade="D" level="1" growthPoints="10" growthMax="500" growthCost="1000">
         <modifiers>
             <add name="MAXHP" value="50" />
         </modifiers>
         <actions>
-            <skill skill_id="5002" energyCost="48" />
+            <skill skill_id="5002" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" />
         <bound front="0.22" side="0.22" upper="0.49" />
+        <evolved itemId="190200000" evolvedNum="10" evolvedCost="10000" />
     </minion>
-    <minion id="981011" name="Kerubian" nameid="1614350" grade="C" level="1" growthPoints="100">
+    <minion id="981011" name="Kerubian" nameid="1614350" grade="C" level="1" growthPoints="100" growthMax="2000" growthCost="1000">
         <modifiers>
             <add name="MAXHP" value="62" />
             <add name="PHYSICAL_ATTACK" value="1" />
             <add name="BOOST_MAGICAL_SKILL" value="6" />
         </modifiers>
         <actions>
-            <skill skill_id="5001" energyCost="48" />
+            <skill skill_id="5001" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" />
         <bound front="0.22" side="0.22" upper="0.49" />
+        <evolved itemId="190200000" evolvedNum="10" evolvedCost="10000" />
     </minion>
-    <minion id="981012" name="Kerubiel" nameid="1614352" grade="B" level="1" growthPoints="1300">
+    <minion id="981012" name="Kerubiel" nameid="1614352" grade="B" level="1" growthPoints="1300" growthMax="10000" growthCost="1000">
         <modifiers>
             <add name="MAXHP" value="66" />
             <add name="PHYSICAL_ATTACK" value="2" />
@@ -789,12 +795,13 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="5000" energyCost="48" />
+            <skill skill_id="5000" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" />
         <bound front="0.22" side="0.22" upper="0.49" />
+        <evolved itemId="190200000" evolvedNum="2" evolvedCost="10000" />
     </minion>
-    <minion id="981013" name="Arch Kerubiel" nameid="1614354" grade="A" level="1" growthPoints="4000">
+    <minion id="981013" name="Arch Kerubiel" nameid="1614354" grade="A" level="1" growthPoints="4000" growthMax="50000" growthCost="1000">
         <modifiers>
             <add name="MAXHP" value="198" />
             <add name="PHYSICAL_ATTACK" value="2" />
@@ -805,10 +812,11 @@
             <add name="MAGICAL_CRITICAL" value="5" />
         </modifiers>
         <actions>
-            <skill skill_id="4999" energyCost="48" />
+            <skill skill_id="4999" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" />
         <bound front="0.22" side="0.22" upper="0.49" />
+        <evolved itemId="190200000" evolvedNum="6" evolvedCost="10000" />
     </minion>
     <minion id="981020" name="Seiren" nameid="1614356" grade="C" level="1" growthPoints="100" growthMax="2000" growthCost="1000">
         <modifiers>
@@ -817,7 +825,7 @@
             <add name="BOOST_MAGICAL_SKILL" value="6" />
         </modifiers>
         <actions>
-            <skill skill_id="4995" energyCost="120" />
+            <skill skill_id="4995" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -830,7 +838,7 @@
             <add name="BOOST_MAGICAL_SKILL" value="14" />
         </modifiers>
         <actions>
-            <skill skill_id="4996" energyCost="120" />
+            <skill skill_id="4996" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -843,8 +851,8 @@
             <add name="BOOST_MAGICAL_SKILL" value="22" />
         </modifiers>
         <actions>
-            <skill skill_id="4996" energyCost="120" />
-            <skill skill_id="4997" energyCost="240" />
+            <skill skill_id="4996" energyCost="0" />
+            <skill skill_id="4997" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -857,8 +865,8 @@
             <add name="BOOST_MAGICAL_SKILL" value="30" />
         </modifiers>
         <actions>
-            <skill skill_id="4996" energyCost="120" />
-            <skill skill_id="4998" energyCost="240" />
+            <skill skill_id="4996" energyCost="0" />
+            <skill skill_id="4998" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -871,7 +879,7 @@
             <add name="BOOST_MAGICAL_SKILL" value="6" />
         </modifiers>
         <actions>
-            <skill skill_id="4991" energyCost="48" />
+            <skill skill_id="4991" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.17" side="0.17" upper="0.47" />
@@ -884,7 +892,7 @@
             <add name="BOOST_MAGICAL_SKILL" value="14" />
         </modifiers>
         <actions>
-            <skill skill_id="4992" energyCost="48" />
+            <skill skill_id="4992" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.17" side="0.17" upper="0.47" />
@@ -897,8 +905,8 @@
             <add name="BOOST_MAGICAL_SKILL" value="22" />
         </modifiers>
         <actions>
-            <skill skill_id="4992" energyCost="48" />
-            <skill skill_id="4993" energyCost="240" />
+            <skill skill_id="4992" energyCost="0" />
+            <skill skill_id="4993" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.17" side="0.17" upper="0.47" />
@@ -911,8 +919,8 @@
             <add name="BOOST_MAGICAL_SKILL" value="30" />
         </modifiers>
         <actions>
-            <skill skill_id="4992" energyCost="48" />
-            <skill skill_id="4994" energyCost="240" />
+            <skill skill_id="4992" energyCost="0" />
+            <skill skill_id="4994" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.17" side="0.17" upper="0.47" />
@@ -927,7 +935,7 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="4987" energyCost="48" />
+            <skill skill_id="4987" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -942,7 +950,7 @@
             <add name="MAGICAL_ACCURACY" value="17" />
         </modifiers>
         <actions>
-            <skill skill_id="4988" energyCost="48" />
+            <skill skill_id="4988" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -957,8 +965,8 @@
             <add name="MAGICAL_ACCURACY" value="27" />
         </modifiers>
         <actions>
-            <skill skill_id="4988" energyCost="48" />
-            <skill skill_id="4989" energyCost="240" />
+            <skill skill_id="4988" energyCost="0" />
+            <skill skill_id="4989" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -973,8 +981,8 @@
             <add name="MAGICAL_ACCURACY" value="37" />
         </modifiers>
         <actions>
-            <skill skill_id="4988" energyCost="48" />
-            <skill skill_id="4990" energyCost="240" />
+            <skill skill_id="4988" energyCost="0" />
+            <skill skill_id="4990" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -989,7 +997,7 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="4983" energyCost="48" />
+            <skill skill_id="4983" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1004,7 +1012,7 @@
             <add name="MAGICAL_ACCURACY" value="17" />
         </modifiers>
         <actions>
-            <skill skill_id="4984" energyCost="48" />
+            <skill skill_id="4984" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1019,8 +1027,8 @@
             <add name="MAGICAL_ACCURACY" value="27" />
         </modifiers>
         <actions>
-            <skill skill_id="4984" energyCost="48" />
-            <skill skill_id="4985" energyCost="360" />
+            <skill skill_id="4984" energyCost="0" />
+            <skill skill_id="4985" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1035,8 +1043,8 @@
             <add name="MAGICAL_ACCURACY" value="37" />
         </modifiers>
         <actions>
-            <skill skill_id="4984" energyCost="48" />
-            <skill skill_id="4986" energyCost="360" />
+            <skill skill_id="4984" energyCost="0" />
+            <skill skill_id="4986" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1053,7 +1061,7 @@
             <add name="MAGICAL_CRITICAL" value="5" />
         </modifiers>
         <actions>
-            <skill skill_id="4979" energyCost="48" />
+            <skill skill_id="4979" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.15" side="0.15" upper="0.60" />
@@ -1070,7 +1078,7 @@
             <add name="MAGICAL_CRITICAL" value="19" />
         </modifiers>
         <actions>
-            <skill skill_id="4980" energyCost="48" />
+            <skill skill_id="4980" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.15" side="0.15" upper="0.60" />
@@ -1087,8 +1095,8 @@
             <add name="MAGICAL_CRITICAL" value="33" />
         </modifiers>
         <actions>
-            <skill skill_id="4980" energyCost="48" />
-            <skill skill_id="4981" energyCost="360" />
+            <skill skill_id="4980" energyCost="0" />
+            <skill skill_id="4981" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.15" side="0.15" upper="0.60" />
@@ -1105,8 +1113,8 @@
             <add name="MAGICAL_CRITICAL" value="47" />
         </modifiers>
         <actions>
-            <skill skill_id="4980" energyCost="48" />
-            <skill skill_id="4982" energyCost="360" />
+            <skill skill_id="4980" energyCost="0" />
+            <skill skill_id="4982" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.15" side="0.15" upper="0.60" />
@@ -1123,7 +1131,7 @@
             <add name="MAGICAL_CRITICAL" value="5" />
         </modifiers>
         <actions>
-            <skill skill_id="4975" energyCost="48" />
+            <skill skill_id="4975" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1140,7 +1148,7 @@
             <add name="MAGICAL_CRITICAL" value="19" />
         </modifiers>
         <actions>
-            <skill skill_id="4976" energyCost="48" />
+            <skill skill_id="4976" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1157,8 +1165,8 @@
             <add name="MAGICAL_CRITICAL" value="33" />
         </modifiers>
         <actions>
-            <skill skill_id="4976" energyCost="48" />
-            <skill skill_id="4977" energyCost="300" />
+            <skill skill_id="4976" energyCost="0" />
+            <skill skill_id="4977" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1175,8 +1183,8 @@
             <add name="MAGICAL_CRITICAL" value="47" />
         </modifiers>
         <actions>
-            <skill skill_id="4976" energyCost="48" />
-            <skill skill_id="4978" energyCost="300" />
+            <skill skill_id="4976" energyCost="0" />
+            <skill skill_id="4978" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1191,7 +1199,7 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="5015" energyCost="48" />
+            <skill skill_id="5015" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1206,7 +1214,7 @@
             <add name="MAGICAL_ACCURACY" value="17" />
         </modifiers>
         <actions>
-            <skill skill_id="5016" energyCost="48" />
+            <skill skill_id="5016" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1221,8 +1229,8 @@
             <add name="MAGICAL_ACCURACY" value="27" />
         </modifiers>
         <actions>
-            <skill skill_id="5016" energyCost="48" />
-            <skill skill_id="5017" energyCost="300" />
+            <skill skill_id="5016" energyCost="0" />
+            <skill skill_id="5017" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1237,8 +1245,8 @@
             <add name="MAGICAL_ACCURACY" value="37" />
         </modifiers>
         <actions>
-            <skill skill_id="5016" energyCost="48" />
-            <skill skill_id="5018" energyCost="300" />
+            <skill skill_id="5016" energyCost="0" />
+            <skill skill_id="5018" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1253,7 +1261,7 @@
             <add name="MAGICAL_ACCURACY" value="7" />
         </modifiers>
         <actions>
-            <skill skill_id="5019" energyCost="48" />
+            <skill skill_id="5019" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1268,7 +1276,7 @@
             <add name="MAGICAL_ACCURACY" value="17" />
         </modifiers>
         <actions>
-            <skill skill_id="5020" energyCost="48" />
+            <skill skill_id="5020" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1283,8 +1291,8 @@
             <add name="MAGICAL_ACCURACY" value="27" />
         </modifiers>
         <actions>
-            <skill skill_id="5020" energyCost="48" />
-            <skill skill_id="5021" energyCost="300" />
+            <skill skill_id="5020" energyCost="0" />
+            <skill skill_id="5021" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1299,8 +1307,8 @@
             <add name="MAGICAL_ACCURACY" value="37" />
         </modifiers>
         <actions>
-            <skill skill_id="5020" energyCost="48" />
-            <skill skill_id="5022" energyCost="300" />
+            <skill skill_id="5020" energyCost="0" />
+            <skill skill_id="5022" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1317,7 +1325,7 @@
             <add name="MAGICAL_CRITICAL" value="5" />
         </modifiers>
         <actions>
-            <skill skill_id="5003" energyCost="60" />
+            <skill skill_id="5003" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1334,7 +1342,7 @@
             <add name="MAGICAL_CRITICAL" value="19" />
         </modifiers>
         <actions>
-            <skill skill_id="5004" energyCost="60" />
+            <skill skill_id="5004" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1351,8 +1359,8 @@
             <add name="MAGICAL_CRITICAL" value="33" />
         </modifiers>
         <actions>
-            <skill skill_id="5004" energyCost="60" />
-            <skill skill_id="5005" energyCost="360" />
+            <skill skill_id="5004" energyCost="0" />
+            <skill skill_id="5005" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1369,8 +1377,8 @@
             <add name="MAGICAL_CRITICAL" value="47" />
         </modifiers>
         <actions>
-            <skill skill_id="5004" energyCost="60" />
-            <skill skill_id="5006" energyCost="360" />
+            <skill skill_id="5004" energyCost="0" />
+            <skill skill_id="5006" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1387,7 +1395,7 @@
             <add name="MAGICAL_CRITICAL" value="5" />
         </modifiers>
         <actions>
-            <skill skill_id="5007" energyCost="60" />
+            <skill skill_id="5007" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1404,7 +1412,7 @@
             <add name="MAGICAL_CRITICAL" value="19" />
         </modifiers>
         <actions>
-            <skill skill_id="5008" energyCost="60" />
+            <skill skill_id="5008" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1421,8 +1429,8 @@
             <add name="MAGICAL_CRITICAL" value="33" />
         </modifiers>
         <actions>
-            <skill skill_id="5008" energyCost="60" />
-            <skill skill_id="5009" energyCost="300" />
+            <skill skill_id="5008" energyCost="0" />
+            <skill skill_id="5009" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1439,8 +1447,8 @@
             <add name="MAGICAL_CRITICAL" value="47" />
         </modifiers>
         <actions>
-            <skill skill_id="5008" energyCost="60" />
-            <skill skill_id="5010" energyCost="300" />
+            <skill skill_id="5008" energyCost="0" />
+            <skill skill_id="5010" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1457,7 +1465,7 @@
             <add name="MAGICAL_CRITICAL" value="5" />
         </modifiers>
         <actions>
-            <skill skill_id="5011" energyCost="48" />
+            <skill skill_id="5011" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1474,7 +1482,7 @@
             <add name="MAGICAL_CRITICAL" value="19" />
         </modifiers>
         <actions>
-            <skill skill_id="5012" energyCost="48" />
+            <skill skill_id="5012" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1491,8 +1499,8 @@
             <add name="MAGICAL_CRITICAL" value="33" />
         </modifiers>
         <actions>
-            <skill skill_id="5012" energyCost="48" />
-            <skill skill_id="5013" energyCost="360" />
+            <skill skill_id="5012" energyCost="0" />
+            <skill skill_id="5013" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
@@ -1509,11 +1517,11 @@
             <add name="MAGICAL_CRITICAL" value="47" />
         </modifiers>
         <actions>
-            <skill skill_id="5012" energyCost="48" />
-            <skill skill_id="5014" energyCost="360" />
+            <skill skill_id="5012" energyCost="0" />
+            <skill skill_id="5014" energyCost="0" />
         </actions>
         <minionstats run_speed="6.0" walk_speed="1.132" height="1.2" altitude="1.5" />
         <bound front="0.24" side="0.24" upper="0.49" />
         <evolved itemId="190200000" evolvedNum="40" evolvedCost="10000" />
     </minion>
-<minion id="982001" name="Hyperion S" nameid="1614376" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="5011" energyCost="60" /><skill skill_id="5014" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982002" name="Kromede S" nameid="1614374" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="5008" energyCost="60" /><skill skill_id="5010" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982003" name="Seiren S" nameid="1614356" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4902" energyCost="60" /><skill skill_id="4905" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982004" name="Steel Rose S" nameid="1614358" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4898" energyCost="60" /><skill skill_id="4901" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982005" name="Kerubiel S" nameid="1614354" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4906" energyCost="60" /><skill skill_id="4910" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982006" name="Griffon S" nameid="1614360" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4912" energyCost="60" /><skill skill_id="4915" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982007" name="Popo S" nameid="1614362" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4920" energyCost="60" /><skill skill_id="4923" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982008" name="Porgus S" nameid="1614364" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4930" energyCost="60" /><skill skill_id="4933" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982009" name="Wind Spirit S" nameid="1614366" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4940" energyCost="60" /><skill skill_id="4943" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982010" name="Fire Spirit S" nameid="1614368" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4950" energyCost="60" /><skill skill_id="4953" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982011" name="Water Spirit S" nameid="1614370" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4960" energyCost="60" /><skill skill_id="4963" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982012" name="Earth Spirit S" nameid="1614372" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4970" energyCost="60" /><skill skill_id="4973" energyCost="180" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion></minions>
+<minion id="982001" name="Hyperion S" nameid="1614376" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="5011" energyCost="0" /><skill skill_id="5014" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982002" name="Kromede S" nameid="1614374" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="5008" energyCost="0" /><skill skill_id="5010" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982003" name="Seiren S" nameid="1614356" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4902" energyCost="0" /><skill skill_id="4905" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982004" name="Steel Rose S" nameid="1614358" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4898" energyCost="0" /><skill skill_id="4901" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982005" name="Kerubiel S" nameid="1614354" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4906" energyCost="0" /><skill skill_id="4910" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982006" name="Griffon S" nameid="1614360" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4912" energyCost="0" /><skill skill_id="4915" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982007" name="Popo S" nameid="1614362" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4920" energyCost="0" /><skill skill_id="4923" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982008" name="Porgus S" nameid="1614364" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4930" energyCost="0" /><skill skill_id="4933" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982009" name="Wind Spirit S" nameid="1614366" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4940" energyCost="0" /><skill skill_id="4943" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982010" name="Fire Spirit S" nameid="1614368" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4950" energyCost="0" /><skill skill_id="4953" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982011" name="Water Spirit S" nameid="1614370" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4960" energyCost="0" /><skill skill_id="4963" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion><minion id="982012" name="Earth Spirit S" nameid="1614372" grade="S" level="4" growthPoints="20000" growthMax="100000" growthCost="1000"><modifiers><add name="MAXHP" value="8000" /><add name="MAXMP" value="3000" /><add name="PHYSICAL_ATTACK" value="150" /><add name="PHYSICAL_CRITICAL" value="200" /><add name="PHYSICAL_ACCURACY" value="250" /><add name="BOOST_MAGICAL_SKILL" value="400" /><add name="MAGICAL_ACCURACY" value="250" /><add name="MAGICAL_CRITICAL" value="200" /><add name="EVASION" value="100" /><add name="PARRY" value="100" /><add name="MAGICAL_RESIST" value="150" /></modifiers><actions><skill skill_id="4970" energyCost="0" /><skill skill_id="4973" energyCost="0" /></actions><minionstats run_speed="6.0" walk_speed="1.5" height="1.5" altitude="1.5" /><bound front="0.35" side="0.35" upper="0.7" /><evolved itemId="190200000" evolvedNum="1" evolvedCost="1000" /></minion></minions>

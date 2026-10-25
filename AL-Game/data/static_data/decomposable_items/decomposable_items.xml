@@ -280840,42 +280840,42 @@ Double-click to open.">
             <item id="188073208" name="Wise Dragon King's Mysterious Weapons Selection Box (Blessing)"/>
         </items>
     </decomposable>
-    <decomposable item_id="188073210" decomposable_name="Simple Legionary's Equipment Chest">
+        <decomposable item_id="188073210" decomposable_name="Simple Legionary's Equipment Chest">
         <items>
-            <item id="188073211" name="Simple Legionary's Equipment Chest (Templar)" player_class="TEMPLAR"/>
+            <item id="188073211" name="Simple Legionary's Equipment Chest (Templar)"/>
         </items>
         <items>
-            <item id="188073212" name="Simple Legionary's Equipment Chest (Gladiator)" player_class="GLADIATOR"/>
+            <item id="188073212" name="Simple Legionary's Equipment Chest (Gladiator)"/>
         </items>
         <items>
-            <item id="188073213" name="Simple Legionary's Equipment Chest (Assassin)" player_class="ASSASSIN"/>
+            <item id="188073213" name="Simple Legionary's Equipment Chest (Assassin)"/>
         </items>
         <items>
-            <item id="188073214" name="Simple Legionary's Equipment Chest (Ranger)" player_class="RANGER"/>
+            <item id="188073214" name="Simple Legionary's Equipment Chest (Ranger)"/>
         </items>
         <items>
-            <item id="188073215" name="Simple Legionary's Equipment Chest (Gunner)" player_class="GUNNER"/>
+            <item id="188073215" name="Simple Legionary's Equipment Chest (Gunner)"/>
         </items>
         <items>
-            <item id="188073216" name="Simple Legionary's Equipment Chest (Sorcerer)" player_class="SORCERER"/>
+            <item id="188073216" name="Simple Legionary's Equipment Chest (Sorcerer)"/>
         </items>
         <items>
-            <item id="188073217" name="Simple Legionary's Equipment Chest (Spiritmaster)" player_class="SPIRIT_MASTER"/>
+            <item id="188073217" name="Simple Legionary's Equipment Chest (Spiritmaster)"/>
         </items>
         <items>
-            <item id="188073218" name="Simple Legionary's Equipment Chest (Bard)" player_class="BARD"/>
+            <item id="188073218" name="Simple Legionary's Equipment Chest (Bard)"/>
         </items>
         <items>
-            <item id="188073219" name="Simple Legionary's Equipment Chest (Chanter)" player_class="CHANTER"/>
+            <item id="188073219" name="Simple Legionary's Equipment Chest (Chanter)"/>
         </items>
         <items>
-            <item id="188073220" name="Simple Legionary's Equipment Chest (Cleric)" player_class="CLERIC"/>
+            <item id="188073220" name="Simple Legionary's Equipment Chest (Cleric)"/>
         </items>
         <items>
-            <item id="188073221" name="Simple Legionary's Equipment Chest (Aethertech)" player_class="RIDER"/>
+            <item id="188073221" name="Simple Legionary's Equipment Chest (Aethertech)"/>
         </items>
         <items>
-            <item id="188073222" name="Simple Legionary's Equipment Chest (Painter)" player_class="PAINTER"/>
+            <item id="188073222" name="Simple Legionary's Equipment Chest (Painter)"/>
         </items>
     </decomposable>
     <decomposable item_id="188073211" decomposable_name="Simple Legionary's Equipment Chest (Templar)">
