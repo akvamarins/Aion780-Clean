@@ -54,7 +54,8 @@ public class GeoConvert {
         List<String> missingSample = new ArrayList<>();
         for (String mapId : mapIds) {
             List<Instance> instances = parseBeyondWorld(new File(srcDir, mapId + ".geo"));
-            short[] terrain = readHeightmap(new File(srcDir, mapId + ".png"));
+            File pngFile = new File(srcDir, mapId + ".png");
+            short[] terrain = pngFile.isFile() ? readHeightmap(pngFile) : null;
             writeAlWorld(new File(outGeoDir, mapId + ".geo"), terrain, instances);
             for (Instance inst : instances) {
                 Model m = models.get(inst.name);
@@ -74,7 +75,7 @@ public class GeoConvert {
                         neededModels.put(lc, m);
                 }
             }
-            System.out.println("map " + mapId + ": " + instances.size() + " instances, terrain " + terrain.length + " pts");
+            System.out.println("map " + mapId + ": " + instances.size() + " instances, terrain " + (terrain == null ? "none" : terrain.length + " pts"));
         }
         System.out.println("instance->model matches: " + found + ", missing: " + missing);
         for (String s : missingSample)
@@ -186,13 +187,18 @@ public class GeoConvert {
 
     static void writeAlWorld(File out, short[] terrain, List<Instance> instances) throws IOException {
         try (DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(out)))) {
-            ByteBuffer le = ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN);
-            dos.writeByte(1); // hasTerrain
-            writeLeInt(dos, terrain.length);
-            ByteBuffer tb = ByteBuffer.allocate(terrain.length * 2).order(ByteOrder.LITTLE_ENDIAN);
-            tb.asShortBuffer().put(terrain);
-            dos.write(tb.array());
-            writeLeInt(dos, 0); // cutouts
+            if (terrain == null) {
+                dos.writeByte(0); // no terrain
+                writeLeShort(dos, 0);
+                writeLeInt(dos, 0); // cutouts
+            } else {
+                dos.writeByte(1); // hasTerrain
+                writeLeInt(dos, terrain.length);
+                ByteBuffer tb = ByteBuffer.allocate(terrain.length * 2).order(ByteOrder.LITTLE_ENDIAN);
+                tb.asShortBuffer().put(terrain);
+                dos.write(tb.array());
+                writeLeInt(dos, 0); // cutouts
+            }
             for (Instance inst : instances) {
                 byte[] nb = inst.name.getBytes("UTF-8");
                 writeLeShort(dos, nb.length);

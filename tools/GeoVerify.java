@@ -17,14 +17,7 @@ public class GeoVerify {
         Map<String, Spatial> models = GeoWorldLoader.loadMeshs(meshsFile);
         System.out.println("  " + models.size() + " models in " + (System.currentTimeMillis() - t0) / 1000 + "s");
 
-        String[][] probes = {
-            { "210060000", "2295.6", "2234.8" },  // Theobomos Atropos ~62
-            { "210030000", "1640.8", "1500.3" },  // Verteron teleport ~120
-            { "220050000", "2917.3", "2417.4" },  // Brusthonin teleport ~15
-            { "210020000", "344.5", "2723.5" },   // Eltnen teleport ~264
-            { "220020000", "526.7", "800.0" },    // Morheim-ish
-            { "220030000", "2917.0", "2417.0" },  // Altgard-ish
-        };
+        String[][] probes = { { "300160000", "200.0", "800.0" }, { "300190000", "200.0", "300.0" }, { "320130000", "367.0", "643.0" } };
         for (String[] p : probes) {
             String mapId = p[0];
             GeoMap map = new GeoMap(mapId, 3072);
@@ -36,3 +29,4 @@ public class GeoVerify {
         System.out.println("VERIFY DONE");
     }
 }
+
