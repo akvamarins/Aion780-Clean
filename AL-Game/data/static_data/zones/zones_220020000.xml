@@ -4909,7 +4909,7 @@
 		</points>
 	</zone>
 
-	<!-- custom quest trigger zones (restored, approx) -->	<zone mapid="220020000" name="MORHEIM_FORTRESS_220020000" area_type="POLYGON" zone_type="SUB" priority="7" flags="55">
+	<!-- custom quest trigger zones (restored, approx) -->	<zone mapid="220020000" name="MORHEIM_ICE_FORTRESS_220020000" area_type="POLYGON" zone_type="SUB" priority="7" flags="55">
 		<points bottom="380.0" top="550.0">
 			<point x="200.0" y="2150.0"/>
 			<point x="450.0" y="2150.0"/>
